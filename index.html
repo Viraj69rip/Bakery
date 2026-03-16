@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1"/>
+<title>Aishwarya Bakery — Baramati</title>
+<link rel="icon" type="image/png" href="https://i.ibb.co/k25BMKTX/imresizer-aishwarya-logo.png"/>
+<link rel="apple-touch-icon" href="https://i.ibb.co/k25BMKTX/imresizer-aishwarya-logo.png"/>
+<meta name="theme-color" content="#1a0a02"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="Aishwarya Bakery"/>
+<meta name="description" content="Freshly baked cakes, pastries, breads, cookies & khari in Baramati. 8 locations. Order on WhatsApp!"/>
+<link rel="manifest" href="data:application/json;charset=utf-8,%7B%22name%22%3A%22Aishwarya%20Bakery%22%2C%22short_name%22%3A%22Aishwarya%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%231a0a02%22%2C%22theme_color%22%3A%22%231a0a02%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22https%3A%2F%2Fi.ibb.co%2Fk25BMKTX%2Fimresizer-aishwarya-logo.png%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fpng%22%7D%5D%7D"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+/* ═══════ RESET ═══════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#1A0A02;--dark:#2C1008;--mid:#5C2D14;--warm:#8B4513;
+  --tan:#B8651A;--honey:#D4883C;--caramel:#E8B87A;--wheat:#F5DEB3;
+  --cream:#FDF6EC;--white:#FFFCF7;
+  --blush:#E8948A;--rose:#F9D9D5;
+  --gold:#C9973B;--shine:#F0D060;--wa:#25D366;
+  --serif:'Playfair Display',Georgia,serif;
+  --elegant:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans',sans-serif;
+  --ease:cubic-bezier(.25,.46,.45,.94);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+  --sharp:cubic-bezier(.76,0,.24,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--white);color:var(--ink);overflow-x:hidden;cursor:none}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--gold),var(--tan));border-radius:4px}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* ═══════ CURSOR ═══════ */
+#c1,#c2{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);z-index:99999}
+#c1{width:8px;height:8px;background:var(--gold);z-index:100000;transition:width .2s,height .2s,background .2s}
+#c2{width:36px;height:36px;border:1.5px solid rgba(201,151,59,.55);transition:all .12s ease-out}
+#c1.cx{width:18px;height:18px;background:var(--shine)}
+#c2.cx{width:58px;height:58px;border-color:var(--gold);opacity:.3}
+@media(pointer:coarse){#c1,#c2{display:none}body{cursor:auto}}
+
+/* ═══════ LOADER ═══════ */
+#loader{
+  position:fixed;inset:0;z-index:999999;background:var(--ink);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:2rem;text-align:center;
+  transition:opacity 1s ease,visibility 1s ease;
+}
+#loader.out{opacity:0;visibility:hidden;pointer-events:none}
+.ld-title{
+  font-family:var(--serif);
+  font-size:clamp(1.8rem,7vw,3.2rem);
+  font-weight:700;color:var(--wheat);letter-spacing:.06em;
+  line-height:1.2;
+  opacity:0;transform:translateY(20px);
+  animation:ldIn .8s var(--ease) forwards .3s;
+}
+.ld-title span{display:block;font-style:italic;color:var(--shine);font-size:.65em;letter-spacing:.1em}
+.ld-sub{
+  font-size:clamp(.58rem,2vw,.7rem);letter-spacing:4px;
+  text-transform:uppercase;color:rgba(245,222,179,.4);
+  margin-top:.5rem;
+  opacity:0;animation:ldIn .7s ease forwards .9s;
+}
+.ld-bar{width:min(220px,75vw);height:2px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;margin-top:.8rem}
+.ld-fill{height:100%;width:0;background:linear-gradient(90deg,var(--tan),var(--gold),var(--shine));border-radius:2px;animation:ldFill 2s var(--sharp) forwards .5s}
+@keyframes ldIn{to{opacity:1;transform:none}}
+@keyframes ldFill{to{width:100%}}
+
+/* noise */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23g)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9990;opacity:.4}
+
+/* ═══════ INSTALL POPUP ═══════ */
+#ipop{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9995;background:var(--white);border-top:3px solid var(--gold);border-radius:24px 24px 0 0;padding:1.2rem 1.2rem 2.4rem;box-shadow:0 -20px 60px rgba(26,10,2,.3);transform:translateY(110%);transition:transform .55s var(--spring)}
+#ipop.show{display:block;transform:translateY(0)}
+.ip-pill{width:40px;height:4px;background:var(--caramel);border-radius:2px;margin:0 auto 1.1rem}
+.ip-row{display:flex;align-items:center;gap:.9rem}
+.ip-ico{width:54px;height:54px;border-radius:14px;object-fit:contain;border:2px solid var(--caramel);flex-shrink:0}
+.ip-name{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.2rem}
+.ip-desc{font-size:.76rem;color:var(--warm);line-height:1.5}
+.ip-ios{display:none;margin-top:.9rem;padding:.8rem 1rem;background:rgba(201,151,59,.08);border:1px solid rgba(201,151,59,.25);border-radius:12px;font-size:.76rem;color:var(--mid);line-height:1.7}
+.ip-ios.on{display:block}
+.ip-btns{display:flex;gap:.65rem;margin-top:1.1rem}
+.ip-yes{flex:1;display:flex;align-items:center;justify-content:center;gap:.45rem;background:var(--ink);color:var(--gold);border:none;padding:.75rem;border-radius:40px;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:.3s var(--spring)}
+.ip-no{background:var(--cream);color:var(--warm);border:1.5px solid var(--caramel);padding:.75rem 1rem;border-radius:40px;font-size:.76rem;cursor:pointer;white-space:nowrap}
+@media(min-width:768px){#ipop{display:none!important}}
+
+/* ═══════ NAV ═══════ */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.4rem 5%;display:flex;align-items:center;justify-content:space-between;transition:all .5s var(--ease)}
+#nav.stk{background:rgba(253,246,236,.96);backdrop-filter:blur(28px) saturate(1.4);-webkit-backdrop-filter:blur(28px);padding:.8rem 5%;box-shadow:0 1px 0 rgba(201,151,59,.2),0 6px 28px rgba(26,10,2,.08)}
+.logo{font-family:var(--serif);font-size:clamp(1.1rem,3.5vw,1.5rem);font-weight:700;letter-spacing:1.5px;color:#fff;transition:color .35s;line-height:1}
+.logo em{font-style:normal;color:var(--shine)}
+.logo small{display:block;font-family:var(--sans);font-size:clamp(.46rem,.9vw,.54rem);letter-spacing:4px;font-weight:400;text-transform:uppercase;color:rgba(201,151,59,.7);margin-top:2px}
+#nav.stk .logo{color:var(--ink)}
+#nav.stk .logo small{color:var(--tan)}
+.nav-links{display:flex;align-items:center;gap:1.8rem;list-style:none}
+.nav-links a{font-size:.72rem;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.8);position:relative;transition:color .3s}
+#nav.stk .nav-links a{color:var(--mid)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:50%;right:50%;height:1.5px;background:var(--gold);transition:left .35s var(--ease),right .35s var(--ease)}
+.nav-links a:hover::after,.nav-links a.on::after{left:0;right:0}
+.nav-cta{background:linear-gradient(135deg,var(--gold),var(--honey));color:var(--ink)!important;padding:.5rem 1.3rem;border-radius:50px;font-weight:600!important;box-shadow:0 4px 18px rgba(201,151,59,.45);transition:all .4s var(--spring)!important}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{transform:translateY(-2px) scale(1.04)!important;box-shadow:0 8px 28px rgba(201,151,59,.55)!important}
+.hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px;z-index:1001}
+.hbg span{width:24px;height:2px;display:block;border-radius:2px;background:#fff;transition:.3s}
+#nav.stk .hbg span{background:var(--ink)}
+.hbg.op span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hbg.op span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hbg.op span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-nav{display:none;position:fixed;inset:0;background:var(--ink);z-index:997;flex-direction:column;align-items:center;justify-content:center;gap:2rem;clip-path:circle(0% at calc(100% - 2.5rem) 2.5rem);transition:clip-path .7s var(--sharp)}
+.mob-nav.op{display:flex;clip-path:circle(150% at calc(100% - 2.5rem) 2.5rem)}
+.mob-nav a{font-family:var(--serif);font-size:clamp(1.7rem,5.5vw,2.3rem);color:var(--wheat);letter-spacing:2px;transition:color .25s,transform .25s}
+.mob-nav a:hover{color:var(--shine);transform:translateX(8px)}
+.mob-close{position:absolute;top:1.8rem;right:1.8rem;font-size:1.6rem;color:var(--wheat);background:none;border:none;cursor:pointer}
+
+/* ═══════ WA FLOAT ═══════ */
+#wabtn{position:fixed;bottom:1.8rem;right:1.5rem;z-index:9000;width:58px;height:58px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.75rem;text-decoration:none;box-shadow:0 4px 24px rgba(37,211,102,.5);opacity:0;transform:scale(.6) translateY(20px);pointer-events:none;transition:opacity .5s var(--ease),transform .5s var(--spring)}
+#wabtn.up{opacity:1;transform:scale(1) translateY(0);pointer-events:auto;animation:waPulse 2.8s ease-in-out infinite}
+#wabtn:hover{transform:scale(1.15)!important;box-shadow:0 8px 32px rgba(37,211,102,.7)}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 24px rgba(37,211,102,.5)}50%{box-shadow:0 6px 40px rgba(37,211,102,.8),0 0 0 14px rgba(37,211,102,.08)}}
+
+/* ═══════ HERO ═══════ */
+#hero{height:100vh;min-height:600px;position:relative;display:flex;align-items:center;overflow:hidden}
+.h-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1900&q=90')center/cover no-repeat;transform:scale(1.1);animation:kenBurns 24s ease-in-out infinite alternate;will-change:transform}
+@keyframes kenBurns{0%{transform:scale(1.1)translate(0,0)}50%{transform:scale(1.15)translate(-1.5%,-1%)}100%{transform:scale(1.12)translate(1%,.5%)}}
+.h-grad{position:absolute;inset:0;background:linear-gradient(to right,rgba(26,10,2,.95)0%,rgba(26,10,2,.7)55%,rgba(26,10,2,.2)100%),linear-gradient(to top,rgba(26,10,2,.7)0%,transparent 55%)}
+.h-con{position:relative;z-index:2;padding:0 5%;max-width:820px}
+.h-tag{display:inline-flex;align-items:center;gap:.7rem;background:rgba(201,151,59,.15);border:1px solid rgba(201,151,59,.4);backdrop-filter:blur(8px);padding:.36rem 1.1rem;border-radius:50px;font-size:clamp(.58rem,1.5vw,.7rem);letter-spacing:3.5px;text-transform:uppercase;color:var(--shine);margin-bottom:clamp(.9rem,3vw,1.8rem);opacity:0;transform:translateY(18px);animation:slideUp .7s var(--ease) forwards 1.8s}
+.h-h1{font-family:var(--serif);font-size:clamp(2.4rem,7vw,7.5rem);font-weight:900;line-height:1.06;color:#fff;margin-bottom:clamp(.9rem,2.5vw,1.5rem);opacity:0;transform:translateY(28px);animation:slideUp .9s var(--ease) forwards 2s}
+.h-h1 .italic{display:block;font-style:italic;background:linear-gradient(135deg,var(--shine),var(--gold),var(--honey));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.h-p{font-size:clamp(.82rem,2vw,1.05rem);color:rgba(255,252,247,.72);line-height:1.9;max-width:460px;margin-bottom:clamp(1.6rem,4vw,2.8rem);opacity:0;transform:translateY(28px);animation:slideUp .9s var(--ease) forwards 2.2s}
+.h-btns{display:flex;gap:.9rem;flex-wrap:wrap;opacity:0;transform:translateY(28px);animation:slideUp .9s var(--ease) forwards 2.4s}
+.btn-gold{display:inline-flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,var(--gold),var(--honey));color:var(--ink);padding:.9rem 2rem;border-radius:50px;font-weight:600;font-size:clamp(.73rem,1.8vw,.82rem);letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;box-shadow:0 8px 28px rgba(201,151,59,.5);transition:all .4s var(--spring);position:relative;overflow:hidden}
+.btn-gold::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);opacity:0;transition:opacity .3s}
+.btn-gold:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 14px 38px rgba(201,151,59,.65)}
+.btn-gold:hover::after{opacity:1}
+.btn-ghost{display:inline-flex;align-items:center;gap:.6rem;color:#fff;padding:.9rem 2rem;border-radius:50px;font-weight:500;font-size:clamp(.73rem,1.8vw,.82rem);letter-spacing:2px;text-transform:uppercase;border:1.5px solid rgba(255,255,255,.35);cursor:pointer;backdrop-filter:blur(8px);background:rgba(255,255,255,.06);transition:.35s var(--ease)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--shine);background:rgba(201,151,59,.12);transform:translateY(-3px)}
+.h-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fadeIn 1s ease forwards 3s}
+.h-scroll span{font-size:.6rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.scroll-rod{width:1.5px;height:55px;background:linear-gradient(to bottom,rgba(201,151,59,.7),transparent);animation:rodPulse 2s ease-in-out infinite}
+@keyframes rodPulse{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.5);opacity:.4}}
+.h-stats{position:absolute;bottom:clamp(2rem,5vw,3.5rem);right:5%;display:flex;gap:clamp(1rem,3vw,2.8rem);opacity:0;animation:fadeIn 1s ease forwards 2.8s}
+.hstat b{display:block;font-family:var(--serif);font-size:clamp(1.3rem,3.5vw,2.2rem);font-weight:700;color:var(--shine);line-height:1}
+.hstat s{font-size:clamp(.55rem,.8vw,.65rem);letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.45);font-style:normal;text-decoration:none}
+@keyframes slideUp{to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{to{opacity:1}}
+
+/* ═══════ RIBBON ═══════ */
+.ribbon{background:linear-gradient(135deg,var(--gold),var(--honey),var(--tan));padding:.9rem 0;overflow:hidden;position:relative}
+.ribbon::before,.ribbon::after{content:'';position:absolute;top:0;bottom:0;width:50px;z-index:1}
+.ribbon::before{left:0;background:linear-gradient(to right,var(--gold),transparent)}
+.ribbon::after{right:0;background:linear-gradient(to left,var(--tan),transparent)}
+.ribbon-track{display:flex;animation:rMove 30s linear infinite;width:max-content}
+.ribbon-item{display:flex;align-items:center;gap:1rem;padding:0 2rem;font-family:var(--serif);font-size:.92rem;font-style:italic;color:var(--ink);white-space:nowrap}
+.ribbon-item::after{content:'❧';font-style:normal;font-size:.65rem;color:rgba(44,16,8,.4)}
+@keyframes rMove{to{transform:translateX(-50%)}}
+
+/* ═══════ SECTION COMMONS ═══════ */
+section{padding:clamp(3.5rem,7vw,7rem) 0}
+.wrap{max-width:1240px;margin:0 auto;padding:0 5%}
+.eyebrow{display:inline-flex;align-items:center;gap:.8rem;font-size:.68rem;letter-spacing:5px;text-transform:uppercase;color:var(--warm);margin-bottom:.9rem}
+.eyebrow::before,.eyebrow::after{content:'';display:block;width:28px;height:1px;background:linear-gradient(to right,var(--gold),var(--caramel))}
+.sec-h2{font-family:var(--serif);font-size:clamp(1.8rem,4vw,3.4rem);font-weight:700;line-height:1.12;color:var(--ink);margin-bottom:.9rem}
+.sec-h2 em{font-style:italic;color:var(--warm)}
+.sec-sub{font-size:.95rem;color:var(--warm);line-height:1.9;max-width:500px}
+/* reveal */
+.rv{opacity:0;transform:translateY(48px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+.rl{opacity:0;transform:translateX(-55px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rr{opacity:0;transform:translateX(55px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.vis{opacity:1!important;transform:none!important}
+
+/* ═══════ FEATURES BAR ═══════ */
+.feat-bar{background:var(--ink);padding:clamp(2rem,5vw,3.5rem) 0}
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.feat{display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(1.2rem,3vw,2rem) 1rem;border-right:1px solid rgba(245,222,179,.07);position:relative;overflow:hidden;transition:.35s}
+.feat:last-child{border-right:none}
+.feat::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .45s var(--ease)}
+.feat:hover::after{transform:scaleX(1)}
+.feat:hover{background:rgba(201,151,59,.05)}
+.feat-ico{width:52px;height:52px;border-radius:14px;background:rgba(201,151,59,.1);border:1px solid rgba(201,151,59,.2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:.85rem;transition:.35s}
+.feat:hover .feat-ico{background:var(--gold);border-color:var(--gold);transform:scale(1.1) rotate(-5deg)}
+.feat-ico i{color:var(--gold);transition:color .35s}
+.feat:hover .feat-ico i{color:var(--ink)}
+.feat-title{font-family:var(--serif);font-size:clamp(.88rem,1.8vw,1.05rem);color:var(--wheat);margin-bottom:.25rem}
+.feat-desc{font-size:.75rem;color:rgba(245,222,179,.42);line-height:1.55}
+
+/* ═══════════════════════════════════
+   MENU SECTION — Category Style
+═══════════════════════════════════ */
+#menu{background:var(--white)}
+.menu-intro{text-align:center;margin-bottom:clamp(2.5rem,5vw,4rem)}
+/* sticky category nav */
+.cat-nav{
+  display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;
+  margin-bottom:clamp(3rem,6vw,5rem);
+  position:sticky;top:68px;z-index:100;
+  background:rgba(255,252,247,.95);
+  backdrop-filter:blur(16px);
+  padding:.8rem 1rem;
+  border-radius:60px;
+  box-shadow:0 4px 24px rgba(26,10,2,.08);
+  max-width:700px;
+  margin-left:auto;margin-right:auto;
+  margin-bottom:clamp(2.5rem,5vw,4rem);
+}
+.cat-pill{
+  padding:.46rem 1.1rem;border-radius:50px;
+  font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  border:1.5px solid transparent;background:transparent;color:var(--warm);
+  cursor:pointer;transition:.3s var(--spring);white-space:nowrap;
+}
+.cat-pill:hover{background:rgba(201,151,59,.1);color:var(--tan)}
+.cat-pill.on{background:var(--ink);color:var(--gold);border-color:var(--ink)}
+/* category block */
+.cat-section{margin-bottom:clamp(3.5rem,7vw,5.5rem)}
+.cat-section:last-child{margin-bottom:0}
+.cat-header{
+  display:flex;align-items:center;gap:1rem;
+  margin-bottom:clamp(1.5rem,4vw,2.5rem);
+  padding-bottom:1rem;
+  border-bottom:2px solid var(--cream);
+  position:relative;
+}
+.cat-header::after{
+  content:'';position:absolute;bottom:-2px;left:0;
+  width:60px;height:2px;
+  background:linear-gradient(to right,var(--gold),var(--honey));
+}
+.cat-icon-wrap{
+  width:52px;height:52px;border-radius:14px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--ink),var(--mid));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;
+  box-shadow:0 6px 18px rgba(26,10,2,.2);
+}
+.cat-title-text{}
+.cat-title{font-family:var(--serif);font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:700;color:var(--ink);line-height:1}
+.cat-count{font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--warm);margin-top:.2rem}
+/* product grid */
+.prod-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(1rem,2.5vw,1.8rem);
+}
+/* product card */
+.pcard{
+  border-radius:20px;overflow:hidden;
+  background:var(--white);
+  border:1px solid rgba(184,101,26,.1);
+  box-shadow:0 2px 14px rgba(26,10,2,.05);
+  transition:transform .4s var(--spring),box-shadow .4s var(--ease);
+  position:relative;display:flex;flex-direction:column;
+}
+.pcard:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(26,10,2,.15)}
+.pcard-img{position:relative;height:clamp(160px,22vw,220px);overflow:hidden;flex-shrink:0}
+.pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .65s var(--ease)}
+.pcard:hover .pcard-img img{transform:scale(1.1)}
+.pcard-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,2,.35),transparent 55%);opacity:0;transition:opacity .4s}
+.pcard:hover .pcard-img::after{opacity:1}
+.pcard-badge{
+  position:absolute;top:.75rem;left:.75rem;
+  background:linear-gradient(135deg,var(--gold),var(--honey));
+  color:var(--ink);padding:.2rem .7rem;border-radius:50px;
+  font-size:.62rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+  box-shadow:0 3px 10px rgba(201,151,59,.4);
+  z-index:1;
+}
+.pcard-fav{
+  position:absolute;top:.7rem;right:.7rem;z-index:1;
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(255,255,255,.9);backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;
+  border:none;cursor:pointer;color:var(--blush);
+  transition:.35s var(--spring);box-shadow:0 2px 8px rgba(26,10,2,.1);
+}
+.pcard-fav:hover,.pcard-fav.liked{background:var(--blush);color:#fff;transform:scale(1.25)}
+.pcard-body{padding:clamp(.9rem,2vw,1.3rem);display:flex;flex-direction:column;flex:1}
+.pcard-name{font-family:var(--serif);font-size:clamp(1rem,2vw,1.2rem);font-weight:700;color:var(--ink);margin-bottom:.35rem;line-height:1.2}
+.pcard-desc{font-size:clamp(.75rem,1.5vw,.83rem);color:var(--warm);line-height:1.7;margin-bottom:1rem;flex:1}
+.pcard-row{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-top:auto}
+.pcard-price{font-family:var(--serif);font-size:clamp(1.1rem,2.5vw,1.4rem);font-weight:700;color:var(--mid);line-height:1}
+.pcard-price sup{font-size:.6rem;vertical-align:super;color:var(--tan)}
+.pcard-price sub{font-size:.62rem;font-family:var(--sans);font-weight:400;color:var(--tan)}
+.wa-btn{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:var(--ink);color:var(--gold);
+  padding:.5rem 1.1rem;border-radius:50px;
+  font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  border:none;cursor:pointer;transition:.35s var(--spring);text-decoration:none;
+  white-space:nowrap;
+}
+.wa-btn:hover{background:var(--gold);color:var(--ink);transform:scale(1.06)}
+/* offer strip */
+.offer-strip{
+  margin-top:clamp(2.5rem,5vw,4rem);border-radius:24px;overflow:hidden;position:relative;
+  background:linear-gradient(135deg,var(--ink),#3d1508,var(--mid));
+  padding:clamp(1.8rem,4vw,3.5rem) clamp(1.5rem,5vw,4rem);
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;
+}
+.offer-strip::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;top:-200px;right:-100px;background:radial-gradient(circle,rgba(201,151,59,.18),transparent 65%)}
+.off-txt{position:relative;z-index:1}
+.off-eye{display:inline-flex;align-items:center;gap:.7rem;font-size:.66rem;letter-spacing:5px;text-transform:uppercase;color:var(--shine);margin-bottom:.75rem}
+.off-eye::before,.off-eye::after{content:'';display:block;width:22px;height:1px;background:var(--gold)}
+.off-h{font-family:var(--serif);font-size:clamp(1.3rem,3.5vw,2rem);font-weight:700;color:#fff;margin-bottom:.4rem;line-height:1.25}
+.off-p{font-size:.88rem;color:rgba(255,252,247,.6)}
+.off-cta{position:relative;z-index:1;display:inline-flex;align-items:center;gap:.65rem;background:linear-gradient(135deg,var(--gold),var(--honey));color:var(--ink);padding:.95rem 2.4rem;border-radius:50px;font-weight:700;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;box-shadow:0 8px 26px rgba(201,151,59,.45);transition:.4s var(--spring);white-space:nowrap}
+.off-cta:hover{transform:scale(1.06);box-shadow:0 14px 38px rgba(201,151,59,.65)}
+
+/* ═══════ ABOUT ═══════ */
+#about{background:var(--cream);position:relative;overflow:hidden}
+#about::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;left:-250px;top:-180px;background:radial-gradient(circle,rgba(184,101,26,.07),transparent 70%)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,7vw,7rem);align-items:center}
+.about-photos{position:relative;height:clamp(320px,55vw,600px)}
+.ab-main{position:absolute;top:0;left:0;width:72%;height:73%;border-radius:22px;overflow:hidden;box-shadow:0 22px 65px rgba(26,10,2,.27)}
+.ab-main img,.ab-accent img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.ab-main:hover img,.ab-accent:hover img{transform:scale(1.05)}
+.ab-accent{position:absolute;bottom:0;right:0;width:50%;height:50%;border-radius:20px;overflow:hidden;box-shadow:0 14px 42px rgba(26,10,2,.22);border:5px solid var(--white)}
+.yr-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:92px;height:92px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--honey));display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 12px 32px rgba(201,151,59,.6);z-index:10;animation:floatBadge 5s ease-in-out infinite}
+@keyframes floatBadge{0%,100%{transform:translate(-50%,-50%)rotate(-6deg)}50%{transform:translate(-50%,-58%)rotate(6deg)}}
+.yr-badge b{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--ink);line-height:1}
+.yr-badge small{font-size:.5rem;letter-spacing:2px;text-transform:uppercase;color:rgba(44,16,8,.65)}
+.ab-body{font-size:.95rem;color:var(--warm);line-height:1.95;margin:1.2rem 0 1.8rem}
+.pillars{display:flex;flex-direction:column;gap:1rem}
+.pillar{display:flex;gap:1.1rem;align-items:flex-start;padding:1rem 1.2rem;background:var(--white);border-radius:16px;border:1px solid rgba(184,101,26,.14);transition:.35s;position:relative;overflow:hidden}
+.pillar::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--gold),var(--honey));transform:scaleY(0);transition:transform .4s var(--ease);transform-origin:top}
+.pillar:hover::before{transform:scaleY(1)}
+.pillar:hover{transform:translateX(8px);box-shadow:0 6px 20px rgba(26,10,2,.09);border-color:var(--honey)}
+.pillar-ico{width:44px;height:44px;min-width:44px;border-radius:12px;background:linear-gradient(135deg,var(--mid),var(--tan));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;box-shadow:0 4px 12px rgba(92,45,20,.28)}
+.pillar-name{font-family:var(--serif);font-weight:600;color:var(--ink);margin-bottom:.2rem;font-size:.95rem}
+.pillar-info{font-size:.82rem;color:var(--warm);line-height:1.65}
+
+/* ═══════ PROCESS ═══════ */
+#process{background:var(--ink);position:relative;overflow:hidden}
+#process::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=1400&q=50')center/cover no-repeat;opacity:.05}
+.proc-hd{text-align:center;margin-bottom:clamp(2.5rem,5vw,4.5rem);position:relative;z-index:1}
+.proc-hd .eyebrow{color:var(--shine)}
+.proc-hd .eyebrow::before,.proc-hd .eyebrow::after{background:var(--gold)}
+.proc-hd .sec-h2{color:var(--wheat)}
+.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;position:relative;z-index:1}
+.proc-steps::before{content:'';position:absolute;top:3rem;left:calc(12.5% + 29px);right:calc(12.5% + 29px);height:1px;background:repeating-linear-gradient(90deg,var(--gold),var(--gold) 8px,transparent 8px,transparent 18px)}
+.step{text-align:center;padding:1.2rem .8rem;position:relative;z-index:1}
+.step-n{width:58px;height:58px;border-radius:50%;margin:0 auto 1.3rem;background:linear-gradient(135deg,var(--gold),var(--honey));display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.25rem;font-weight:700;color:var(--ink);box-shadow:0 8px 24px rgba(201,151,59,.5);transition:.45s var(--spring);position:relative}
+.step-n::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1.5px solid rgba(201,151,59,.3);transition:inset .4s var(--ease)}
+.step:hover .step-n{transform:scale(1.18) rotate(8deg)}
+.step:hover .step-n::after{inset:-9px}
+.step-ico{font-size:1.8rem;margin-bottom:.85rem;display:block;line-height:1}
+.step-name{font-family:var(--serif);font-size:1.1rem;color:var(--wheat);margin-bottom:.45rem}
+.step-txt{font-size:.82rem;color:rgba(245,222,179,.5);line-height:1.75}
+
+/* ═══════ GALLERY ═══════ */
+.gallery{padding:0;overflow:hidden;display:flex;height:clamp(150px,22vw,300px)}
+.gl-item{flex:1;overflow:hidden;position:relative;cursor:zoom-in}
+.gl-item img{width:100%;height:100%;object-fit:cover;filter:saturate(.9)brightness(.92);transition:transform .6s var(--ease),filter .5s}
+.gl-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,2,.55),transparent 50%);opacity:0;transition:opacity .4s}
+.gl-item:hover{flex:3.5}
+.gl-item:hover img{filter:saturate(1.2)brightness(1.05);transform:scale(1.04)}
+.gl-item:hover::after{opacity:1}
+
+/* ═══════ REVIEWS ═══════ */
+#reviews{background:var(--white)}
+.rev-hd{text-align:center;margin-bottom:3rem}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.rcard{background:var(--cream);border-radius:22px;padding:1.7rem;border:1px solid rgba(184,101,26,.1);position:relative;overflow:hidden;transition:.4s var(--ease)}
+.rcard::before{content:'';position:absolute;inset:0;border-radius:22px;background:linear-gradient(135deg,rgba(201,151,59,.06),transparent);opacity:0;transition:opacity .35s}
+.rcard:hover::before{opacity:1}
+.rcard:hover{transform:translateY(-7px);box-shadow:0 18px 45px rgba(26,10,2,.12);border-color:var(--honey)}
+.rcard-q{font-size:4rem;line-height:.8;font-family:var(--elegant);color:var(--gold);position:absolute;top:.8rem;right:1.2rem;opacity:.35}
+.stars{color:var(--gold);font-size:.8rem;letter-spacing:3px;margin-bottom:.85rem}
+.rcard-txt{font-family:var(--elegant);font-size:.98rem;font-style:italic;color:var(--mid);line-height:1.9;margin-bottom:1.3rem}
+.rcard-auth{display:flex;align-items:center;gap:.85rem}
+.rcard-avi{width:44px;height:44px;border-radius:50%;overflow:hidden;border:2.5px solid var(--caramel);box-shadow:0 3px 10px rgba(26,10,2,.1)}
+.rcard-avi img{width:100%;height:100%;object-fit:cover}
+.rcard-name{font-weight:600;color:var(--ink);font-size:.88rem}
+.rcard-role{font-size:.72rem;color:var(--warm)}
+.rev-bottom{display:flex;align-items:center;justify-content:center;gap:clamp(2rem,6vw,4rem);margin-top:3.5rem;flex-wrap:wrap}
+.score-num{font-family:var(--serif);font-size:clamp(3.5rem,7vw,5rem);font-weight:900;color:var(--ink);line-height:1}
+.score-stars{color:var(--gold);font-size:.95rem;margin:.3rem 0;letter-spacing:3px}
+.score-cnt{font-size:.78rem;color:var(--warm)}
+.ig-card{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:1.6rem 2.4rem;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-radius:20px;text-align:center;color:#fff;text-decoration:none;transition:.4s var(--spring);box-shadow:0 8px 26px rgba(220,39,67,.28)}
+.ig-card:hover{transform:scale(1.05) translateY(-4px);box-shadow:0 16px 40px rgba(220,39,67,.45)}
+.ig-card i{font-size:2.1rem}
+.ig-card strong{font-family:var(--serif);font-size:1.1rem}
+.ig-card span{font-size:.76rem;opacity:.85}
+
+/* ═══════ LOCATIONS ═══════ */
+#locations{background:var(--cream);position:relative;overflow:hidden}
+#locations::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;right:-300px;bottom:-300px;background:radial-gradient(circle,rgba(184,101,26,.07),transparent 70%)}
+.loc-hd{text-align:center;margin-bottom:3rem}
+.loc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));gap:1.5rem}
+.lcard{background:var(--white);border-radius:20px;border:1px solid rgba(184,101,26,.1);overflow:hidden;transition:transform .4s var(--spring),box-shadow .4s var(--ease);position:relative}
+.lcard:hover{transform:translateY(-6px);box-shadow:0 18px 45px rgba(26,10,2,.13);border-color:var(--honey)}
+.lcard-top{background:linear-gradient(135deg,var(--ink),var(--dark),var(--mid));padding:1.2rem 1.4rem;display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;position:relative;overflow:hidden}
+.lcard-top::after{content:'';position:absolute;right:-20px;top:-20px;width:80px;height:80px;border-radius:50%;background:rgba(201,151,59,.1)}
+.lcard-num{font-family:var(--serif);font-size:2.2rem;font-weight:900;color:rgba(201,151,59,.25);line-height:1;flex-shrink:0}
+.lcard-name{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--wheat);line-height:1.25;position:relative;z-index:1}
+.lcard-tag{font-size:.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-top:.25rem;display:block}
+.lcard-body{padding:1.1rem 1.3rem}
+.lcard-row{display:flex;gap:.75rem;align-items:flex-start;margin-bottom:.7rem;font-size:.82rem;color:var(--warm);line-height:1.6}
+.lcard-row i{color:var(--gold);min-width:14px;margin-top:2px;flex-shrink:0}
+.lcard-row a{color:var(--tan);transition:color .2s}
+.lcard-row a:hover{color:var(--gold)}
+.lcard-hours{display:inline-flex;align-items:center;gap:.4rem;background:rgba(201,151,59,.1);color:var(--honey);padding:.26rem .72rem;border-radius:50px;font-size:.7rem;font-weight:500;letter-spacing:1px;margin-bottom:.85rem;border:1px solid rgba(201,151,59,.2)}
+.lcard-tags{display:flex;flex-wrap:wrap;gap:.38rem}
+.ltag{background:var(--cream);color:var(--warm);padding:.22rem .65rem;border-radius:50px;font-size:.66rem;font-weight:500;letter-spacing:.5px;border:1px solid rgba(184,101,26,.14)}
+
+/* ═══════ FOOTER ═══════ */
+footer{background:var(--ink);color:var(--wheat);padding:clamp(4rem,8vw,6rem) 0 2.5rem;position:relative;overflow:hidden}
+footer::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;right:-200px;top:-200px;background:radial-gradient(circle,rgba(201,151,59,.06),transparent 65%);pointer-events:none}
+.ft-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1.2fr;gap:clamp(1.8rem,4vw,4rem);margin-bottom:3.5rem}
+.brand-name{font-family:var(--serif);font-size:1.7rem;font-weight:700;letter-spacing:1.5px;color:var(--wheat);display:block;margin-bottom:.25rem}
+.brand-sub{font-size:.56rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1rem}
+.brand-desc{font-size:.86rem;color:rgba(245,222,179,.55);line-height:1.9;margin-bottom:1.4rem}
+.socials{display:flex;gap:.6rem;flex-wrap:wrap}
+.soc{width:38px;height:38px;border-radius:10px;border:1px solid rgba(245,222,179,.15);display:flex;align-items:center;justify-content:center;color:rgba(245,222,179,.6);text-decoration:none;font-size:.88rem;transition:.3s var(--spring)}
+.soc:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);transform:translateY(-4px) scale(1.1)}
+.ft-head{font-family:var(--serif);font-size:1rem;color:var(--wheat);margin-bottom:1.3rem;padding-bottom:.65rem;border-bottom:1px solid rgba(245,222,179,.08);position:relative}
+.ft-head::after{content:'';position:absolute;bottom:-1px;left:0;width:26px;height:1px;background:var(--gold)}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.ft-links a{color:rgba(245,222,179,.5);text-decoration:none;font-size:.84rem;display:flex;align-items:center;gap:.5rem;transition:.3s}
+.ft-links a::before{content:'›';font-size:1rem;color:var(--gold);transition:transform .3s}
+.ft-links a:hover{color:var(--gold);transform:translateX(5px)}
+.ct-row{display:flex;gap:.85rem;margin-bottom:.85rem;font-size:.84rem;color:rgba(245,222,179,.58);line-height:1.65}
+.ct-row i{color:var(--gold);margin-top:3px;min-width:13px;flex-shrink:0}
+.ct-row a{color:inherit}
+.ct-row a:hover{color:var(--gold)}
+.hr-row{display:flex;justify-content:space-between;padding:.33rem 0;border-bottom:1px solid rgba(245,222,179,.05);font-size:.8rem;color:rgba(245,222,179,.48)}
+.hr-row .dy{color:rgba(245,222,179,.78);font-weight:500}
+.hrs-note{margin-top:1rem;padding:.72rem .9rem;background:rgba(201,151,59,.09);border-radius:12px;border:1px solid rgba(201,151,59,.18);font-size:.75rem;color:rgba(245,222,179,.58);line-height:1.65}
+.hrs-note i{color:var(--gold);margin-right:.3rem}
+.ft-bot{border-top:1px solid rgba(245,222,179,.08);padding-top:1.7rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.78rem;color:rgba(245,222,179,.3)}
+.ft-bot a{color:var(--gold)}
+
+/* ═══════ RESPONSIVE ═══════ */
+@media(max-width:1100px){
+  .about-grid{grid-template-columns:1fr;gap:3.5rem}
+  .about-photos{height:clamp(300px,60vw,420px)}
+  .ft-grid{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .proc-steps{grid-template-columns:1fr 1fr}
+  .proc-steps::before{display:none}
+  .rev-grid{grid-template-columns:1fr 1fr}
+  .feat-grid{grid-template-columns:1fr 1fr}
+  .feat:nth-child(2){border-right:none}
+  .feat:nth-child(3){border-top:1px solid rgba(245,222,179,.07)}
+  .prod-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:768px){
+  #nav{padding:.95rem 4%}
+  #nav.stk{padding:.7rem 4%}
+  .nav-links,.nav-cta{display:none}
+  .hbg{display:flex}
+  .h-stats{right:4%;gap:1.2rem}
+  .hstat b{font-size:1.4rem}
+  .h-scroll{display:none}
+  .feat-grid{grid-template-columns:1fr 1fr}
+  .about-photos{height:clamp(270px,72vw,370px)}
+  .rev-grid{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:1fr;gap:2rem}
+  .offer-strip{padding:1.8rem;flex-direction:column;text-align:center}
+  .off-eye{justify-content:center}
+  .rev-bottom{gap:2rem}
+  .proc-steps{grid-template-columns:1fr 1fr}
+  .proc-steps::before{display:none}
+  .feat:nth-child(n){border:none;border-bottom:1px solid rgba(245,222,179,.07)}
+  .feat:last-child{border-bottom:none}
+  .cat-nav{top:58px;padding:.65rem .8rem;border-radius:50px;max-width:94%}
+  .cat-pill{font-size:.65rem;padding:.4rem .85rem}
+  .prod-grid{grid-template-columns:repeat(2,1fr)}
+  .cat-header{gap:.75rem}
+  .cat-icon-wrap{width:44px;height:44px;font-size:1.2rem}
+}
+@media(max-width:480px){
+  .h-h1{font-size:clamp(2rem,8.5vw,2.8rem)}
+  .h-stats{display:none}
+  .h-btns{flex-direction:column;align-items:flex-start}
+  .btn-gold,.btn-ghost{width:100%;justify-content:center}
+  .feat-grid{grid-template-columns:1fr}
+  .proc-steps{grid-template-columns:1fr}
+  .prod-grid{grid-template-columns:1fr}
+  .cat-nav{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;border-radius:12px;padding:.6rem .7rem;scrollbar-width:none}
+  .cat-nav::-webkit-scrollbar{display:none}
+  .rev-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- INSTALL POPUP -->
+<div id="ipop">
+  <div class="ip-pill"></div>
+  <div class="ip-row">
+    <img class="ip-ico" src="https://i.ibb.co/k25BMKTX/imresizer-aishwarya-logo.png" alt="Aishwarya Bakery"/>
+    <div><div class="ip-name">Aishwarya Bakery</div><div class="ip-desc">Add to home screen — quick menu & WhatsApp orders!</div></div>
+  </div>
+  <div class="ip-ios" id="ip-ios"><i class="fas fa-info-circle"></i> iPhone: tap <i class="fas fa-share-square"></i> <strong>Share</strong> → <strong>"Add to Home Screen"</strong> → <strong>Add</strong>.</div>
+  <div class="ip-btns">
+    <button class="ip-yes" id="ip-yes"><i class="fas fa-download"></i> Install App</button>
+    <button class="ip-no" id="ip-no">Not Now</button>
+  </div>
+</div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-title">Aishwarya<span>Bakery</span></div>
+  <div class="ld-sub">Artisan Bakery · Baramati</div>
+  <div class="ld-bar"><div class="ld-fill"></div></div>
+</div>
+
+<!-- CURSOR -->
+<div id="c1"></div><div id="c2"></div>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/919657174007?text=Hello!%20I'd%20like%20to%20place%20an%20order%20from%20Aishwarya%20Bakery%20%F0%9F%A7%81" target="_blank" id="wabtn" title="Order on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="logo">Aishwarya <em>Bakery</em><small>Baramati, Maharashtra</small></a>
+  <ul class="nav-links">
+    <li><a href="#hero" class="on">Home</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#locations">Stores</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://wa.me/919657174007?text=Hi!%20I%20want%20to%20pre-order!" target="_blank" class="nav-cta">Pre-Order ✦</a></li>
+  </ul>
+  <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="#hero"      onclick="closeMob()">Home</a>
+  <a href="#menu"      onclick="closeMob()">Menu</a>
+  <a href="#about"     onclick="closeMob()">About</a>
+  <a href="#locations" onclick="closeMob()">Stores</a>
+  <a href="#reviews"   onclick="closeMob()">Reviews</a>
+  <a href="#contact"   onclick="closeMob()">Contact</a>
+  <a href="https://wa.me/919657174007" target="_blank" style="color:var(--shine)">Order on WhatsApp</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="h-bg"></div>
+  <div class="h-grad"></div>
+  <div class="h-con">
+    <div class="h-tag"><i class="fas fa-star" style="font-size:.55rem"></i> Est. 2010 · 8 Locations · Baramati</div>
+    <h1 class="h-h1">Freshly Baked,<span class="italic">Every Single Day</span></h1>
+    <p class="h-p">Crafted with love, tradition, and the finest local ingredients. Each bite tells a story baked with soul since 2010.</p>
+    <div class="h-btns">
+      <a href="#menu" class="btn-gold"><i class="fas fa-utensils"></i> Explore Menu</a>
+      <a href="https://wa.me/919657174007?text=Hello!%20I%20want%20to%20order!" target="_blank" class="btn-ghost"><i class="fab fa-whatsapp"></i> Order Now</a>
+    </div>
+  </div>
+  <div class="h-stats">
+    <div class="hstat"><b>50+</b><s>Products</s></div>
+    <div class="hstat"><b>8</b><s>Locations</s></div>
+    <div class="hstat"><b>4.9★</b><s>Rating</s></div>
+  </div>
+  <div class="h-scroll"><span>Scroll</span><div class="scroll-rod"></div></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="ribbon">
+  <div class="ribbon-track">
+    <div class="ribbon-item">Special Cakes</div><div class="ribbon-item">Cheese Pastries</div><div class="ribbon-item">Milk Bread</div><div class="ribbon-item">Sugar Cookies</div><div class="ribbon-item">Butter Khari</div><div class="ribbon-item">Chocolate Cakes</div><div class="ribbon-item">Chocolate Pastries</div><div class="ribbon-item">Brown Bread</div><div class="ribbon-item">Oatmeal Cookies</div><div class="ribbon-item">Toast Varieties</div>
+    <div class="ribbon-item">Special Cakes</div><div class="ribbon-item">Cheese Pastries</div><div class="ribbon-item">Milk Bread</div><div class="ribbon-item">Sugar Cookies</div><div class="ribbon-item">Butter Khari</div><div class="ribbon-item">Chocolate Cakes</div><div class="ribbon-item">Chocolate Pastries</div><div class="ribbon-item">Brown Bread</div><div class="ribbon-item">Oatmeal Cookies</div><div class="ribbon-item">Toast Varieties</div>
+  </div>
+</div>
+
+<!-- FEATURES BAR -->
+<div class="feat-bar">
+  <div class="wrap">
+    <div class="feat-grid">
+      <div class="feat rv"><div class="feat-ico"><i class="fas fa-seedling"></i></div><div class="feat-title">100% Natural</div><div class="feat-desc">No preservatives, pure local ingredients</div></div>
+      <div class="feat rv" style="transition-delay:.1s"><div class="feat-ico"><i class="fas fa-fire-alt"></i></div><div class="feat-title">Stone-Deck Oven</div><div class="feat-desc">Heritage baking since 2010</div></div>
+      <div class="feat rv" style="transition-delay:.2s"><div class="feat-ico"><i class="fas fa-map-marker-alt"></i></div><div class="feat-title">8 Locations</div><div class="feat-desc">Across Baramati city</div></div>
+      <div class="feat rv" style="transition-delay:.3s"><div class="feat-ico"><i class="fas fa-birthday-cake"></i></div><div class="feat-title">Custom Cakes</div><div class="feat-desc">Designed for your celebration</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="wrap">
+    <div class="menu-intro rv">
+      <div class="eyebrow">Our Creations</div>
+      <h2 class="sec-h2">Freshly Baked <em>Every Morning</em></h2>
+      <p class="sec-sub" style="margin:0 auto;text-align:center">5 categories of handcrafted goodness — baked fresh daily with heritage recipes.</p>
+    </div>
+
+    <!-- Sticky category nav -->
+    <div class="cat-nav" id="catNav">
+      <button class="cat-pill on" data-target="cat-cakes">🎂 Cakes</button>
+      <button class="cat-pill" data-target="cat-pastries">⭐ Pastries</button>
+      <button class="cat-pill" data-target="cat-breads">🍞 Breads</button>
+      <button class="cat-pill" data-target="cat-cookies">🍪 Cookies</button>
+      <button class="cat-pill" data-target="cat-khari">🫓 Khari & Toast</button>
+    </div>
+
+    <!-- CAKES -->
+    <div class="cat-section" id="cat-cakes">
+      <div class="cat-header rv">
+        <div class="cat-icon-wrap">🎂</div>
+        <div class="cat-title-text">
+          <div class="cat-title">Cakes</div>
+          <div class="cat-count">3 varieties · Made to order</div>
+        </div>
+      </div>
+      <div class="prod-grid" id="grid-cakes"></div>
+    </div>
+
+    <!-- PASTRIES -->
+    <div class="cat-section" id="cat-pastries">
+      <div class="cat-header rv">
+        <div class="cat-icon-wrap">⭐</div>
+        <div class="cat-title-text">
+          <div class="cat-title">Pastries</div>
+          <div class="cat-count">3 varieties · Fresh daily</div>
+        </div>
+      </div>
+      <div class="prod-grid" id="grid-pastries"></div>
+    </div>
+
+    <!-- BREADS -->
+    <div class="cat-section" id="cat-breads">
+      <div class="cat-header rv">
+        <div class="cat-icon-wrap">🍞</div>
+        <div class="cat-title-text">
+          <div class="cat-title">Breads</div>
+          <div class="cat-count">3 varieties · Baked every morning</div>
+        </div>
+      </div>
+      <div class="prod-grid" id="grid-breads"></div>
+    </div>
+
+    <!-- COOKIES -->
+    <div class="cat-section" id="cat-cookies">
+      <div class="cat-header rv">
+        <div class="cat-icon-wrap">🍪</div>
+        <div class="cat-title-text">
+          <div class="cat-title">Cookies</div>
+          <div class="cat-count">3 varieties · Crispy & fresh</div>
+        </div>
+      </div>
+      <div class="prod-grid" id="grid-cookies"></div>
+    </div>
+
+    <!-- KHARI & TOAST -->
+    <div class="cat-section" id="cat-khari">
+      <div class="cat-header rv">
+        <div class="cat-icon-wrap">🫓</div>
+        <div class="cat-title-text">
+          <div class="cat-title">Khari & Toast</div>
+          <div class="cat-count">3 varieties · Perfect chai companion</div>
+        </div>
+      </div>
+      <div class="prod-grid" id="grid-khari"></div>
+    </div>
+
+    <!-- OFFER STRIP -->
+    <div class="offer-strip rv">
+      <div class="off-txt">
+        <div class="off-eye">Special Offer</div>
+        <div class="off-h">Custom Cake for Your<br/>Special Day 🎂</div>
+        <div class="off-p">15% off all custom orders above ₹1500. Chat to design yours!</div>
+      </div>
+      <a href="https://wa.me/919657174007?text=Hi!%20I%20want%20to%20order%20a%20custom%20cake%20from%20Aishwarya%20Bakery!" target="_blank" class="off-cta"><i class="fab fa-whatsapp"></i> Chat to Order</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-photos rl">
+        <div class="ab-main"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=700&q=85" alt="Baker at work"/></div>
+        <div class="ab-accent"><img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=500&q=85" alt="Fresh bread"/></div>
+        <div class="yr-badge"><b>14</b><small>Years</small></div>
+      </div>
+      <div class="rr">
+        <div class="eyebrow">Our Story</div>
+        <h2 class="sec-h2">Baked With <em>Tradition</em><br/>& Heart</h2>
+        <p class="ab-body">What started as a humble family kitchen in the heart of Baramati has grown into a beloved institution with 8 locations across the city. For over 14 years, we've woken before dawn to fill Aishwarya Bakery with the warm scent of freshly baked pastries, breads and cakes.</p>
+        <p class="ab-body" style="margin-top:-.4rem">We believe in slow fermentation, quality flour, and recipes passed down through generations — because great bread simply cannot be rushed.</p>
+        <div class="pillars">
+          <div class="pillar"><div class="pillar-ico"><i class="fas fa-seedling"></i></div><div><div class="pillar-name">100% Natural Ingredients</div><div class="pillar-info">No preservatives — pure, wholesome ingredients sourced locally every morning.</div></div></div>
+          <div class="pillar"><div class="pillar-ico"><i class="fas fa-fire-alt"></i></div><div><div class="pillar-name">Traditional Stone-Deck Oven</div><div class="pillar-info">Our heritage oven gives every loaf its signature golden crust and chewy crumb.</div></div></div>
+          <div class="pillar"><div class="pillar-ico"><i class="fas fa-heart"></i></div><div><div class="pillar-name">Made With Love, Daily</div><div class="pillar-info">Fresh batches every morning — if it isn't fresh, it doesn't leave our kitchen.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="proc-hd rv">
+      <div class="eyebrow">How We Bake</div>
+      <h2 class="sec-h2" style="color:var(--wheat)">From Grain to <em style="color:var(--shine)">Your Plate</em></h2>
+    </div>
+    <div class="proc-steps">
+      <div class="step rv" style="transition-delay:.1s"><div class="step-n">01</div><span class="step-ico">🌾</span><div class="step-name">Source & Select</div><div class="step-txt">Hand-picked local grains, dairy and seasonal produce every morning.</div></div>
+      <div class="step rv" style="transition-delay:.2s"><div class="step-n">02</div><span class="step-ico">🫧</span><div class="step-name">Mix & Ferment</div><div class="step-txt">Slow fermentation builds complex flavour that mass production can't match.</div></div>
+      <div class="step rv" style="transition-delay:.3s"><div class="step-n">03</div><span class="step-ico">🔥</span><div class="step-name">Shape & Bake</div><div class="step-txt">Hand-shaped and stone-deck baked at the perfect temperature.</div></div>
+      <div class="step rv" style="transition-delay:.4s"><div class="step-n">04</div><span class="step-ico">🎁</span><div class="step-name">Pack & Deliver</div><div class="step-txt">Wrapped with care — warm and fresh, ready from 6am daily.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery">
+  <div class="gl-item"><img src="https://images.unsplash.com/photo-1568051243851-f9b136146e97?w=500&q=80" alt="g1" loading="lazy"/></div>
+  <div class="gl-item"><img src="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=500&q=80" alt="g2" loading="lazy"/></div>
+  <div class="gl-item"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=80" alt="g3" loading="lazy"/></div>
+  <div class="gl-item"><img src="https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=500&q=80" alt="g4" loading="lazy"/></div>
+  <div class="gl-item"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&q=80" alt="g5" loading="lazy"/></div>
+</div>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="rev-hd rv">
+      <div class="eyebrow">Happy Customers</div>
+      <h2 class="sec-h2">What Our Community <em>Says</em></h2>
+    </div>
+    <div class="rev-grid">
+      <div class="rcard rv" style="transition-delay:.1s"><div class="rcard-q">"</div><div class="stars">★★★★★</div><p class="rcard-txt">The croissants are absolutely divine — flaky, buttery, and perfectly golden. Aishwarya Bakery is Baramati's best-kept secret!</p><div class="rcard-auth"><div class="rcard-avi"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya"/></div><div><div class="rcard-name">Priya Mehta</div><div class="rcard-role">Regular Customer · Baramati</div></div></div></div>
+      <div class="rcard rv" style="transition-delay:.2s"><div class="rcard-q">"</div><div class="stars">★★★★★</div><p class="rcard-txt">Ordered a custom birthday cake and was blown away. The design was perfect and the taste — oh my! Everyone asked where it was from!</p><div class="rcard-auth"><div class="rcard-avi"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rohan"/></div><div><div class="rcard-name">Rohan Desai</div><div class="rcard-role">Loyal Customer · Pune</div></div></div></div>
+      <div class="rcard rv" style="transition-delay:.3s"><div class="rcard-q">"</div><div class="stars">★★★★★</div><p class="rcard-txt">The khari and toast are so fresh every morning. I stop at the Station Road branch daily. Nothing else comes close!</p><div class="rcard-auth"><div class="rcard-avi"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sneha"/></div><div><div class="rcard-name">Sneha Kulkarni</div><div class="rcard-role">Food Blogger · Baramati</div></div></div></div>
+    </div>
+    <div class="rev-bottom rv">
+      <div style="text-align:center"><div class="score-num">4.9</div><div class="score-stars">★★★★★</div><div class="score-cnt">Based on 280+ reviews</div></div>
+      <a href="https://www.instagram.com/reel/DScZodBDFBg/?igsh=d2gwdG1zZWJxM3I1" target="_blank" class="ig-card">
+        <i class="fab fa-instagram"></i>
+        <strong>Find Us on Instagram</strong>
+        <span>@aishwaryabakery<br/>Watch our latest reels!</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATIONS -->
+<section id="locations">
+  <div class="wrap">
+    <div class="loc-hd rv">
+      <div class="eyebrow">Find Us Near You</div>
+      <h2 class="sec-h2">Our <em>8 Stores</em> in Baramati</h2>
+      <p class="sec-sub" style="margin:0 auto;text-align:center">Fresh baked goodness is always close by — across all of Baramati.</p>
+    </div>
+    <div class="loc-grid" id="loc-grid"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <span class="brand-name">Aishwarya Bakery</span>
+        <span class="brand-sub">Artisan Bakery · Baramati</span>
+        <p class="brand-desc">A labour of love baked fresh every morning across 8 locations in Baramati, Maharashtra. Traditional recipes, local ingredients, and a whole lot of heart — since 2010.</p>
+        <div class="socials">
+          <a href="https://wa.me/919657174007" class="soc" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/reel/DScZodBDFBg/?igsh=d2gwdG1zZWJxM3I1" class="soc" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/AishwaryaBakery/videos/the-tradition-beginsaishwarya-bakerys-annual-fruit-plum-cake-fresh-ingredients-r/1154697586420835/" class="soc" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="mailto:aishwaryabakery3@gmail.com" class="soc" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="ft-head">Quick Links</div>
+        <ul class="ft-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#menu">Our Menu</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#locations">Store Locations</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="https://wa.me/919657174007" target="_blank">WhatsApp Order</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="ft-head">Main Store</div>
+        <div class="ct-row"><i class="fas fa-map-marker-alt"></i><span>R/1, Pencil Chowk,<br/>Aishwarya Bakery,<br/>Baramati – 413102,<br/>Maharashtra</span></div>
+        <div class="ct-row"><i class="fab fa-whatsapp"></i><a href="https://wa.me/919657174007">+91 96571 74007</a></div>
+        <div class="ct-row"><i class="fas fa-envelope"></i><a href="mailto:aishwaryabakery3@gmail.com">aishwaryabakery3@gmail.com</a></div>
+      </div>
+      <div>
+        <div class="ft-head">Opening Hours</div>
+        <div class="hr-row"><span class="dy">Mon – Fri</span><span>7am – 8pm</span></div>
+        <div class="hr-row"><span class="dy">Saturday</span><span>7am – 9pm</span></div>
+        <div class="hr-row"><span class="dy">Sunday</span><span>8am – 6pm</span></div>
+        <div class="hrs-note"><i class="fas fa-star"></i>Custom & bulk cake orders — WhatsApp 48hrs in advance! Available at all 8 locations.</div>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <span>© 2025 Aishwarya Bakery, Baramati. All rights reserved.</span>
+      <span>Made with <span style="color:var(--blush)">♥</span> in Baramati · <a href="https://wa.me/919657174007">Order via WhatsApp</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- SERVICE WORKER -->
+<script>
+if('serviceWorker'in navigator){
+  const s=`const C='ab-v4';self.addEventListener('install',e=>e.waitUntil(caches.open(C).then(c=>c.addAll([location.href]).catch(()=>{}))));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).catch(()=>new Response('Offline',{status:503})))));`;
+  navigator.serviceWorker.register(URL.createObjectURL(new Blob([s],{type:'application/javascript'}))).catch(()=>{});
+}
+</script>
+<script>
+/* LOADER */
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('out'),2600));
+
+/* CURSOR */
+const c1=document.getElementById('c1'),c2=document.getElementById('c2');
+let fx=0,fy=0,mx=window.innerWidth/2,my=window.innerHeight/2;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c1.style.left=mx+'px';c1.style.top=my+'px'});
+(function loop(){fx+=(mx-fx)*.13;fy+=(my-fy)*.13;c2.style.left=fx+'px';c2.style.top=fy+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button,.pcard,.rcard,.lcard').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{c1.classList.add('cx');c2.classList.add('cx')});
+  el.addEventListener('mouseleave',()=>{c1.classList.remove('cx');c2.classList.remove('cx')});
+});
+
+/* NAV + WA SCROLL */
+const navEl=document.getElementById('nav'),waEl=document.getElementById('wabtn'),heroEl=document.getElementById('hero');
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  navEl.classList.toggle('stk',y>80);
+  waEl.classList.toggle('up',y>heroEl.offsetHeight*.55);
+  document.querySelectorAll('section[id]').forEach(s=>{
+    if(y>=s.offsetTop-130&&y<s.offsetTop+s.offsetHeight-130)
+      document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+s.id));
+  });
+  /* active cat pill */
+  const cats=['cat-cakes','cat-pastries','cat-breads','cat-cookies','cat-khari'];
+  cats.forEach(id=>{
+    const sec=document.getElementById(id);
+    if(!sec)return;
+    const top=sec.getBoundingClientRect().top;
+    if(top<=150&&top>-sec.offsetHeight+150){
+      document.querySelectorAll('.cat-pill').forEach(p=>p.classList.toggle('on',p.dataset.target===id));
+    }
+  });
+},{passive:true});
+
+/* HAMBURGER */
+const hbg=document.getElementById('hbg'),mob=document.getElementById('mobNav');
+hbg.addEventListener('click',()=>{hbg.classList.toggle('op');mob.classList.toggle('op');document.body.style.overflow=mob.classList.contains('op')?'hidden':''});
+function closeMob(){hbg.classList.remove('op');mob.classList.remove('op');document.body.style.overflow=''}
+
+/* CAT NAV — smooth scroll to section */
+document.querySelectorAll('.cat-pill').forEach(p=>p.addEventListener('click',()=>{
+  const target=document.getElementById(p.dataset.target);
+  if(target){
+    const offset=target.getBoundingClientRect().top+window.scrollY-130;
+    window.scrollTo({top:offset,behavior:'smooth'});
+  }
+  document.querySelectorAll('.cat-pill').forEach(x=>x.classList.remove('on'));
+  p.classList.add('on');
+}));
+
+/* REVEAL */
+const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.08});
+document.querySelectorAll('.rv,.rl,.rr').forEach(el=>ro.observe(el));
+
+/* INSTALL POPUP */
+(function(){
+  if(window.innerWidth>=768||window.matchMedia('(display-mode:standalone)').matches)return;
+  const ts=localStorage.getItem('ab_d');if(ts&&Date.now()-+ts<7*864e5)return;
+  const popup=document.getElementById('ipop'),yes=document.getElementById('ip-yes'),no=document.getElementById('ip-no'),ios=document.getElementById('ip-ios');
+  let evt=null;
+  const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream;
+  const isSaf=isIOS&&/^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  const show=()=>{popup.style.display='block';requestAnimationFrame(()=>requestAnimationFrame(()=>popup.classList.add('show')))};
+  const hide=()=>{popup.classList.remove('show');setTimeout(()=>{popup.style.display='none'},600);localStorage.setItem('ab_d',Date.now())};
+  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();evt=e;setTimeout(show,4000)});
+  yes.addEventListener('click',async()=>{if(evt){evt.prompt();const{outcome}=await evt.userChoice;evt=null;if(outcome==='accepted'){hide();return}}hide()});
+  no.addEventListener('click',hide);window.addEventListener('appinstalled',hide);
+  if(isSaf){ios.classList.add('on');yes.innerHTML='<i class="fas fa-share-square"></i> How to Install';setTimeout(show,4000)}
+})();
+
+/* MENU DATA */
+const PH='919657174007', BN='Aishwarya Bakery';
+const MENU={
+  cakes:[
+    {n:"Special Cakes",        p:850, b:"Signature",  d:"Our prized special cakes — crafted with premium ingredients for birthdays, anniversaries & celebrations.", i:"https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=600&q=85"},
+    {n:"Chocolate Cakes",      p:650, b:"Popular",    d:"Rich dark chocolate layers with silky ganache frosting — a chocolate lover's dream come true.",          i:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=85"},
+    {n:"Regular Flavoured Cakes",p:450,b:"",           d:"Classic flavours — vanilla, butterscotch, pineapple & more — perfect for every celebration.",           i:"https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=600&q=85"},
+  ],
+  pastries:[
+    {n:"Cheese Pastries",      p:65,  b:"Bestseller", d:"Flaky golden pastry filled with creamy savoury cheese. Light, crispy and utterly satisfying.",          i:"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=85"},
+    {n:"Chocolate Pastries",   p:70,  b:"",           d:"Buttery puff pastry loaded with rich chocolate filling — a perfect afternoon indulgence.",               i:"https://images.unsplash.com/photo-1542826438-bd32f43d626f?w=600&q=85"},
+    {n:"Flavoured Pastries",   p:60,  b:"",           d:"Seasonal flavours — strawberry, mango and vanilla — fresh, light and delightfully sweet.",               i:"https://images.unsplash.com/photo-1501963422762-3d89bd989e69?w=600&q=85"},
+  ],
+  breads:[
+    {n:"Milk Bread",           p:45,  b:"Fresh Daily", d:"Soft, pillowy milk bread with a subtle sweetness — baked every morning for the perfect breakfast toast.", i:"https://images.unsplash.com/photo-1585478259715-876acc5be8eb?w=600&q=85"},
+    {n:"Brown Bread",          p:50,  b:"Healthy",    d:"Wholesome whole-grain brown bread — hearty texture, nutty flavour, rich in fibre.",                      i:"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=85"},
+    {n:"White Bread",          p:40,  b:"",           d:"Classic soft white bread with a perfectly golden crust — great for sandwiches, toast or just butter.",    i:"https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=600&q=85"},
+  ],
+  cookies:[
+    {n:"Sugar Cookies",        p:30,  b:"",           d:"Crispy, buttery sugar cookies with a delicate sweetness — perfect with chai or as a snack any time.",   i:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&q=85"},
+    {n:"Chocolate Chip Cookies",p:35, b:"Popular",    d:"Golden cookies packed with real chocolate chips — crispy outside, chewy in the centre.",                 i:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&q=85"},
+    {n:"Oatmeal Cookies",      p:35,  b:"Healthy",    d:"Hearty oatmeal cookies with a nutty crunch — wholesome, naturally sweet and guilt-free.",                i:"https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=600&q=85"},
+  ],
+  khari:[
+    {n:"Butter Khari",         p:10,  b:"Bestseller", d:"Flaky, buttery khari that crumbles perfectly with every bite — the ultimate chai-time companion.",       i:"https://images.unsplash.com/photo-1568051243851-f9b136146e97?w=600&q=85"},
+    {n:"Toast",                p:15,  b:"",           d:"Crisp golden toast varieties — plain, masala and butter — baked fresh every morning.",                   i:"https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=600&q=85"},
+    {n:"Khari Varieties",      p:10,  b:"",           d:"Assorted khari in plain, jeera and pepper flavours — light, airy and perfect any time of day.",           i:"https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=600&q=85"},
+  ],
+};
+
+function buildCards(cat,gridId){
+  const grid=document.getElementById(gridId);
+  MENU[cat].forEach((m,i)=>{
+    const msg=encodeURIComponent(`Hello! I'd like to order *${m.n}* (₹${m.p}) from ${BN} 🧁`);
+    const el=document.createElement('div');
+    el.className='pcard rv';el.style.transitionDelay=(i*.08)+'s';
+    el.innerHTML=`<div class="pcard-img">
+      <img src="${m.i}" alt="${m.n}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=500&q=60'"/>
+      ${m.b?`<div class="pcard-badge">${m.b}</div>`:''}
+      <button class="pcard-fav" onclick="fav(this)" title="Favourite"><i class="far fa-heart"></i></button>
+    </div>
+    <div class="pcard-body">
+      <div class="pcard-name">${m.n}</div>
+      <div class="pcard-desc">${m.d}</div>
+      <div class="pcard-row">
+        <div class="pcard-price"><sup>₹</sup>${m.p}<sub> / pc</sub></div>
+        <a href="https://wa.me/${PH}?text=${msg}" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i> Order</a>
+      </div>
+    </div>`;
+    grid.appendChild(el);
+    setTimeout(()=>ro.observe(el),20);
+  });
+}
+function fav(b){b.classList.toggle('liked');b.querySelector('i').className=b.classList.contains('liked')?'fas fa-heart':'far fa-heart'}
+buildCards('cakes','grid-cakes');
+buildCards('pastries','grid-pastries');
+buildCards('breads','grid-breads');
+buildCards('cookies','grid-cookies');
+buildCards('khari','grid-khari');
+
+/* LOCATIONS */
+const STORES=[
+  {name:"Main Store — City Center",     area:"123 Main Street, City Center, Baramati 413102",         phone:"+91 98765 43210",hours:"7:00 AM – 9:00 PM", tags:["Custom Cakes","Full Menu","Parking Available"]},
+  {name:"Station Road Branch",          area:"456 Station Road, Near Railway Station, Baramati 413102",phone:"+91 98765 43211",hours:"6:30 AM – 8:30 PM", tags:["Express Service","Fresh Breads","Tea & Coffee"]},
+  {name:"College Road Outlet",          area:"789 College Road, Near Vidya Pratishthan, Baramati 413102",phone:"+91 98765 43212",hours:"7:00 AM – 8:00 PM",tags:["Student Specials","Quick Bites","Study Corner"]},
+  {name:"Market Yard Store",            area:"321 Market Yard, Wholesale Market, Baramati 413102",     phone:"+91 98765 43213",hours:"6:00 AM – 7:00 PM", tags:["Bulk Orders","Fresh Daily","Early Opening"]},
+  {name:"Bhigwan Road Branch",          area:"654 Bhigwan Road, Near Bus Stand, Baramati 413102",      phone:"+91 98765 43214",hours:"7:00 AM – 8:00 PM", tags:["Travel Snacks","Fresh Khari","Quick Service"]},
+  {name:"Morgaon Highway Outlet",       area:"987 Morgaon Highway, Highway Junction, Baramati 413102", phone:"+91 98765 43215",hours:"6:30 AM – 9:00 PM", tags:["Highway Stop","24/7 Vending","Traveler Friendly"]},
+  {name:"Residential Area Store",       area:"147 Shivaji Nagar, Residential Complex, Baramati 413102",phone:"+91 98765 43216",hours:"7:30 AM – 8:00 PM", tags:["Home Delivery","Family Packs","Neighbourhood Fav"]},
+  {name:"Industrial Area Branch",       area:"258 MIDC Area, Industrial Zone, Baramati 413102",        phone:"+91 98765 43217",hours:"6:00 AM – 6:00 PM", tags:["Office Catering","Bulk Snacks","Corporate Orders"]},
+];
+(function(){
+  const grid=document.getElementById('loc-grid');
+  STORES.forEach((s,i)=>{
+    const msg=encodeURIComponent(`Hello! I'd like to enquire about the ${s.name} of Aishwarya Bakery`);
+    const div=document.createElement('div');
+    div.className='lcard rv';div.style.transitionDelay=(i*.05)+'s';
+    div.innerHTML=`<div class="lcard-top">
+      <div>
+        <div class="lcard-name">${s.name}</div>
+        <span class="lcard-tag">Store ${String(i+1).padStart(2,'0')}</span>
+      </div>
+      <div class="lcard-num">${String(i+1).padStart(2,'0')}</div>
+    </div>
+    <div class="lcard-body">
+      <div class="lcard-hours"><i class="far fa-clock"></i> ${s.hours}</div>
+      <div class="lcard-row"><i class="fas fa-map-marker-alt"></i><span>${s.area}</span></div>
+      <div class="lcard-row"><i class="fas fa-phone"></i><a href="tel:${s.phone.replace(/\s/g,'')}">${s.phone}</a></div>
+      <div class="lcard-row"><i class="fab fa-whatsapp"></i><a href="https://wa.me/${PH}?text=${msg}" target="_blank">WhatsApp this store</a></div>
+      <div class="lcard-tags">${s.tags.map(t=>`<span class="ltag">${t}</span>`).join('')}</div>
+    </div>`;
+    grid.appendChild(div);
+    setTimeout(()=>ro.observe(div),30);
+  });
+})();
+</script>
+</body>
+</html>
