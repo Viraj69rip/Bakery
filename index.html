@@ -141,36 +141,6 @@
       pointer-events: none;
     }
 
-    .ld-logo {
-      width: 72px;
-      height: 72px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, rgba(201, 151, 59, .15), rgba(201, 151, 59, .05));
-      border: 1px solid rgba(201, 151, 59, .25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--serif);
-      font-size: 1.4rem;
-      font-weight: 900;
-      color: var(--gold);
-      letter-spacing: .04em;
-      margin-bottom: 1.4rem;
-      opacity: 0;
-      transform: scale(.7) translateY(10px);
-      animation: ldLogoIn .8s var(--ease) forwards .2s;
-      position: relative;
-      box-shadow: 0 16px 40px rgba(201, 151, 59, .15);
-    }
-
-    .ld-logo::after {
-      content: '';
-      position: absolute;
-      inset: -6px;
-      border-radius: 26px;
-      border: 1px solid rgba(201, 151, 59, .12);
-      animation: ldLogoPulse 2.5s ease-in-out infinite;
-    }
 
     .ld-title {
       font-family: var(--serif);
@@ -2018,14 +1988,6 @@
       to { width: 100%; }
     }
 
-    @keyframes ldLogoIn {
-      to { opacity: 1; transform: scale(1) translateY(0); }
-    }
-
-    @keyframes ldLogoPulse {
-      0%, 100% { opacity: .4; transform: scale(1); }
-      50% { opacity: .8; transform: scale(1.06); }
-    }
 
     @keyframes kenburns {
       to { transform: scale(1.14) translate3d(-1.5%, 1%, 0); }
@@ -2359,7 +2321,7 @@
 
 <body>
   <div id='loader'>
-    <div class='ld-logo'>AB</div>
+
     <div class='ld-title'>Aishwarya<span>Bakery</span></div>
     <div class='ld-sub'>Artisan Bakery · Baramati · Est. 2010</div>
     <div class='ld-bar-wrap'>
