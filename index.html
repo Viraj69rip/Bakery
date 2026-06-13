@@ -1,1078 +1,2945 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang='en'>
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Aishwarya Bakery — Baramati</title>
-<link rel="icon" type="image/png" href="https://i.ibb.co/k25BMKTX/imresizer-aishwarya-logo.png"/>
-<link rel="apple-touch-icon" href="https://i.ibb.co/k25BMKTX/imresizer-aishwarya-logo.png"/>
-<meta name="theme-color" content="#1a0a02"/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-<meta name="apple-mobile-web-app-title" content="Aishwarya Bakery"/>
-<meta name="description" content="Freshly baked cakes, pastries, breads, cookies & khari in Baramati. 8 locations. Order on WhatsApp!"/>
-<link rel="manifest" href="data:application/json;charset=utf-8,%7B%22name%22%3A%22Aishwarya%20Bakery%22%2C%22short_name%22%3A%22Aishwarya%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%231a0a02%22%2C%22theme_color%22%3A%22%221a0a02%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22https%3A%2F%2Fi.ibb.co%2Fk25BMKTX%2Fimresizer-aishwarya-logo.png%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fpng%22%7D%5D%7D"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-<style>
-/* ════ RESET ════ */
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --ink:#1A0A02;--dark:#2C1008;--mid:#5C2D14;--warm:#8B4513;
-  --tan:#B8651A;--honey:#D4883C;--caramel:#E8B87A;--wheat:#F5DEB3;
-  --cream:#FDF6EC;--white:#FFFCF7;
-  --blush:#E8948A;
-  --gold:#C9973B;--shine:#F0D060;--wa:#25D366;
-  --serif:'Playfair Display',Georgia,serif;
-  --elegant:'Cormorant Garamond',Georgia,serif;
-  --sans:'DM Sans',sans-serif;
-  --ease:cubic-bezier(.25,.46,.45,.94);
-  --spring:cubic-bezier(.34,1.56,.64,1);
-  --sharp:cubic-bezier(.76,0,.24,1);
-  /* NAV HEIGHT — single source of truth */
-  --nav-h:70px;
-}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:var(--sans);background:var(--white);color:var(--ink);overflow-x:hidden;cursor:none}
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <meta name='description' content='Aishwarya Bakery Baramati — fresh cakes, pastries, breads, cookies, khari and toast baked daily since 2010.' />
+  <meta name='theme-color' content='#1a0a02' />
+  <meta property='og:title' content='Aishwarya Bakery — Baramati' />
+  <meta property='og:description' content='Freshly baked cakes, pastries, breads, cookies and khari from Aishwarya Bakery, Baramati.' />
+  <meta property='og:type' content='website' />
+  <title>Aishwarya Bakery — Premium Bakery Page</title>
+  <link rel='icon' href='https://i.ibb.co/k25BMKTX/imresizer-aishwarya-logo.png' />
+  <link rel='preconnect' href='https://fonts.googleapis.com' />
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+  <link href='https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap' rel='stylesheet' />
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css' />
 
-/* scrollbar */
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--cream)}
-::-webkit-scrollbar-thumb{background:linear-gradient(var(--gold),var(--tan));border-radius:4px}
-img{display:block;max-width:100%}
-a{text-decoration:none;color:inherit}
+  <style>
+    :root {
+      --ink: #1a0a02;
+      --ink-2: #2b1106;
+      --paper: #fffaf2;
+      --paper-2: #fffdf8;
+      --cream: #f8e6cc;
+      --cream-2: #ffe9c8;
+      --caramel: #d99644;
+      --gold: #c9973b;
+      --honey: #f4b95f;
+      --butter: #ffe0a3;
+      --coffee: #6b3215;
+      --brown: #3b1608;
+      --rose: #e8948a;
+      --green: #25d366;
+      --white: #ffffff;
+      --muted: rgba(59, 22, 8, .66);
+      --muted-light: rgba(253, 235, 210, .68);
+      --line: rgba(201, 151, 59, .16);
+      --shadow: 0 28px 90px rgba(43, 17, 3, .16);
+      --shadow-soft: 0 16px 45px rgba(43, 17, 3, .09);
+      --radius: 30px;
+      --radius-sm: 20px;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --ease: cubic-bezier(.2, .8, .2, 1);
+      --spring: cubic-bezier(.18, 1.2, .35, 1);
+      --max: 1180px;
+    }
 
-/* ════ CURSOR ════ */
-#c1,#c2{position:fixed;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);z-index:99999;top:0;left:0}
-#c1{width:8px;height:8px;background:var(--gold);z-index:100000;transition:width .2s,height .2s,background .2s}
-#c2{width:36px;height:36px;border:1.5px solid rgba(201,151,59,.55);transition:all .12s ease-out}
-#c1.cx{width:18px;height:18px;background:var(--shine)}
-#c2.cx{width:58px;height:58px;border-color:var(--gold);opacity:.3}
-@media(pointer:coarse){#c1,#c2{display:none}body{cursor:auto}}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* ════ LOADER ════ */
-#loader{
-  position:fixed;inset:0;z-index:999999;background:var(--ink);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:2rem;text-align:center;
-  transition:opacity 1s ease,visibility 1s ease;
-}
-#loader.out{opacity:0;visibility:hidden;pointer-events:none}
-.ld-title{
-  font-family:var(--serif);
-  font-size:clamp(1.5rem,5vw,3rem);
-  font-weight:700;color:var(--wheat);letter-spacing:.06em;line-height:1.2;
-  opacity:0;transform:translateY(20px);
-  animation:ldIn .8s var(--ease) forwards .3s;
-}
-.ld-title span{display:block;font-style:italic;color:var(--shine);font-size:.65em;letter-spacing:.1em}
-.ld-sub{
-  font-size:clamp(.55rem,1.5vw,.7rem);letter-spacing:4px;text-transform:uppercase;
-  color:rgba(245,222,179,.4);margin-top:.5rem;
-  opacity:0;animation:ldIn .7s ease forwards .9s;
-}
-.ld-bar{width:min(220px,70vw);height:2px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;margin-top:.9rem}
-.ld-fill{height:100%;width:0;background:linear-gradient(90deg,var(--tan),var(--gold),var(--shine));border-radius:2px;animation:ldFill 2s var(--sharp) forwards .5s}
-@keyframes ldIn{to{opacity:1;transform:none}}
-@keyframes ldFill{to{width:100%}}
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+    }
 
-/* noise grain */
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9990;opacity:.4}
+    body {
+      min-height: 100vh;
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 8%, rgba(217, 150, 68, .13), transparent 28%),
+        radial-gradient(circle at 92% 14%, rgba(232, 148, 138, .12), transparent 26%),
+        radial-gradient(circle at 50% 85%, rgba(201, 151, 59, .10), transparent 34%),
+        linear-gradient(180deg, #fffaf2 0%, #fff3df 48%, #fffaf2 100%);
+      overflow-x: hidden;
+    }
 
-/* ════ INSTALL POPUP ════ */
-#ipop{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9995;background:var(--white);border-top:3px solid var(--gold);border-radius:24px 24px 0 0;padding:1.2rem 1.2rem 2.4rem;box-shadow:0 -20px 60px rgba(26,10,2,.3);transform:translateY(110%);transition:transform .55s var(--spring)}
-#ipop.show{display:block;transform:translateY(0)}
-.ip-pill{width:40px;height:4px;background:var(--caramel);border-radius:2px;margin:0 auto 1.1rem}
-.ip-row{display:flex;align-items:center;gap:.9rem}
-.ip-ico{width:52px;height:52px;border-radius:14px;object-fit:contain;border:2px solid var(--caramel);flex-shrink:0}
-.ip-name{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.2rem}
-.ip-desc{font-size:.75rem;color:var(--warm);line-height:1.5}
-.ip-ios{display:none;margin-top:.9rem;padding:.8rem 1rem;background:rgba(201,151,59,.08);border:1px solid rgba(201,151,59,.25);border-radius:12px;font-size:.74rem;color:var(--mid);line-height:1.7}
-.ip-ios.on{display:block}
-.ip-btns{display:flex;gap:.65rem;margin-top:1.1rem}
-.ip-yes{flex:1;display:flex;align-items:center;justify-content:center;gap:.45rem;background:var(--ink);color:var(--gold);border:none;padding:.75rem;border-radius:40px;font-family:var(--sans);font-size:.76rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:.3s var(--spring)}
-.ip-no{background:var(--cream);color:var(--warm);border:1.5px solid var(--caramel);padding:.75rem 1rem;border-radius:40px;font-size:.74rem;cursor:pointer;white-space:nowrap}
-@media(min-width:769px){#ipop{display:none!important}}
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      pointer-events: none;
+      opacity: .22;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+    }
 
-/* ════════════════════════════════════════════
-   NAV  —  robust at all scales / zoom levels
-════════════════════════════════════════════ */
-#nav{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  height:var(--nav-h);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 clamp(1rem,3vw,4%);
-  gap:1rem;
-  transition:background .4s var(--ease),box-shadow .4s var(--ease),border-bottom .4s;
-}
-#nav.stk{
-  background:rgba(253,246,236,.97);
-  backdrop-filter:blur(28px) saturate(1.4);
-  -webkit-backdrop-filter:blur(28px);
-  box-shadow:0 1px 0 rgba(201,151,59,.2),0 4px 24px rgba(26,10,2,.08);
-}
+    body.menu-open {
+      overflow: hidden;
+    }
 
-/* Logo — fixed width so it never pushes into nav links */
-.logo{
-  display:flex;flex-direction:column;justify-content:center;
-  flex-shrink:0;
-  text-decoration:none;
-  transition:opacity .3s;
-  min-width:0;
-}
-.logo-name{
-  font-family:var(--serif);font-weight:700;letter-spacing:1.5px;
-  color:#fff;transition:color .3s;line-height:1;
-  white-space:nowrap;
-  font-size:clamp(.95rem,1.8vw,1.4rem);
-}
-.logo em{font-style:normal;color:var(--shine)}
-.logo-sub{
-  font-family:var(--sans);font-size:clamp(.44rem,.7vw,.52rem);
-  letter-spacing:4px;font-weight:400;text-transform:uppercase;
-  color:rgba(201,151,59,.7);margin-top:2px;
-  white-space:nowrap;
-  transition:color .3s;
-}
-#nav.stk .logo-name{color:var(--ink)}
-#nav.stk .logo-sub{color:var(--tan)}
+    ::selection {
+      background: var(--gold);
+      color: var(--ink);
+    }
 
-/* Nav centre links */
-.nav-links{
-  display:flex;align-items:center;list-style:none;
-  gap:clamp(.8rem,1.5vw,2rem);
-  flex:1;justify-content:flex-end;
-}
-.nav-links li:last-child{margin-left:clamp(.3rem,.5vw,.8rem)}
-.nav-links a{
-  font-size:clamp(.62rem,.8vw,.75rem);font-weight:500;
-  letter-spacing:2px;text-transform:uppercase;
-  color:rgba(255,255,255,.8);position:relative;
-  white-space:nowrap;transition:color .3s;
-}
-#nav.stk .nav-links a{color:var(--mid)}
-.nav-links a::after{
-  content:'';position:absolute;bottom:-4px;
-  left:50%;right:50%;height:1.5px;background:var(--gold);
-  transition:left .3s var(--ease),right .3s var(--ease);
-}
-.nav-links a:hover::after,.nav-links a.on::after{left:0;right:0}
-.nav-cta{
-  background:linear-gradient(135deg,var(--gold),var(--honey));
-  color:var(--ink)!important;
-  padding:.46rem 1.1rem;border-radius:50px;
-  font-weight:600!important;
-  box-shadow:0 4px 16px rgba(201,151,59,.45);
-  transition:all .35s var(--spring)!important;
-  white-space:nowrap;
-}
-.nav-cta::after{display:none!important}
-.nav-cta:hover{transform:translateY(-2px) scale(1.04)!important;box-shadow:0 8px 24px rgba(201,151,59,.55)!important}
+    img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+    }
 
-/* Hamburger */
-.hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;flex-shrink:0;z-index:1001}
-.hbg span{width:22px;height:2px;display:block;border-radius:2px;background:#fff;transition:.3s}
-#nav.stk .hbg span{background:var(--ink)}
-.hbg.op span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.hbg.op span:nth-child(2){opacity:0;transform:scaleX(0)}
-.hbg.op span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-/* Mobile menu */
-.mob-nav{display:none;position:fixed;inset:0;background:var(--ink);z-index:997;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;clip-path:circle(0% at calc(100% - 2rem) 2rem);transition:clip-path .65s var(--sharp)}
-.mob-nav.op{display:flex;clip-path:circle(150% at calc(100% - 2rem) 2rem)}
-.mob-nav a{font-family:var(--serif);font-size:clamp(1.6rem,5vw,2.2rem);color:var(--wheat);letter-spacing:2px;transition:color .25s,transform .25s}
-.mob-nav a:hover{color:var(--shine);transform:translateX(8px)}
-.mob-close{position:absolute;top:1.5rem;right:1.5rem;font-size:1.5rem;color:var(--wheat);background:none;border:none;cursor:pointer}
+    button {
+      font: inherit;
+      border: 0;
+      background: none;
+      cursor: pointer;
+    }
 
-/* ════ WA FLOAT ════ */
-#wabtn{position:fixed;bottom:1.8rem;right:1.5rem;z-index:9000;width:56px;height:56px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.7rem;text-decoration:none;box-shadow:0 4px 22px rgba(37,211,102,.5);opacity:0;transform:scale(.6) translateY(20px);pointer-events:none;transition:opacity .5s var(--ease),transform .5s var(--spring)}
-#wabtn.up{opacity:1;transform:scale(1) translateY(0);pointer-events:auto;animation:waPulse 2.8s ease-in-out infinite}
-#wabtn:hover{transform:scale(1.15)!important;box-shadow:0 8px 30px rgba(37,211,102,.7)}
-@keyframes waPulse{0%,100%{box-shadow:0 4px 22px rgba(37,211,102,.5)}50%{box-shadow:0 6px 38px rgba(37,211,102,.8),0 0 0 14px rgba(37,211,102,.08)}}
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10004;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--honey), #fff0b8);
+      box-shadow: 0 0 22px rgba(201, 151, 59, .55);
+    }
 
-/* ════════════════════════════════════
-   HERO — padded properly for all navs
-════════════════════════════════════ */
-#hero{
-  min-height:100svh;
-  position:relative;display:flex;align-items:center;overflow:hidden;
-}
-.h-bg{
-  position:absolute;inset:0;
-  background:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1920&q=90')center/cover no-repeat;
-  animation:kenBurns 24s ease-in-out infinite alternate;will-change:transform;
-}
-@keyframes kenBurns{0%{transform:scale(1.06)}50%{transform:scale(1.12) translate(-1%,-.5%)}100%{transform:scale(1.09) translate(.5%,.5%)}}
-.h-grad{position:absolute;inset:0;background:linear-gradient(to right,rgba(26,10,2,.93) 0%,rgba(26,10,2,.68) 52%,rgba(26,10,2,.18) 100%),linear-gradient(to top,rgba(26,10,2,.65) 0%,transparent 50%)}
+    #loader {
+      position: fixed;
+      inset: 0;
+      z-index: 10002;
+      background: var(--ink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      transition: opacity 1s ease, visibility 1s ease;
+    }
 
-/* Hero content — always has room above for nav */
-.h-con{
-  position:relative;z-index:2;
-  padding:calc(var(--nav-h) + clamp(2rem,6vh,4rem)) clamp(1.2rem,5vw,5%) clamp(2rem,6vh,4rem);
-  max-width:min(820px,90vw);
-  width:100%;
-}
-.h-tag{
-  display:inline-flex;align-items:center;gap:.65rem;
-  background:rgba(201,151,59,.15);border:1px solid rgba(201,151,59,.4);
-  backdrop-filter:blur(8px);
-  padding:.34rem 1rem;border-radius:50px;
-  font-size:clamp(.58rem,1.2vw,.68rem);letter-spacing:3px;text-transform:uppercase;
-  color:var(--shine);margin-bottom:clamp(.8rem,2.5vh,1.6rem);
-  opacity:0;transform:translateY(16px);animation:slideUp .7s var(--ease) forwards 1.8s;
-}
-.h-h1{
-  font-family:var(--serif);
-  font-size:clamp(2.2rem,6vw,6.5rem);
-  font-weight:900;line-height:1.07;color:#fff;
-  margin-bottom:clamp(.8rem,2.5vh,1.4rem);
-  opacity:0;transform:translateY(24px);animation:slideUp .9s var(--ease) forwards 2s;
-}
-.h-h1 .italic{
-  display:block;font-style:italic;
-  background:linear-gradient(135deg,var(--shine),var(--gold),var(--honey));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.h-p{
-  font-size:clamp(.82rem,1.4vw,1rem);color:rgba(255,252,247,.72);
-  line-height:1.85;max-width:min(460px,80vw);
-  margin-bottom:clamp(1.5rem,4vh,2.6rem);
-  opacity:0;transform:translateY(24px);animation:slideUp .9s var(--ease) forwards 2.2s;
-}
-.h-btns{
-  display:flex;gap:.85rem;flex-wrap:wrap;
-  opacity:0;transform:translateY(24px);animation:slideUp .9s var(--ease) forwards 2.4s;
-}
-.btn-gold{
-  display:inline-flex;align-items:center;gap:.6rem;
-  background:linear-gradient(135deg,var(--gold),var(--honey));color:var(--ink);
-  padding:.85rem clamp(1.2rem,3vw,2rem);border-radius:50px;
-  font-weight:600;font-size:clamp(.7rem,1.3vw,.8rem);letter-spacing:2px;text-transform:uppercase;
-  border:none;cursor:pointer;box-shadow:0 8px 26px rgba(201,151,59,.5);
-  transition:all .4s var(--spring);position:relative;overflow:hidden;
-}
-.btn-gold::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);opacity:0;transition:opacity .3s}
-.btn-gold:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 14px 36px rgba(201,151,59,.65)}
-.btn-gold:hover::after{opacity:1}
-.btn-ghost{
-  display:inline-flex;align-items:center;gap:.6rem;color:#fff;
-  padding:.85rem clamp(1.2rem,3vw,2rem);border-radius:50px;
-  font-weight:500;font-size:clamp(.7rem,1.3vw,.8rem);letter-spacing:2px;text-transform:uppercase;
-  border:1.5px solid rgba(255,255,255,.35);cursor:pointer;
-  backdrop-filter:blur(8px);background:rgba(255,255,255,.06);transition:.35s var(--ease);
-}
-.btn-ghost:hover{border-color:var(--gold);color:var(--shine);background:rgba(201,151,59,.12);transform:translateY(-3px)}
+    #loader.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
 
-/* scroll cue */
-.h-scroll{position:absolute;bottom:clamp(1.2rem,3vh,2.5rem);left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;opacity:0;animation:fadeIn 1s ease forwards 3s}
-.h-scroll span{font-size:.58rem;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.38)}
-.scroll-rod{width:1.5px;height:50px;background:linear-gradient(to bottom,rgba(201,151,59,.7),transparent);animation:rodPulse 2s ease-in-out infinite}
-@keyframes rodPulse{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.5);opacity:.4}}
+    .ld-title {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 5vw, 3rem);
+      font-weight: 700;
+      color: #F5DEB3;
+      letter-spacing: .06em;
+      line-height: 1.2;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: ldIn .8s var(--ease) forwards .3s;
+    }
 
-/* stats */
-.h-stats{
-  position:absolute;
-  bottom:clamp(1.5rem,4vh,3rem);right:clamp(1rem,5%,5%);
-  display:flex;gap:clamp(.8rem,2.5vw,2.5rem);
-  opacity:0;animation:fadeIn 1s ease forwards 2.8s;
-}
-.hstat b{display:block;font-family:var(--serif);font-size:clamp(1.1rem,3vw,2rem);font-weight:700;color:var(--shine);line-height:1}
-.hstat s{font-size:clamp(.5rem,.65vw,.62rem);letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.42);font-style:normal;text-decoration:none}
+    .ld-title span {
+      display: block;
+      font-style: italic;
+      color: #F0D060;
+      font-size: .65em;
+      letter-spacing: .1em;
+    }
 
-@keyframes slideUp{to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{to{opacity:1}}
+    .ld-sub {
+      font-size: clamp(.55rem, 1.5vw, .7rem);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(245, 222, 179, .4);
+      margin-top: .5rem;
+      opacity: 0;
+      animation: ldIn .7s ease forwards .9s;
+    }
 
-/* ════ RIBBON ════ */
-.ribbon{background:linear-gradient(135deg,var(--gold),var(--honey),var(--tan));padding:.85rem 0;overflow:hidden;position:relative}
-.ribbon::before,.ribbon::after{content:'';position:absolute;top:0;bottom:0;width:40px;z-index:1}
-.ribbon::before{left:0;background:linear-gradient(to right,var(--gold),transparent)}
-.ribbon::after{right:0;background:linear-gradient(to left,var(--tan),transparent)}
-.ribbon-track{display:flex;animation:rMove 30s linear infinite;width:max-content}
-.ribbon-item{display:flex;align-items:center;gap:1rem;padding:0 2rem;font-family:var(--serif);font-size:clamp(.82rem,1.2vw,.95rem);font-style:italic;color:var(--ink);white-space:nowrap}
-.ribbon-item::after{content:'❧';font-style:normal;font-size:.65rem;color:rgba(44,16,8,.4)}
-@keyframes rMove{to{transform:translateX(-50%)}}
+    .ld-bar {
+      width: min(220px, 70vw);
+      height: 2px;
+      background: rgba(255, 255, 255, .08);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: .9rem;
+    }
 
-/* ════ SECTIONS COMMON ════ */
-section{padding:clamp(3rem,7vw,7rem) 0}
-.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(1rem,5vw,5%)}
-.eyebrow{display:inline-flex;align-items:center;gap:.8rem;font-size:.67rem;letter-spacing:5px;text-transform:uppercase;color:var(--warm);margin-bottom:.85rem}
-.eyebrow::before,.eyebrow::after{content:'';display:block;width:26px;height:1px;background:linear-gradient(to right,var(--gold),var(--caramel))}
-.sec-h2{font-family:var(--serif);font-size:clamp(1.7rem,3.8vw,3.2rem);font-weight:700;line-height:1.12;color:var(--ink);margin-bottom:.85rem}
-.sec-h2 em{font-style:italic;color:var(--warm)}
-.sec-sub{font-size:clamp(.85rem,1.2vw,.95rem);color:var(--warm);line-height:1.9;max-width:500px}
-/* reveal */
-.rv{opacity:0;transform:translateY(40px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
-.rl{opacity:0;transform:translateX(-50px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.rr{opacity:0;transform:translateX(50px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.vis{opacity:1!important;transform:none!important}
+    .ld-fill {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #B8651A, var(--gold), #F0D060);
+      border-radius: 2px;
+      animation: ldFill 2s cubic-bezier(.76, 0, .24, 1) forwards .5s;
+    }
 
-/* ════ FEATURES BAR ════ */
-.feat-bar{background:var(--ink);padding:clamp(2rem,4vw,3.5rem) 0}
-.feat-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-.feat{display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(1.2rem,2.5vw,2rem) 1rem;border-right:1px solid rgba(245,222,179,.07);position:relative;overflow:hidden;transition:.35s}
-.feat:last-child{border-right:none}
-.feat::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .45s var(--ease)}
-.feat:hover::after{transform:scaleX(1)}
-.feat:hover{background:rgba(201,151,59,.05)}
-.feat-ico{width:50px;height:50px;border-radius:14px;background:rgba(201,151,59,.1);border:1px solid rgba(201,151,59,.2);display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:.8rem;transition:.35s}
-.feat:hover .feat-ico{background:var(--gold);border-color:var(--gold);transform:scale(1.1) rotate(-5deg)}
-.feat-ico i{color:var(--gold);transition:color .35s}
-.feat:hover .feat-ico i{color:var(--ink)}
-.feat-title{font-family:var(--serif);font-size:clamp(.85rem,1.4vw,1rem);color:var(--wheat);margin-bottom:.25rem}
-.feat-desc{font-size:clamp(.68rem,1vw,.75rem);color:rgba(245,222,179,.42);line-height:1.55}
+    .cursor-dot,
+    .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10001;
+      display: none;
+      border-radius: 999px;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+    }
 
-/* ════════════════════════════════
-   MENU SECTION
-════════════════════════════════ */
-#menu{background:var(--white)}
-.menu-intro{text-align:center;margin-bottom:clamp(2rem,4vw,3.5rem)}
+    .cursor-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+    }
 
-/* sticky category nav */
-.cat-nav{
-  display:flex;gap:.45rem;flex-wrap:wrap;justify-content:center;
-  position:sticky;top:var(--nav-h);z-index:99;
-  background:rgba(255,252,247,.97);backdrop-filter:blur(18px);
-  padding:.65rem 1rem;
-  box-shadow:0 2px 20px rgba(26,10,2,.07);
-  margin-bottom:clamp(2.5rem,5vw,4.5rem);
-}
-.cat-pill{
-  padding:.44rem 1rem;border-radius:50px;
-  font-size:clamp(.62rem,.85vw,.7rem);font-weight:600;letter-spacing:1.8px;text-transform:uppercase;
-  border:1.5px solid transparent;background:transparent;color:var(--warm);
-  cursor:pointer;transition:.3s var(--spring);white-space:nowrap;
-}
-.cat-pill:hover{background:rgba(201,151,59,.1);color:var(--tan)}
-.cat-pill.on{background:var(--ink);color:var(--gold);border-color:var(--ink)}
+    .cursor-ring {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(201, 151, 59, .58);
+      transition: width .2s var(--ease), height .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
+    }
 
-/* category block */
-.cat-section{margin-bottom:clamp(3rem,6vw,5rem)}
-.cat-section:last-child{margin-bottom:0}
-.cat-header{display:flex;align-items:center;gap:.9rem;margin-bottom:clamp(1.4rem,3.5vw,2.2rem);padding-bottom:.9rem;border-bottom:2px solid var(--cream);position:relative}
-.cat-header::after{content:'';position:absolute;bottom:-2px;left:0;width:55px;height:2px;background:linear-gradient(to right,var(--gold),var(--honey))}
-.cat-icon-wrap{width:50px;height:50px;flex-shrink:0;border-radius:14px;background:linear-gradient(135deg,var(--ink),var(--mid));display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 6px 16px rgba(26,10,2,.2)}
-.cat-title{font-family:var(--serif);font-size:clamp(1.35rem,3vw,2rem);font-weight:700;color:var(--ink);line-height:1}
-.cat-count{font-size:clamp(.62rem,.8vw,.7rem);letter-spacing:3px;text-transform:uppercase;color:var(--warm);margin-top:.2rem}
+    .cursor-ring.hover {
+      width: 72px;
+      height: 72px;
+      border-color: var(--gold);
+      background: rgba(201, 151, 59, .09);
+    }
 
-/* product grid */
-.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.9rem,2vw,1.7rem)}
+    @media (pointer: fine) {
+      body {
+        cursor: none;
+      }
 
-/* product card */
-.pcard{border-radius:20px;overflow:hidden;background:var(--white);border:1px solid rgba(184,101,26,.1);box-shadow:0 2px 12px rgba(26,10,2,.05);transition:transform .4s var(--spring),box-shadow .4s var(--ease);position:relative;display:flex;flex-direction:column}
-.pcard:hover{transform:translateY(-8px);box-shadow:0 18px 44px rgba(26,10,2,.15)}
-.pcard-img{position:relative;height:clamp(150px,18vw,210px);overflow:hidden;flex-shrink:0}
-.pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .65s var(--ease)}
-.pcard:hover .pcard-img img{transform:scale(1.09)}
-.pcard-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,2,.35),transparent 55%);opacity:0;transition:opacity .4s}
-.pcard:hover .pcard-img::after{opacity:1}
-.pcard-badge{position:absolute;top:.7rem;left:.7rem;background:linear-gradient(135deg,var(--gold),var(--honey));color:var(--ink);padding:.2rem .65rem;border-radius:50px;font-size:clamp(.56rem,.75vw,.62rem);font-weight:700;letter-spacing:1.8px;text-transform:uppercase;box-shadow:0 3px 10px rgba(201,151,59,.4);z-index:1}
-.pcard-fav{position:absolute;top:.68rem;right:.68rem;z-index:1;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;color:var(--blush);transition:.35s var(--spring);box-shadow:0 2px 8px rgba(26,10,2,.1)}
-.pcard-fav:hover,.pcard-fav.liked{background:var(--blush);color:#fff;transform:scale(1.25)}
-.pcard-body{padding:clamp(.85rem,1.8vw,1.3rem);display:flex;flex-direction:column;flex:1}
-.pcard-name{font-family:var(--serif);font-size:clamp(.95rem,1.7vw,1.15rem);font-weight:700;color:var(--ink);margin-bottom:.32rem;line-height:1.2}
-.pcard-desc{font-size:clamp(.72rem,1vw,.8rem);color:var(--warm);line-height:1.7;margin-bottom:.9rem;flex:1}
-.pcard-row{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-top:auto}
-.pcard-price{font-family:var(--serif);font-size:clamp(1rem,2vw,1.35rem);font-weight:700;color:var(--mid);line-height:1}
-.pcard-price sup{font-size:.58rem;vertical-align:super;color:var(--tan)}
-.pcard-price sub{font-size:.6rem;font-family:var(--sans);font-weight:400;color:var(--tan)}
-.wa-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--ink);color:var(--gold);padding:.48rem 1rem;border-radius:50px;font-size:clamp(.64rem,.85vw,.7rem);font-weight:600;letter-spacing:1.4px;text-transform:uppercase;border:none;cursor:pointer;transition:.35s var(--spring);text-decoration:none;white-space:nowrap}
-.wa-btn:hover{background:var(--gold);color:var(--ink);transform:scale(1.06)}
+      .cursor-dot,
+      .cursor-ring {
+        display: block;
+      }
+    }
 
-/* offer strip */
-.offer-strip{margin-top:clamp(2rem,4vw,3.5rem);border-radius:22px;overflow:hidden;position:relative;background:linear-gradient(135deg,var(--ink),#3d1508,var(--mid));padding:clamp(1.6rem,4vw,3rem) clamp(1.4rem,4vw,3.5rem);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-.offer-strip::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;top:-200px;right:-100px;background:radial-gradient(circle,rgba(201,151,59,.18),transparent 65%)}
-.off-txt{position:relative;z-index:1}
-.off-eye{display:inline-flex;align-items:center;gap:.6rem;font-size:.64rem;letter-spacing:5px;text-transform:uppercase;color:var(--shine);margin-bottom:.7rem}
-.off-eye::before,.off-eye::after{content:'';display:block;width:20px;height:1px;background:var(--gold)}
-.off-h{font-family:var(--serif);font-size:clamp(1.2rem,3vw,1.9rem);font-weight:700;color:#fff;margin-bottom:.35rem;line-height:1.2}
-.off-p{font-size:clamp(.8rem,1.2vw,.88rem);color:rgba(255,252,247,.6)}
-.off-cta{position:relative;z-index:1;display:inline-flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,var(--gold),var(--honey));color:var(--ink);padding:.9rem 2.2rem;border-radius:50px;font-weight:700;font-size:clamp(.72rem,1.2vw,.8rem);letter-spacing:2px;text-transform:uppercase;box-shadow:0 8px 24px rgba(201,151,59,.45);transition:.4s var(--spring);white-space:nowrap}
-.off-cta:hover{transform:scale(1.06);box-shadow:0 14px 36px rgba(201,151,59,.65)}
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0 clamp(1rem, 4.5vw, 4.6rem);
+      color: rgba(255, 255, 255, .92);
+      transition: height .35s var(--ease), background .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease), color .35s var(--ease);
+    }
 
-/* ════ ABOUT ════ */
-#about{background:var(--cream);position:relative;overflow:hidden}
-#about::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;left:-250px;top:-180px;background:radial-gradient(circle,rgba(184,101,26,.07),transparent 70%)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,7rem);align-items:center}
-.about-photos{position:relative;height:clamp(300px,50vw,580px)}
-.ab-main{position:absolute;top:0;left:0;width:72%;height:73%;border-radius:22px;overflow:hidden;box-shadow:0 20px 60px rgba(26,10,2,.26)}
-.ab-main img,.ab-accent img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
-.ab-main:hover img,.ab-accent:hover img{transform:scale(1.05)}
-.ab-accent{position:absolute;bottom:0;right:0;width:50%;height:50%;border-radius:20px;overflow:hidden;box-shadow:0 14px 40px rgba(26,10,2,.22);border:5px solid var(--white)}
-.yr-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--honey));display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(201,151,59,.6);z-index:10;animation:floatBadge 5s ease-in-out infinite}
-@keyframes floatBadge{0%,100%{transform:translate(-50%,-50%)rotate(-6deg)}50%{transform:translate(-50%,-58%)rotate(6deg)}}
-.yr-badge b{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--ink);line-height:1}
-.yr-badge small{font-size:.5rem;letter-spacing:2px;text-transform:uppercase;color:rgba(44,16,8,.65)}
-.ab-body{font-size:clamp(.85rem,1.2vw,.95rem);color:var(--warm);line-height:1.95;margin:1.1rem 0 1.6rem}
-.pillars{display:flex;flex-direction:column;gap:.95rem}
-.pillar{display:flex;gap:1rem;align-items:flex-start;padding:.95rem 1.1rem;background:var(--white);border-radius:15px;border:1px solid rgba(184,101,26,.14);transition:.35s;position:relative;overflow:hidden}
-.pillar::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--gold),var(--honey));transform:scaleY(0);transition:transform .4s var(--ease);transform-origin:top}
-.pillar:hover::before{transform:scaleY(1)}
-.pillar:hover{transform:translateX(6px);box-shadow:0 6px 18px rgba(26,10,2,.08);border-color:var(--honey)}
-.pillar-ico{width:42px;height:42px;min-width:42px;border-radius:12px;background:linear-gradient(135deg,var(--mid),var(--tan));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem}
-.pillar-name{font-family:var(--serif);font-weight:600;color:var(--ink);margin-bottom:.2rem;font-size:.93rem}
-.pillar-info{font-size:clamp(.75rem,1vw,.82rem);color:var(--warm);line-height:1.65}
+    .nav.scrolled {
+      height: 70px;
+      color: rgba(26, 10, 2, .78);
+      border-bottom: 1px solid rgba(201, 151, 59, .14);
+      background: rgba(255, 250, 242, .82);
+      box-shadow: 0 16px 45px rgba(43, 17, 3, .08);
+      backdrop-filter: blur(24px) saturate(1.3);
+    }
 
-/* ════ PROCESS ════ */
-#process{background:var(--ink);position:relative;overflow:hidden}
-#process::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=1400&q=50')center/cover no-repeat;opacity:.05}
-.proc-hd{text-align:center;margin-bottom:clamp(2.5rem,5vw,4.5rem);position:relative;z-index:1}
-.proc-hd .eyebrow{color:var(--shine)}
-.proc-hd .eyebrow::before,.proc-hd .eyebrow::after{background:var(--gold)}
-.proc-hd .sec-h2{color:var(--wheat)}
-.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;position:relative;z-index:1}
-.proc-steps::before{content:'';position:absolute;top:3rem;left:calc(12.5% + 29px);right:calc(12.5% + 29px);height:1px;background:repeating-linear-gradient(90deg,var(--gold),var(--gold) 8px,transparent 8px,transparent 18px)}
-.step{text-align:center;padding:1.2rem .8rem;position:relative;z-index:1}
-.step-n{width:56px;height:56px;border-radius:50%;margin:0 auto 1.3rem;background:linear-gradient(135deg,var(--gold),var(--honey));display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--ink);box-shadow:0 8px 22px rgba(201,151,59,.5);transition:.45s var(--spring);position:relative}
-.step-n::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1.5px solid rgba(201,151,59,.3);transition:inset .4s var(--ease)}
-.step:hover .step-n{transform:scale(1.18) rotate(8deg)}
-.step:hover .step-n::after{inset:-9px}
-.step-ico{font-size:1.7rem;margin-bottom:.8rem;display:block;line-height:1}
-.step-name{font-family:var(--serif);font-size:clamp(1rem,1.6vw,1.1rem);color:var(--wheat);margin-bottom:.4rem}
-.step-txt{font-size:clamp(.76rem,1vw,.82rem);color:rgba(245,222,179,.5);line-height:1.75}
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .78rem;
+      min-width: 0;
+      color: inherit;
+    }
 
-/* ════ GALLERY ════ */
-.gallery{padding:0;overflow:hidden;display:flex;height:clamp(140px,20vw,290px)}
-.gl-item{flex:1;overflow:hidden;position:relative;cursor:zoom-in}
-.gl-item img{width:100%;height:100%;object-fit:cover;filter:saturate(.9)brightness(.92);transition:transform .6s var(--ease),filter .5s}
-.gl-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,2,.55),transparent 50%);opacity:0;transition:opacity .4s}
-.gl-item:hover{flex:3.5}
-.gl-item:hover img{filter:saturate(1.2)brightness(1.05);transform:scale(1.04)}
-.gl-item:hover::after{opacity:1}
+    .brand-mark {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      color: var(--gold);
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--ink), var(--brown));
+      box-shadow: 0 16px 32px rgba(26, 10, 2, .22);
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+    }
 
-/* ════ REVIEWS ════ */
-#reviews{background:var(--white)}
-.rev-hd{text-align:center;margin-bottom:clamp(2rem,4vw,3.5rem)}
-.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.7rem)}
-.rcard{background:var(--cream);border-radius:20px;padding:clamp(1.2rem,2.5vw,1.8rem);border:1px solid rgba(184,101,26,.1);position:relative;overflow:hidden;transition:.4s var(--ease)}
-.rcard::before{content:'';position:absolute;inset:0;border-radius:20px;background:linear-gradient(135deg,rgba(201,151,59,.06),transparent);opacity:0;transition:opacity .35s}
-.rcard:hover::before{opacity:1}
-.rcard:hover{transform:translateY(-6px);box-shadow:0 16px 42px rgba(26,10,2,.12);border-color:var(--honey)}
-.rcard-q{font-size:3.5rem;line-height:.8;font-family:var(--elegant);color:var(--gold);position:absolute;top:.8rem;right:1.1rem;opacity:.35}
-.stars{color:var(--gold);font-size:.8rem;letter-spacing:3px;margin-bottom:.85rem}
-.rcard-txt{font-family:var(--elegant);font-size:clamp(.88rem,1.2vw,.98rem);font-style:italic;color:var(--mid);line-height:1.9;margin-bottom:1.2rem}
-.rcard-auth{display:flex;align-items:center;gap:.85rem}
-.rcard-avi{width:44px;height:44px;border-radius:50%;overflow:hidden;border:2.5px solid var(--caramel);box-shadow:0 3px 10px rgba(26,10,2,.1)}
-.rcard-avi img{width:100%;height:100%;object-fit:cover}
-.rcard-name{font-weight:600;color:var(--ink);font-size:.88rem}
-.rcard-role{font-size:.72rem;color:var(--warm)}
-.rev-bottom{display:flex;align-items:center;justify-content:center;gap:clamp(2rem,5vw,4rem);margin-top:clamp(2.5rem,4vw,3.5rem);flex-wrap:wrap}
-.score-num{font-family:var(--serif);font-size:clamp(3rem,6vw,5rem);font-weight:900;color:var(--ink);line-height:1}
-.score-stars{color:var(--gold);font-size:.95rem;margin:.3rem 0;letter-spacing:3px}
-.score-cnt{font-size:.78rem;color:var(--warm)}
-.ig-card{display:flex;flex-direction:column;align-items:center;gap:.8rem;padding:clamp(1.2rem,3vw,1.7rem) clamp(1.5rem,4vw,2.4rem);background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-radius:20px;text-align:center;color:#fff;text-decoration:none;transition:.4s var(--spring);box-shadow:0 8px 26px rgba(220,39,67,.28)}
-.ig-card:hover{transform:scale(1.05) translateY(-4px);box-shadow:0 16px 40px rgba(220,39,67,.45)}
-.ig-card i{font-size:2rem}
-.ig-card strong{font-family:var(--serif);font-size:clamp(1rem,1.5vw,1.1rem)}
-.ig-card span{font-size:.76rem;opacity:.85}
+    .brand-text {
+      line-height: 1.05;
+    }
 
-/* ════ LOCATIONS ════ */
-#locations{background:var(--cream);position:relative;overflow:hidden}
-#locations::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;right:-300px;bottom:-300px;background:radial-gradient(circle,rgba(184,101,26,.07),transparent 70%)}
-.loc-hd{text-align:center;margin-bottom:clamp(2rem,4vw,3rem)}
-.loc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr));gap:clamp(1rem,2vw,1.5rem)}
-.lcard{background:var(--white);border-radius:18px;border:1px solid rgba(184,101,26,.1);overflow:hidden;transition:transform .4s var(--spring),box-shadow .4s var(--ease)}
-.lcard:hover{transform:translateY(-6px);box-shadow:0 16px 42px rgba(26,10,2,.12);border-color:var(--honey)}
-.lcard-top{background:linear-gradient(135deg,var(--ink),var(--dark),var(--mid));padding:1.1rem 1.3rem;display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;position:relative;overflow:hidden}
-.lcard-top::after{content:'';position:absolute;right:-18px;top:-18px;width:70px;height:70px;border-radius:50%;background:rgba(201,151,59,.1)}
-.lcard-num{font-family:var(--serif);font-size:2rem;font-weight:900;color:rgba(201,151,59,.22);line-height:1;flex-shrink:0}
-.lcard-name{font-family:var(--serif);font-size:clamp(.95rem,1.5vw,1.05rem);font-weight:700;color:var(--wheat);line-height:1.25;position:relative;z-index:1}
-.lcard-tag{font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-top:.25rem;display:block}
-.lcard-body{padding:1rem 1.2rem}
-.lcard-row{display:flex;gap:.7rem;align-items:flex-start;margin-bottom:.65rem;font-size:clamp(.76rem,1vw,.82rem);color:var(--warm);line-height:1.6}
-.lcard-row i{color:var(--gold);min-width:13px;margin-top:2px;flex-shrink:0}
-.lcard-row a{color:var(--tan);transition:color .2s}
-.lcard-row a:hover{color:var(--gold)}
-.lcard-hours{display:inline-flex;align-items:center;gap:.4rem;background:rgba(201,151,59,.1);color:var(--honey);padding:.24rem .68rem;border-radius:50px;font-size:.68rem;font-weight:500;letter-spacing:1px;margin-bottom:.8rem;border:1px solid rgba(201,151,59,.2)}
-.lcard-tags{display:flex;flex-wrap:wrap;gap:.35rem}
-.ltag{background:var(--cream);color:var(--warm);padding:.2rem .6rem;border-radius:50px;font-size:.64rem;font-weight:500;border:1px solid rgba(184,101,26,.14)}
+    .brand-text strong {
+      display: block;
+      color: inherit;
+      font-family: var(--serif);
+      font-size: clamp(1rem, 1.6vw, 1.34rem);
+      letter-spacing: .02em;
+      white-space: nowrap;
+    }
 
-/* ════ FOOTER ════ */
-footer{background:var(--ink);color:var(--wheat);padding:clamp(3.5rem,7vw,6rem) 0 2rem;position:relative;overflow:hidden}
-footer::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;right:-200px;top:-200px;background:radial-gradient(circle,rgba(201,151,59,.06),transparent 65%);pointer-events:none}
-.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:clamp(1.5rem,3.5vw,3.5rem);margin-bottom:3rem}
-.brand-name{font-family:var(--serif);font-size:clamp(1.3rem,2.5vw,1.7rem);font-weight:700;letter-spacing:1.5px;color:var(--wheat);display:block;margin-bottom:.25rem}
-.brand-sub{font-size:.56rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.9rem}
-.brand-desc{font-size:clamp(.78rem,1vw,.86rem);color:rgba(245,222,179,.55);line-height:1.9;margin-bottom:1.3rem}
-.socials{display:flex;gap:.6rem;flex-wrap:wrap}
-.soc{width:38px;height:38px;border-radius:10px;border:1px solid rgba(245,222,179,.15);display:flex;align-items:center;justify-content:center;color:rgba(245,222,179,.6);text-decoration:none;font-size:.88rem;transition:.3s var(--spring)}
-.soc:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);transform:translateY(-4px) scale(1.1)}
-.ft-head{font-family:var(--serif);font-size:.98rem;color:var(--wheat);margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:1px solid rgba(245,222,179,.08);position:relative}
-.ft-head::after{content:'';position:absolute;bottom:-1px;left:0;width:24px;height:1px;background:var(--gold)}
-.ft-links{list-style:none;display:flex;flex-direction:column;gap:.65rem}
-.ft-links a{color:rgba(245,222,179,.5);text-decoration:none;font-size:clamp(.78rem,.9vw,.84rem);display:flex;align-items:center;gap:.5rem;transition:.3s}
-.ft-links a::before{content:'›';font-size:.95rem;color:var(--gold);transition:transform .3s}
-.ft-links a:hover{color:var(--gold);transform:translateX(5px)}
-.ct-row{display:flex;gap:.8rem;margin-bottom:.8rem;font-size:clamp(.78rem,.9vw,.84rem);color:rgba(245,222,179,.57);line-height:1.65}
-.ct-row i{color:var(--gold);margin-top:3px;min-width:13px;flex-shrink:0}
-.ct-row a{color:inherit}
-.ct-row a:hover{color:var(--gold)}
-.hr-row{display:flex;justify-content:space-between;padding:.32rem 0;border-bottom:1px solid rgba(245,222,179,.05);font-size:.8rem;color:rgba(245,222,179,.47)}
-.hr-row .dy{color:rgba(245,222,179,.77);font-weight:500}
-.hrs-note{margin-top:1rem;padding:.7rem .9rem;background:rgba(201,151,59,.09);border-radius:11px;border:1px solid rgba(201,151,59,.18);font-size:.74rem;color:rgba(245,222,179,.57);line-height:1.65}
-.hrs-note i{color:var(--gold);margin-right:.3rem}
-.ft-bot{border-top:1px solid rgba(245,222,179,.08);padding-top:1.6rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.76rem;color:rgba(245,222,179,.28)}
-.ft-bot a{color:var(--gold)}
+    .brand-text span {
+      display: block;
+      margin-top: .2rem;
+      color: inherit;
+      opacity: .72;
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
 
-/* ════════════════════════════════
-   RESPONSIVE BREAKPOINTS
-════════════════════════════════ */
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: clamp(.35rem, 1vw, 1rem);
+      list-style: none;
+    }
 
-/* Large tablets / small laptops (1024-1280px at 100% scale, or 1280px+ at 125%) */
-@media(max-width:1280px){
-  .prod-grid{grid-template-columns:repeat(3,1fr)}
-  .ft-grid{grid-template-columns:1.8fr 1fr 1fr}
-  .ft-grid > div:last-child{grid-column:1/-1}
-}
+    .nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      color: inherit;
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      transition: color .25s var(--ease);
+    }
 
-@media(max-width:1100px){
-  :root{--nav-h:64px}
-  .about-grid{grid-template-columns:1fr;gap:3rem}
-  .about-photos{height:clamp(280px,55vw,420px)}
-  .ft-grid{grid-template-columns:1fr 1fr;gap:2.5rem}
-  .ft-grid > div:last-child{grid-column:auto}
-  .proc-steps{grid-template-columns:1fr 1fr}
-  .proc-steps::before{display:none}
-  .rev-grid{grid-template-columns:1fr 1fr}
-  .feat-grid{grid-template-columns:1fr 1fr}
-  .feat:nth-child(2){border-right:none}
-  .feat:nth-child(3){border-top:1px solid rgba(245,222,179,.07)}
-  .prod-grid{grid-template-columns:repeat(3,1fr)}
-}
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 8px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--gold);
+      transition: width .25s var(--ease), left .25s var(--ease);
+    }
 
-@media(max-width:900px){
-  :root{--nav-h:60px}
-  .prod-grid{grid-template-columns:repeat(2,1fr)}
-  .rev-grid{grid-template-columns:1fr}
-  .nav-links li:nth-child(n+4):not(:last-child){display:none}
-}
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--gold);
+    }
 
-@media(max-width:768px){
-  :root{--nav-h:58px}
-  .nav-links,.nav-cta{display:none!important}
-  .hbg{display:flex}
-  section{padding:clamp(2.5rem,6vw,5rem) 0}
-  .h-stats{right:clamp(.8rem,3vw,4%);gap:clamp(.7rem,2vw,1.5rem)}
-  .hstat b{font-size:clamp(1rem,4vw,1.5rem)}
-  .h-scroll{display:none}
-  .feat-grid{grid-template-columns:1fr 1fr}
-  .about-photos{height:clamp(260px,70vw,360px)}
-  .offer-strip{padding:1.6rem;flex-direction:column;text-align:center}
-  .off-eye{justify-content:center}
-  .rev-bottom{gap:2rem}
-  .proc-steps{grid-template-columns:1fr 1fr}
-  .proc-steps::before{display:none}
-  .ft-grid{grid-template-columns:1fr;gap:2rem}
-  .prod-grid{grid-template-columns:repeat(2,1fr)}
-  .cat-nav{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding:.6rem .8rem;-webkit-overflow-scrolling:touch;scrollbar-width:none}
-  .cat-nav::-webkit-scrollbar{display:none}
-  .feat:nth-child(n){border:none;border-bottom:1px solid rgba(245,222,179,.07)}
-  .feat:last-child{border-bottom:none}
-}
+    .nav.scrolled .nav-link:hover,
+    .nav.scrolled .nav-link.active {
+      color: var(--coffee);
+    }
 
-@media(max-width:540px){
-  :root{--nav-h:54px}
-  .h-h1{font-size:clamp(1.9rem,8vw,2.8rem)}
-  .h-stats{display:none}
-  .h-btns{flex-direction:column;width:100%}
-  .btn-gold,.btn-ghost{justify-content:center;width:100%}
-  .feat-grid{grid-template-columns:1fr}
-  .proc-steps{grid-template-columns:1fr}
-  .prod-grid{grid-template-columns:1fr}
-  .rev-grid{grid-template-columns:1fr}
-  .gallery{height:clamp(130px,40vw,200px)}
-  .gl-item:hover{flex:2.5}
-}
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+      left: 0;
+    }
 
-@media(max-width:360px){
-  :root{--nav-h:50px}
-  .h-h1{font-size:1.8rem}
-  .h-tag{font-size:.54rem;padding:.3rem .8rem}
-  .cat-pill{font-size:.6rem;padding:.38rem .8rem}
-}
-</style>
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      min-height: 46px;
+      padding: .78rem 1.12rem;
+      color: var(--ink);
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--honey));
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      box-shadow: 0 16px 34px rgba(201, 151, 59, .34);
+      transition: transform .25s var(--spring), box-shadow .25s var(--ease);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 22px 48px rgba(201, 151, 59, .48);
+    }
+
+    .hamburger {
+      display: none;
+      width: 46px;
+      height: 46px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      color: var(--gold);
+      border-radius: 16px;
+      background: var(--ink);
+    }
+
+    .hamburger span {
+      width: 21px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      transition: transform .3s var(--ease), opacity .3s var(--ease);
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 30%, rgba(201, 151, 59, .18), transparent 30%),
+        var(--ink);
+      clip-path: circle(0 at 90% 10%);
+      transition: clip-path .75s var(--spring);
+    }
+
+    .mobile-menu.open {
+      clip-path: circle(145% at 90% 10%);
+    }
+
+    .mobile-menu a {
+      color: var(--cream-2);
+      font-family: var(--serif);
+      font-size: clamp(2.1rem, 9vw, 4rem);
+      font-weight: 700;
+      line-height: 1.05;
+      opacity: .92;
+      transition: color .25s var(--ease), transform .25s var(--ease);
+    }
+
+    .mobile-menu a:hover {
+      color: var(--gold);
+      transform: translateX(14px);
+    }
+
+    .mobile-menu a + a {
+      margin-top: 1rem;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 8.5rem clamp(1rem, 5vw, 5rem) 5rem;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background:
+        linear-gradient(90deg, rgba(26, 10, 2, .94), rgba(26, 10, 2, .70) 52%, rgba(26, 10, 2, .18)),
+        linear-gradient(0deg, rgba(26, 10, 2, .78), transparent 48%),
+        url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1920&q=90') center / cover;
+      transform: scale(1.06);
+      animation: kenburns 18s ease-in-out infinite alternate;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 82% 30%, rgba(201, 151, 59, .24), transparent 24%),
+        radial-gradient(circle at 66% 78%, rgba(232, 148, 138, .16), transparent 26%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -12vw;
+      bottom: -18vw;
+      z-index: -1;
+      width: 56vw;
+      height: 56vw;
+      border-radius: 50%;
+      background: rgba(201, 151, 59, .13);
+      filter: blur(4px);
+      animation: glowPulse 4.8s ease-in-out infinite;
+    }
+
+    .hero-inner {
+      width: min(var(--max), 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: clamp(2rem, 6vw, 6rem);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .65rem;
+      min-height: 38px;
+      padding: .48rem .82rem;
+      color: var(--gold);
+      border: 1px solid rgba(201, 151, 59, .34);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .08);
+      backdrop-filter: blur(14px);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow.dark {
+      color: var(--coffee);
+      border-color: rgba(201, 151, 59, .18);
+      background: rgba(201, 151, 59, .10);
+    }
+
+    .hero h1 {
+      margin-top: 1.25rem;
+      color: #fff;
+      font-family: var(--serif);
+      font-size: clamp(3rem, 8.2vw, 7.5rem);
+      line-height: .92;
+      letter-spacing: -.058em;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: transparent;
+      background: linear-gradient(135deg, #fff7d6, var(--gold), var(--honey));
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-style: italic;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin-top: 1.35rem;
+      color: rgba(255, 252, 247, .76);
+      font-size: clamp(1rem, 1.6vw, 1.16rem);
+      line-height: 1.85;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .85rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      position: relative;
+      isolation: isolate;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+      min-height: 54px;
+      padding: .9rem 1.35rem;
+      overflow: hidden;
+      border-radius: 999px;
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: transform .25s var(--spring), box-shadow .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease), color .25s var(--ease);
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      width: 45%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, .38), transparent);
+      transform: translateX(-120%) skewX(-18deg);
+      transition: transform .75s var(--ease);
+    }
+
+    .btn:hover::before {
+      transform: translateX(240%) skewX(-18deg);
+    }
+
+    .btn-primary {
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--gold), var(--honey));
+      box-shadow: 0 18px 42px rgba(201, 151, 59, .42);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 26px 58px rgba(201, 151, 59, .56);
+    }
+
+    .btn-secondary {
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, .28);
+      background: rgba(255, 255, 255, .08);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+      background: rgba(201, 151, 59, .14);
+    }
+
+    .btn-light {
+      color: var(--ink);
+      background: var(--paper);
+      box-shadow: 0 16px 34px rgba(43, 17, 3, .14);
+    }
+
+    .hero-showcase {
+      position: relative;
+      min-height: 560px;
+      perspective: 1200px;
+    }
+
+    .showcase-stage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+    }
+
+    .showcase-card {
+      position: absolute;
+      overflow: hidden;
+      border-radius: 34px;
+      background: var(--paper);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, .34);
+      transform-style: preserve-3d;
+      animation: cardFloat 5s ease-in-out infinite;
+    }
+
+    .showcase-card img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .8s var(--ease);
+    }
+
+    .showcase-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .showcase-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 42%, rgba(26, 10, 2, .64));
+      pointer-events: none;
+    }
+
+    .showcase-card.one {
+      width: min(72%, 390px);
+      height: 470px;
+      top: 0;
+      right: 4%;
+      transform: rotate(7deg);
+    }
+
+    .showcase-card.two {
+      width: 58%;
+      height: 260px;
+      left: 0;
+      bottom: 70px;
+      transform: rotate(-10deg);
+      animation-delay: .75s;
+    }
+
+    .showcase-card.three {
+      width: 38%;
+      height: 190px;
+      left: 12%;
+      top: 22px;
+      transform: rotate(-7deg);
+      animation-delay: 1.25s;
+    }
+
+    .showcase-badge {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 1;
+      color: #fff;
+    }
+
+    .showcase-badge strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      line-height: 1.05;
+    }
+
+    .showcase-badge span {
+      display: block;
+      margin-top: .35rem;
+      opacity: .84;
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .floating-stat {
+      position: absolute;
+      z-index: 2;
+      display: grid;
+      gap: .16rem;
+      min-width: 136px;
+      padding: 1rem;
+      border: 1px solid rgba(201, 151, 59, .16);
+      border-radius: 24px;
+      background: rgba(255, 249, 240, .88);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(18px);
+    }
+
+    .floating-stat strong {
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .floating-stat span {
+      color: var(--coffee);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .floating-stat.a {
+      right: 0;
+      bottom: 28px;
+    }
+
+    .floating-stat.b {
+      left: 0;
+      top: 130px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .crumb {
+      position: absolute;
+      z-index: 1;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 224, 163, .78);
+      box-shadow: 0 0 24px rgba(201, 151, 59, .55);
+      animation: crumbFloat 5.8s ease-in-out infinite;
+    }
+
+    .crumb.c1 { left: 10%; top: 18%; animation-delay: .2s; }
+    .crumb.c2 { right: 18%; top: 24%; width: 8px; height: 8px; animation-delay: 1.1s; }
+    .crumb.c3 { left: 24%; bottom: 20%; width: 10px; height: 10px; animation-delay: 1.9s; }
+    .crumb.c4 { right: 8%; bottom: 18%; width: 7px; height: 7px; animation-delay: 2.5s; }
+
+    .marquee {
+      overflow: hidden;
+      padding: 1rem 0;
+      transform: rotate(-1.2deg) scale(1.03);
+      border-block: 1px solid rgba(255, 255, 255, .45);
+      background: linear-gradient(135deg, var(--gold), var(--honey), var(--caramel));
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+
+    .marquee span {
+      padding: 0 1.5rem;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    .marquee span::after {
+      content: '✦';
+      margin-left: 1.5rem;
+      opacity: .55;
+    }
+
+    .section {
+      padding: clamp(4.5rem, 8vw, 8rem) 0;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: .85fr 1fr;
+      align-items: end;
+      gap: clamp(1.5rem, 5vw, 4rem);
+      margin-bottom: clamp(2rem, 5vw, 4rem);
+    }
+
+    .kicker {
+      color: var(--coffee);
+      font-size: .74rem;
+      font-weight: 900;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin-top: .65rem;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      line-height: .98;
+      letter-spacing: -.045em;
+    }
+
+    .section-title em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .lead {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: clamp(.95rem, 1.3vw, 1.08rem);
+      line-height: 1.85;
+    }
+
+    .features {
+      position: relative;
+      overflow: hidden;
+      color: var(--cream-2);
+      background: var(--ink);
+    }
+
+    .features::before {
+      content: '';
+      position: absolute;
+      inset: -30%;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(201, 151, 59, .18), transparent 22%),
+        radial-gradient(circle at 80% 60%, rgba(232, 148, 138, .10), transparent 24%);
+    }
+
+    .feature-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .06);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card {
+      position: relative;
+      min-height: 238px;
+      overflow: hidden;
+      padding: 2rem 1.5rem;
+      background: rgba(255, 255, 255, .035);
+      transition: background .3s var(--ease), transform .3s var(--ease);
+    }
+
+    .feature-card::after {
+      content: '';
+      position: absolute;
+      inset: auto 1.5rem 1.5rem auto;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: rgba(201, 151, 59, .12);
+      filter: blur(18px);
+      opacity: 0;
+      transition: opacity .3s var(--ease), transform .3s var(--ease);
+    }
+
+    .feature-card:hover {
+      background: rgba(201, 151, 59, .09);
+      transform: translateY(-8px);
+    }
+
+    .feature-card:hover::after {
+      opacity: 1;
+      transform: scale(1.3);
+    }
+
+    .feature-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1.2rem;
+      color: var(--gold);
+      border: 1px solid rgba(201, 151, 59, .22);
+      border-radius: 19px;
+      background: rgba(201, 151, 59, .10);
+      font-size: 1.35rem;
+      transition: transform .35s var(--spring), color .35s var(--ease), background .35s var(--ease);
+    }
+
+    .feature-card:hover .feature-icon {
+      color: var(--ink);
+      background: var(--gold);
+      transform: rotate(-8deg) scale(1.08);
+    }
+
+    .feature-card h3 {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      margin-bottom: .7rem;
+    }
+
+    .feature-card p {
+      color: var(--muted-light);
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+
+    .menu-section {
+      background:
+        radial-gradient(circle at 15% 15%, rgba(201, 151, 59, .09), transparent 26%),
+        var(--paper);
+    }
+
+    .category-nav {
+      position: sticky;
+      top: 74px;
+      z-index: 80;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin: 0 0 2.2rem;
+      padding: .75rem;
+      border: 1px solid rgba(201, 151, 59, .16);
+      border-radius: 999px;
+      background: rgba(255, 249, 240, .82);
+      box-shadow: 0 16px 40px rgba(43, 17, 3, .08);
+      backdrop-filter: blur(20px);
+    }
+
+    .cat-pill {
+      padding: .72rem 1rem;
+      color: var(--coffee);
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: color .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease), transform .25s var(--spring);
+    }
+
+    .cat-pill:hover,
+    .cat-pill.active {
+      color: var(--ink);
+      background: var(--gold);
+      box-shadow: 0 12px 24px rgba(201, 151, 59, .25);
+      transform: translateY(-2px);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1rem, 2vw, 1.5rem);
+      transition: opacity .22s var(--ease), transform .22s var(--ease);
+    }
+
+    .product-grid.switching {
+      opacity: .35;
+      transform: translateY(10px);
+    }
+
+    .product-card {
+      --delay: 0ms;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(107, 50, 21, .08);
+      border-radius: 28px;
+      background: var(--paper-2);
+      box-shadow: var(--shadow-soft);
+      transition: opacity .65s var(--ease) var(--delay), transform .65s var(--ease) var(--delay), box-shadow .35s var(--ease);
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 28px 80px rgba(43, 17, 3, .18);
+    }
+
+    .product-media {
+      position: relative;
+      height: 230px;
+      overflow: hidden;
+      background: var(--cream);
+    }
+
+    .product-media img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .75s var(--ease), filter .75s var(--ease);
+    }
+
+    .product-card:hover .product-media img {
+      transform: scale(1.1);
+      filter: saturate(1.12) brightness(1.04);
+    }
+
+    .product-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background: linear-gradient(180deg, transparent, rgba(26, 10, 2, .42));
+      transition: opacity .35s var(--ease);
+    }
+
+    .product-card:hover .product-media::after {
+      opacity: 1;
+    }
+
+    .badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1;
+      padding: .38rem .7rem;
+      color: var(--ink);
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--honey));
+      box-shadow: 0 10px 24px rgba(201, 151, 59, .35);
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .favorite {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 2;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      color: var(--rose);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .88);
+      box-shadow: 0 12px 26px rgba(43, 17, 3, .12);
+      backdrop-filter: blur(10px);
+      transition: transform .25s var(--spring), background .25s var(--ease), color .25s var(--ease);
+    }
+
+    .favorite:hover,
+    .favorite.liked {
+      color: #fff;
+      background: var(--rose);
+      transform: scale(1.12) rotate(-6deg);
+    }
+
+    .product-body {
+      padding: 1.25rem;
+    }
+
+    .product-title {
+      margin-bottom: .55rem;
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      line-height: 1.1;
+    }
+
+    .product-desc {
+      min-height: 76px;
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.65;
+    }
+
+    .product-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .8rem;
+      margin-top: 1rem;
+    }
+
+    .price {
+      color: var(--coffee);
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      font-weight: 800;
+    }
+
+    .price small {
+      font-family: var(--sans);
+      font-size: .75rem;
+      color: var(--coffee);
+      opacity: .65;
+    }
+
+    .order-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .45rem;
+      min-width: 96px;
+      min-height: 42px;
+      color: var(--gold);
+      border-radius: 999px;
+      background: var(--ink);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: transform .25s var(--spring), background .25s var(--ease), color .25s var(--ease);
+    }
+
+    .order-btn:hover {
+      color: var(--ink);
+      background: var(--gold);
+      transform: scale(1.06);
+    }
+
+    .offer {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      overflow: hidden;
+      margin-top: 2.5rem;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      color: #fff;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(201, 151, 59, .26), transparent 28%),
+        linear-gradient(135deg, var(--ink), var(--brown), var(--coffee));
+      box-shadow: var(--shadow);
+    }
+
+    .offer::before {
+      content: '';
+      position: absolute;
+      right: 12%;
+      bottom: -20%;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(201, 151, 59, .10);
+      filter: blur(2px);
+    }
+
+    .offer h3 {
+      position: relative;
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.05;
+      margin-top: .35rem;
+    }
+
+    .offer p {
+      position: relative;
+      margin-top: .8rem;
+      color: rgba(255, 252, 247, .68);
+      line-height: 1.7;
+    }
+
+    .about {
+      position: relative;
+      overflow: hidden;
+      background: var(--paper-2);
+    }
+
+    .about::before {
+      content: '';
+      position: absolute;
+      top: -180px;
+      left: -180px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: rgba(201, 151, 59, .10);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: center;
+      gap: clamp(2rem, 6vw, 5rem);
+    }
+
+    .about-visual {
+      position: relative;
+      min-height: 560px;
+    }
+
+    .photo-card {
+      position: absolute;
+      overflow: hidden;
+      border-radius: 34px;
+      background: var(--cream);
+      box-shadow: var(--shadow);
+    }
+
+    .photo-card img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform .7s var(--ease);
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.07);
+    }
+
+    .photo-card.main {
+      width: 74%;
+      height: 430px;
+      top: 0;
+      left: 0;
+    }
+
+    .photo-card.small {
+      width: 48%;
+      height: 240px;
+      right: 0;
+      bottom: 42px;
+      border: 8px solid var(--paper-2);
+    }
+
+    .year-badge {
+      position: absolute;
+      left: 14%;
+      bottom: 0;
+      z-index: 2;
+      width: 112px;
+      height: 112px;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--honey));
+      box-shadow: 0 18px 42px rgba(201, 151, 59, .35);
+      text-align: center;
+      animation: float 4.5s ease-in-out infinite;
+    }
+
+    .year-badge strong {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      line-height: .9;
+    }
+
+    .year-badge span {
+      display: block;
+      margin-top: .3rem;
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .about-copy p {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.9;
+    }
+
+    .pillar-list {
+      display: grid;
+      gap: .85rem;
+      margin-top: 1.5rem;
+    }
+
+    .pillar {
+      display: flex;
+      align-items: flex-start;
+      gap: .9rem;
+      padding: 1rem;
+      border: 1px solid rgba(201, 151, 59, .12);
+      border-radius: 22px;
+      background: var(--paper);
+      transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+    }
+
+    .pillar:hover {
+      transform: translateX(8px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .pillar i {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      color: #fff;
+      border-radius: 15px;
+      background: linear-gradient(135deg, var(--brown), var(--coffee));
+    }
+
+    .pillar h4 {
+      margin-bottom: .25rem;
+      font-family: var(--serif);
+      font-size: 1.05rem;
+    }
+
+    .pillar p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.65;
+    }
+
+    .process {
+      position: relative;
+      overflow: hidden;
+      color: var(--cream-2);
+      background:
+        linear-gradient(rgba(26, 10, 2, .92), rgba(26, 10, 2, .92)),
+        url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=1500&q=60') center / cover;
+    }
+
+    .process .section-title {
+      color: #fff;
+    }
+
+    .process .lead {
+      color: var(--muted-light);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .step {
+      position: relative;
+      min-height: 260px;
+      overflow: hidden;
+      padding: 1.4rem;
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, .055);
+      backdrop-filter: blur(10px);
+      transition: transform .3s var(--spring), background .3s var(--ease);
+    }
+
+    .step::before {
+      content: '';
+      position: absolute;
+      inset: auto -20% -35% auto;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: rgba(201, 151, 59, .12);
+      filter: blur(12px);
+      opacity: 0;
+      transition: opacity .3s var(--ease), transform .3s var(--ease);
+    }
+
+    .step:hover {
+      background: rgba(201, 151, 59, .09);
+      transform: translateY(-10px);
+    }
+
+    .step:hover::before {
+      opacity: 1;
+      transform: scale(1.4);
+    }
+
+    .step-num {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1.2rem;
+      color: var(--ink);
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--gold), var(--honey));
+      box-shadow: 0 14px 28px rgba(201, 151, 59, .28);
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    .step-icon {
+      margin-bottom: 1rem;
+      color: var(--gold);
+      font-size: 2rem;
+    }
+
+    .step h3 {
+      margin-bottom: .55rem;
+      font-family: var(--serif);
+      font-size: 1.25rem;
+    }
+
+    .step p {
+      color: var(--muted-light);
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      overflow: hidden;
+      background: var(--paper);
+    }
+
+    .gallery-item {
+      position: relative;
+      height: 280px;
+      overflow: hidden;
+      cursor: zoom-in;
+    }
+
+    .gallery-item img {
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.9) brightness(.95);
+      transition: transform .7s var(--ease), filter .7s var(--ease);
+    }
+
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background: linear-gradient(180deg, transparent, rgba(26, 10, 2, .55));
+      transition: opacity .35s var(--ease);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.12);
+      filter: saturate(1.18) brightness(1.05);
+    }
+
+    .gallery-item:hover::after {
+      opacity: 1;
+    }
+
+    .reviews {
+      background:
+        radial-gradient(circle at 85% 10%, rgba(232, 148, 138, .12), transparent 28%),
+        var(--paper);
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1rem, 2vw, 1.4rem);
+    }
+
+    .review-card {
+      position: relative;
+      overflow: hidden;
+      padding: 1.5rem;
+      border: 1px solid rgba(201, 151, 59, .12);
+      border-radius: 28px;
+      background: var(--paper-2);
+      box-shadow: var(--shadow-soft);
+      transition: transform .3s var(--spring), box-shadow .3s var(--ease);
+    }
+
+    .review-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 26px 70px rgba(43, 17, 3, .14);
+    }
+
+    .quote {
+      position: absolute;
+      top: -.5rem;
+      right: 1rem;
+      color: rgba(201, 151, 59, .20);
+      font-family: var(--serif);
+      font-size: 6rem;
+      line-height: 1;
+    }
+
+    .stars {
+      margin-bottom: 1rem;
+      color: var(--gold);
+      letter-spacing: .16em;
+    }
+
+    .review-card p {
+      position: relative;
+      color: var(--muted);
+      font-family: Georgia, serif;
+      font-size: 1.02rem;
+      line-height: 1.8;
+      font-style: italic;
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      margin-top: 1.25rem;
+    }
+
+    .person img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .person strong {
+      display: block;
+      font-size: .92rem;
+    }
+
+    .person span {
+      display: block;
+      margin-top: .15rem;
+      color: var(--coffee);
+      font-size: .78rem;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: clamp(2rem, 5vw, 4rem);
+      margin-top: 2rem;
+    }
+
+    .score {
+      text-align: center;
+    }
+
+    .score strong {
+      display: block;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      line-height: .9;
+    }
+
+    .score span {
+      display: block;
+      margin-top: .5rem;
+      color: var(--coffee);
+      font-size: .8rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .social-card {
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem;
+      padding: 1rem 1.2rem;
+      color: #fff;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      box-shadow: 0 18px 42px rgba(220, 39, 67, .25);
+      font-weight: 900;
+      transition: transform .25s var(--spring);
+    }
+
+    .social-card:hover {
+      transform: translateY(-5px) scale(1.03);
+    }
+
+    .locations {
+      background: var(--paper-2);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .location-card {
+      overflow: hidden;
+      border: 1px solid rgba(201, 151, 59, .12);
+      border-radius: 26px;
+      background: var(--paper);
+      box-shadow: 0 12px 35px rgba(43, 17, 3, .06);
+      transition: transform .3s var(--spring), box-shadow .3s var(--ease);
+    }
+
+    .location-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .location-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.15rem;
+      color: var(--cream-2);
+      background: linear-gradient(135deg, var(--ink), var(--brown));
+    }
+
+    .location-head span {
+      display: block;
+      margin-bottom: .35rem;
+      color: var(--gold);
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .location-head h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      line-height: 1.15;
+    }
+
+    .location-icon {
+      color: rgba(201, 151, 59, .42);
+      font-size: 2rem;
+    }
+
+    .location-body {
+      padding: 1rem;
+    }
+
+    .location-body p {
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.6;
+    }
+
+    .location-body p + p {
+      margin-top: .45rem;
+    }
+
+    .location-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      margin-top: .8rem;
+    }
+
+    .location-tags span {
+      padding: .25rem .55rem;
+      color: #8b4513;
+      border-radius: 999px;
+      background: #fff3df;
+      font-size: .72rem;
+      font-weight: 900;
+    }
+
+    .location-card a {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      margin-top: .8rem;
+      color: var(--coffee);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .location-card a:hover {
+      color: var(--gold);
+    }
+
+    .footer {
+      padding: clamp(3.5rem, 7vw, 6rem) 0 2rem;
+      color: var(--muted-light);
+      background:
+        radial-gradient(circle at 85% 0%, rgba(201, 151, 59, .12), transparent 28%),
+        var(--ink);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .footer h3,
+    .footer h4 {
+      margin-bottom: 1rem;
+      color: var(--cream-2);
+      font-family: var(--serif);
+    }
+
+    .footer p,
+    .footer li {
+      color: rgba(253, 235, 210, .58);
+      font-size: .9rem;
+      line-height: 1.75;
+    }
+
+    .footer ul {
+      display: grid;
+      gap: .6rem;
+      list-style: none;
+    }
+
+    .footer a:hover {
+      color: var(--gold);
+    }
+
+    .socials {
+      display: flex;
+      gap: .6rem;
+      margin-top: 1rem;
+    }
+
+    .socials a {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      color: var(--cream-2);
+      border: 1px solid rgba(255, 255, 255, .10);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .06);
+      transition: transform .25s var(--spring), background .25s var(--ease), color .25s var(--ease);
+    }
+
+    .socials a:hover {
+      color: var(--ink);
+      background: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 3rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      color: rgba(253, 235, 210, .45);
+      font-size: .8rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 1.2rem;
+      bottom: 1.2rem;
+      z-index: 900;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 16px 35px rgba(37, 211, 102, .35);
+      font-size: 1.8rem;
+      opacity: 0;
+      transform: translateY(20px) scale(.7);
+      pointer-events: none;
+      transition: opacity .35s var(--spring), transform .35s var(--spring);
+    }
+
+    .whatsapp-float.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 10003;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+      background: rgba(10, 4, 1, .82);
+      backdrop-filter: blur(18px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .25s var(--ease), visibility .25s var(--ease);
+    }
+
+    .lightbox.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox img {
+      width: min(980px, 94vw);
+      max-height: 86vh;
+      object-fit: contain;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 28px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, .42);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: opacity .8s var(--ease), transform .8s var(--ease);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes ldIn {
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes ldFill {
+      to { width: 100%; }
+    }
+
+    @keyframes kenburns {
+      to { transform: scale(1.14) translate3d(-1.5%, 1%, 0); }
+    }
+
+    @keyframes cardFloat {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -14px; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    @keyframes crumbFloat {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: .45; }
+      50% { transform: translate3d(10px, -18px, 0) scale(1.35); opacity: .9; }
+    }
+
+    @keyframes marquee {
+      to { transform: translateX(-50%); }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: .55; transform: scale(1); }
+      50% { opacity: .9; transform: scale(1.06); }
+    }
+
+    @keyframes pulse {
+      50% { box-shadow: 0 16px 35px rgba(37, 211, 102, .35), 0 0 0 14px rgba(37, 211, 102, .10); }
+    }
+
+    @media (max-width: 1100px) {
+      .menu,
+      .nav-cta {
+        display: none;
+      }
+
+      .hamburger {
+        display: inline-flex;
+      }
+
+      .hero-inner,
+      .section-head,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-showcase,
+      .showcase-stage {
+        min-height: 480px;
+      }
+
+      .feature-grid,
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .location-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        height: 60px;
+        padding: 0 .85rem;
+      }
+
+      .nav.scrolled {
+        height: 60px;
+      }
+
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+        border-radius: 14px;
+        font-size: .95rem;
+      }
+
+      .brand-text strong {
+        font-size: .95rem;
+      }
+
+      .brand-text span {
+        display: none;
+      }
+
+      .hamburger {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+      }
+
+      .hero {
+        padding-top: 5.5rem;
+        padding-bottom: 3rem;
+        min-height: 92svh;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.4rem, 12vw, 3.5rem);
+      }
+
+      .hero-copy {
+        font-size: .92rem;
+        margin-top: 1rem;
+      }
+
+      .hero-actions {
+        margin-top: 1.5rem;
+      }
+
+      .hero-showcase {
+        display: none;
+      }
+
+      .section {
+        padding: 3rem 0;
+      }
+
+      .section-title {
+        font-size: clamp(1.8rem, 7vw, 2.8rem);
+      }
+
+      .section-head {
+        margin-bottom: 1.8rem;
+      }
+
+      .lead {
+        font-size: .9rem;
+      }
+
+      .category-nav {
+        top: 60px;
+        justify-content: flex-start;
+        overflow-x: auto;
+        border-radius: 20px;
+        scrollbar-width: none;
+        padding: .55rem;
+        gap: .35rem;
+      }
+
+      .category-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .cat-pill {
+        white-space: nowrap;
+        padding: .55rem .8rem;
+        font-size: .68rem;
+      }
+
+      .feature-grid,
+      .product-grid,
+      .review-grid,
+      .steps,
+      .location-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card {
+        min-height: auto;
+        padding: 1.4rem 1.2rem;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3px;
+      }
+
+      .gallery-item {
+        height: 170px;
+      }
+
+      .gallery-item:nth-child(5) {
+        grid-column: 1 / -1;
+        height: 200px;
+      }
+
+      .offer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.4rem;
+        border-radius: 22px;
+      }
+
+      .offer h3 {
+        font-size: clamp(1.3rem, 5vw, 1.8rem);
+      }
+
+      .about-visual {
+        min-height: 360px;
+      }
+
+      .photo-card.main {
+        height: 280px;
+      }
+
+      .photo-card.small {
+        height: 160px;
+      }
+
+      .year-badge {
+        width: 88px;
+        height: 88px;
+      }
+
+      .year-badge strong {
+        font-size: 1.7rem;
+      }
+
+      .pillar {
+        padding: .85rem;
+        border-radius: 18px;
+      }
+
+      .review-card {
+        padding: 1.2rem;
+        border-radius: 22px;
+      }
+
+      .step {
+        min-height: auto;
+        padding: 1.2rem;
+        border-radius: 22px;
+      }
+
+      .product-card {
+        border-radius: 22px;
+      }
+
+      .product-media {
+        height: 200px;
+      }
+
+      .product-body {
+        padding: 1rem;
+      }
+
+      .product-title {
+        font-size: 1.15rem;
+      }
+
+      .product-desc {
+        font-size: .84rem;
+        min-height: auto;
+      }
+
+      .location-card {
+        border-radius: 20px;
+      }
+
+      .rating {
+        justify-content: center;
+        gap: 1.5rem;
+      }
+
+      .footer {
+        padding: 3rem 0 1.5rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        margin-top: 2rem;
+      }
+
+      .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        font-size: 1.5rem;
+        right: 1rem;
+        bottom: 1rem;
+      }
+
+      .scroll-progress {
+        height: 3px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        min-height: 48px;
+        padding: .78rem 1.1rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 11vw, 3rem);
+      }
+
+      .section {
+        padding: 2.5rem 0;
+      }
+
+      .gallery-item {
+        height: 150px;
+      }
+
+      .gallery-item:nth-child(5) {
+        height: 170px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
-
-<!-- INSTALL POPUP -->
-<div id="ipop">
-  <div class="ip-pill"></div>
-  <div class="ip-row">
-    <img class="ip-ico" src="https://i.ibb.co/k25BMKTX/imresizer-aishwarya-logo.png" alt="Aishwarya Bakery"/>
-    <div><div class="ip-name">Aishwarya Bakery</div><div class="ip-desc">Add to home screen — quick menu & WhatsApp orders!</div></div>
+  <div id='loader'>
+    <div class='ld-title'>Aishwarya<span>Bakery</span></div>
+    <div class='ld-sub'>Artisan Bakery · Baramati</div>
+    <div class='ld-bar'><div class='ld-fill'></div></div>
   </div>
-  <div class="ip-ios" id="ip-ios"><i class="fas fa-info-circle"></i> iPhone: tap <i class="fas fa-share-square"></i> Share → "Add to Home Screen" → Add.</div>
-  <div class="ip-btns">
-    <button class="ip-yes" id="ip-yes"><i class="fas fa-download"></i> Install App</button>
-    <button class="ip-no" id="ip-no">Not Now</button>
+
+  <div class='scroll-progress' id='scrollProgress'></div>
+  <div class='cursor-dot' id='cursorDot'></div>
+  <div class='cursor-ring' id='cursorRing'></div>
+
+  <nav class='nav' id='nav'>
+    <a href='#home' class='brand' aria-label='Aishwarya Bakery Home'>
+      <div class='brand-mark'>AB</div>
+      <div class='brand-text'>
+        <strong>Aishwarya Bakery</strong>
+        <span>Baramati, Maharashtra</span>
+      </div>
+    </a>
+
+    <ul class='menu'>
+      <li><a class='nav-link active' href='#home'>Home</a></li>
+      <li><a class='nav-link' href='#menu-items'>Menu</a></li>
+      <li><a class='nav-link' href='#about'>About</a></li>
+      <li><a class='nav-link' href='#process'>Process</a></li>
+      <li><a class='nav-link' href='#locations'>Stores</a></li>
+      <li><a class='nav-link' href='#reviews'>Reviews</a></li>
+    </ul>
+
+    <a class='nav-cta magnetic' href='https://wa.me/919657174007?text=Hi%21%20I%20want%20to%20pre-order%20from%20Aishwarya%20Bakery' target='_blank' rel='noopener'>
+      <i class='fab fa-whatsapp'></i> Pre-Order
+    </a>
+
+    <button class='hamburger' id='hamburger' type='button' aria-label='Open menu' aria-expanded='false'>
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class='mobile-menu' id='mobileMenu'>
+    <a href='#home'>Home</a>
+    <a href='#menu-items'>Menu</a>
+    <a href='#about'>About</a>
+    <a href='#process'>Process</a>
+    <a href='#locations'>Stores</a>
+    <a href='#reviews'>Reviews</a>
   </div>
-</div>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="ld-title">Aishwarya<span>Bakery</span></div>
-  <div class="ld-sub">Artisan Bakery · Baramati</div>
-  <div class="ld-bar"><div class="ld-fill"></div></div>
-</div>
+  <header class='hero' id='home'>
+    <div class='hero-media' id='heroMedia'></div>
 
-<!-- CURSOR -->
-<div id="c1"></div><div id="c2"></div>
+    <div class='hero-inner'>
+      <div class='hero-content'>
+        <div class='eyebrow reveal'>
+          <i class='fas fa-star'></i>
+          Since 2010 · 8 Locations · Baramati
+        </div>
 
-<!-- WA FLOAT -->
-<a href="https://wa.me/919657174007?text=Hello!%20I'd%20like%20to%20place%20an%20order%20from%20Aishwarya%20Bakery%20%F0%9F%A7%81" target="_blank" id="wabtn" title="Order on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <h1 class='reveal'>
+          Freshly Baked,
+          <span>Better Every Bite</span>
+        </h1>
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="#hero" class="logo">
-    <span class="logo-name">Aishwarya <em>Bakery</em></span>
-    <span class="logo-sub">Baramati, Maharashtra</span>
+        <p class='hero-copy reveal'>
+          Aishwarya Bakery crafts cakes, pastries, breads, cookies, khari and toast with local ingredients, traditional baking and the warmth of a family kitchen.
+        </p>
+
+        <div class='hero-actions reveal'>
+          <a class='btn btn-primary magnetic' href='#menu-items'>
+            <i class='fas fa-utensils'></i> Explore Menu
+          </a>
+          <a class='btn btn-secondary magnetic' href='https://wa.me/919657174007?text=Hello%21%20I%20want%20to%20order%20from%20Aishwarya%20Bakery' target='_blank' rel='noopener'>
+            <i class='fab fa-whatsapp'></i> Order Now
+          </a>
+        </div>
+      </div>
+
+      <div class='hero-showcase reveal'>
+        <div class='showcase-stage'>
+          <span class='crumb c1'></span>
+          <span class='crumb c2'></span>
+          <span class='crumb c3'></span>
+          <span class='crumb c4'></span>
+
+          <div class='showcase-card one'>
+            <img src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&q=85' alt='Chocolate cake' />
+            <div class='showcase-badge'>
+              <strong>Chocolate Cakes</strong>
+              <span>Made for celebrations</span>
+            </div>
+          </div>
+
+          <div class='showcase-card two'>
+            <img src='https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=800&q=85' alt='Cheese pastry' />
+            <div class='showcase-badge'>
+              <strong>Cheese Pastries</strong>
+              <span>Fresh daily</span>
+            </div>
+          </div>
+
+          <div class='showcase-card three'>
+            <img src='https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=800&q=85' alt='Cookies' />
+            <div class='showcase-badge'>
+              <strong>Cookies</strong>
+              <span>Perfect with chai</span>
+            </div>
+          </div>
+
+          <div class='floating-stat a'>
+            <strong data-count='4.9' data-decimals='1' data-suffix='★'>0</strong>
+            <span>Customer Love</span>
+          </div>
+
+          <div class='floating-stat b'>
+            <strong data-count='8' data-suffix='+'>0</strong>
+            <span>Stores</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class='marquee' aria-label='Popular bakery items'>
+    <div class='marquee-track'>
+      <span>Special Cakes</span><span>Cheese Pastries</span><span>Milk Bread</span><span>Sugar Cookies</span><span>Butter Khari</span><span>Chocolate Cakes</span><span>Chocolate Pastries</span><span>Brown Bread</span><span>Oatmeal Cookies</span><span>Toast Varieties</span>
+      <span>Special Cakes</span><span>Cheese Pastries</span><span>Milk Bread</span><span>Sugar Cookies</span><span>Butter Khari</span><span>Chocolate Cakes</span><span>Chocolate Pastries</span><span>Brown Bread</span><span>Oatmeal Cookies</span><span>Toast Varieties</span>
+    </div>
+  </div>
+
+  <main>
+    <section class='section features' id='highlights'>
+      <div class='wrap'>
+        <div class='feature-grid'>
+          <article class='feature-card reveal' style='--delay: 0ms'>
+            <div class='feature-icon'><i class='fas fa-seedling'></i></div>
+            <h3>100% Natural</h3>
+            <p>No preservatives, only pure local ingredients baked fresh every day.</p>
+          </article>
+
+          <article class='feature-card reveal' style='--delay: 90ms'>
+            <div class='feature-icon'><i class='fas fa-fire-alt'></i></div>
+            <h3>Stone-Deck Oven</h3>
+            <p>Heritage baking since 2010 for that perfect crust and soft crumb.</p>
+          </article>
+
+          <article class='feature-card reveal' style='--delay: 180ms'>
+            <div class='feature-icon'><i class='fas fa-map-marker-alt'></i></div>
+            <h3>8 Locations</h3>
+            <p>Fresh bakery goodness available across all of Baramati.</p>
+          </article>
+
+          <article class='feature-card reveal' style='--delay: 270ms'>
+            <div class='feature-icon'><i class='fas fa-birthday-cake'></i></div>
+            <h3>Custom Cakes</h3>
+            <p>Beautiful custom cakes designed for birthdays and celebrations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class='section menu-section' id='menu-items'>
+      <div class='wrap'>
+        <div class='section-head reveal'>
+          <div>
+            <div class='kicker'>Our Creations</div>
+            <h2 class='section-title'>Freshly Baked <em>Every Morning</em></h2>
+          </div>
+          <p class='lead'>
+            Explore cakes, pastries, breads, cookies, khari and toast — handcrafted daily with traditional recipes and love.
+          </p>
+        </div>
+
+        <div class='category-nav' id='categoryNav'>
+          <button class='cat-pill active' type='button' data-target='cakes'>Cakes</button>
+          <button class='cat-pill' type='button' data-target='pastries'>Pastries</button>
+          <button class='cat-pill' type='button' data-target='breads'>Breads</button>
+          <button class='cat-pill' type='button' data-target='cookies'>Cookies</button>
+          <button class='cat-pill' type='button' data-target='khari'>Khari & Toast</button>
+        </div>
+
+        <div class='product-grid' id='productGrid'></div>
+
+        <div class='offer reveal'>
+          <div>
+            <div class='kicker'>Special Offer</div>
+            <h3>Custom Cake for Your Special Day</h3>
+            <p>Get 15% off custom orders above ₹1500. Chat with us to design your perfect cake.</p>
+          </div>
+          <a class='btn btn-primary magnetic' href='https://wa.me/919657174007?text=Hi%21%20I%20want%20to%20order%20a%20custom%20cake%20from%20Aishwarya%20Bakery' target='_blank' rel='noopener'>
+            <i class='fab fa-whatsapp'></i> Chat to Order
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class='section about' id='about'>
+      <div class='wrap'>
+        <div class='about-grid'>
+          <div class='about-visual reveal'>
+            <div class='photo-card main'>
+              <img src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=900&q=85' alt='Baker at work' />
+            </div>
+            <div class='photo-card small'>
+              <img src='https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=700&q=85' alt='Fresh bread' />
+            </div>
+            <div class='year-badge'>
+              <div><strong>2010</strong><span>Since</span></div>
+            </div>
+          </div>
+
+          <div class='about-copy reveal'>
+            <div class='kicker'>Our Story</div>
+            <h2 class='section-title'>Baked With <em>Tradition</em> & Heart</h2>
+            <p>
+              What started as a humble family kitchen in the heart of Baramati has grown into a beloved bakery with 8 locations across the city.
+            </p>
+            <p>
+              For years, Aishwarya Bakery has woken before dawn to fill the city with the warm aroma of freshly baked cakes, pastries, breads and khari.
+            </p>
+
+            <div class='pillar-list'>
+              <div class='pillar'>
+                <i class='fas fa-seedling'></i>
+                <div>
+                  <h4>100% Natural Ingredients</h4>
+                  <p>Wholesome ingredients sourced locally every morning.</p>
+                </div>
+              </div>
+
+              <div class='pillar'>
+                <i class='fas fa-fire-alt'></i>
+                <div>
+                  <h4>Traditional Stone-Deck Oven</h4>
+                  <p>Heritage baking for golden crusts and soft textures.</p>
+                </div>
+              </div>
+
+              <div class='pillar'>
+                <i class='fas fa-heart'></i>
+                <div>
+                  <h4>Made With Love, Daily</h4>
+                  <p>Fresh batches every morning from our bakery to your home.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class='section process' id='process'>
+      <div class='wrap'>
+        <div class='section-head reveal'>
+          <div>
+            <div class='kicker'>How We Bake</div>
+            <h2 class='section-title'>From Grain to <em>Your Plate</em></h2>
+          </div>
+          <p class='lead'>
+            Every product follows a careful process — from selecting quality ingredients to baking, packing and serving fresh.
+          </p>
+        </div>
+
+        <div class='steps'>
+          <article class='step reveal' style='--delay: 0ms'>
+            <div class='step-num'>01</div>
+            <div class='step-icon'><i class='fas fa-wheat-awn'></i></div>
+            <h3>Source & Select</h3>
+            <p>Hand-picked local grains, dairy and seasonal produce every morning.</p>
+          </article>
+
+          <article class='step reveal' style='--delay: 90ms'>
+            <div class='step-num'>02</div>
+            <div class='step-icon'><i class='fas fa-bowl-food'></i></div>
+            <h3>Mix & Ferment</h3>
+            <p>Slow fermentation builds flavour that mass production cannot match.</p>
+          </article>
+
+          <article class='step reveal' style='--delay: 180ms'>
+            <div class='step-num'>03</div>
+            <div class='step-icon'><i class='fas fa-fire-alt'></i></div>
+            <h3>Shape & Bake</h3>
+            <p>Hand-shaped and baked at the perfect temperature for freshness.</p>
+          </article>
+
+          <article class='step reveal' style='--delay: 270ms'>
+            <div class='step-num'>04</div>
+            <div class='step-icon'><i class='fas fa-gift'></i></div>
+            <h3>Pack & Deliver</h3>
+            <p>Wrapped with care, fresh and ready from early morning daily.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class='gallery' aria-label='Bakery gallery'>
+    <div class='gallery-item reveal'><img src='https://images.unsplash.com/photo-1568051243851-f9b136146e97?w=700&q=80' alt='Bakery item' /></div>
+    <div class='gallery-item reveal'><img src='https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=700&q=80' alt='Toast' /></div>
+    <div class='gallery-item reveal'><img src='https://images.unsplash.com/photo-1509440159596-0249088772ff?w=700&q=80' alt='Bread' /></div>
+    <div class='gallery-item reveal'><img src='https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=700&q=80' alt='Bread' /></div>
+    <div class='gallery-item reveal'><img src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=700&q=80' alt='Baking' /></div>
+  </div>
+
+  <section class='section reviews' id='reviews'>
+    <div class='wrap'>
+      <div class='section-head reveal'>
+        <div>
+          <div class='kicker'>Happy Customers</div>
+          <h2 class='section-title'>What Our Community <em>Says</em></h2>
+        </div>
+        <p class='lead'>
+          Loved by customers across Baramati for fresh taste, warm service and celebration-ready cakes.
+        </p>
+      </div>
+
+      <div class='review-grid'>
+        <article class='review-card reveal' style='--delay: 0ms'>
+          <div class='quote'>"</div>
+          <div class='stars'>★★★★★</div>
+          <p>The croissants are absolutely divine — flaky, buttery, and perfectly golden. Aishwarya Bakery is Baramati's best-kept secret!</p>
+          <div class='person'>
+            <img src='https://randomuser.me/api/portraits/women/44.jpg' alt='Priya Mehta' />
+            <div>
+              <strong>Priya Mehta</strong>
+              <span>Regular Customer · Baramati</span>
+            </div>
+          </div>
+        </article>
+
+        <article class='review-card reveal' style='--delay: 90ms'>
+          <div class='quote'>"</div>
+          <div class='stars'>★★★★★</div>
+          <p>Ordered a custom birthday cake and was blown away. Design was perfect and the taste — oh my! Everyone asked where it was from!</p>
+          <div class='person'>
+            <img src='https://randomuser.me/api/portraits/men/32.jpg' alt='Rohan Desai' />
+            <div>
+              <strong>Rohan Desai</strong>
+              <span>Loyal Customer · Pune</span>
+            </div>
+          </div>
+        </article>
+
+        <article class='review-card reveal' style='--delay: 180ms'>
+          <div class='quote'>"</div>
+          <div class='stars'>★★★★★</div>
+          <p>The khari and toast are so fresh every morning. I stop at the Station Road branch daily on my way to work. Nothing comes close!</p>
+          <div class='person'>
+            <img src='https://randomuser.me/api/portraits/women/65.jpg' alt='Sneha Kulkarni' />
+            <div>
+              <strong>Sneha Kulkarni</strong>
+              <span>Food Blogger · Baramati</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class='rating reveal'>
+        <div class='score'>
+          <strong data-count='4.9' data-decimals='1'>0</strong>
+          <div class='stars'>★★★★★</div>
+          <span>Based on 280+ reviews</span>
+        </div>
+
+        <a class='social-card' href='https://www.instagram.com/reel/DScZodBDFBg/?igsh=d2gwdG1zZWJxM3I1' target='_blank' rel='noopener'>
+          <i class='fab fa-instagram'></i>
+          @aishwaryabakery
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class='section locations' id='locations'>
+    <div class='wrap'>
+      <div class='section-head reveal'>
+        <div>
+          <div class='kicker'>Find Us Near You</div>
+          <h2 class='section-title'>Our <em>8 Stores</em> in Baramati</h2>
+        </div>
+        <p class='lead'>
+          Fresh baked goodness always close by — across all of Baramati.
+        </p>
+      </div>
+
+      <div class='location-grid' id='locationGrid'></div>
+    </div>
+  </section>
+
+  <footer class='footer' id='contact'>
+    <div class='wrap'>
+      <div class='footer-grid'>
+        <div>
+          <h3>Aishwarya Bakery</h3>
+          <p>
+            A labour of love baked fresh every morning across 8 locations in Baramati, Maharashtra. Traditional recipes, local ingredients, and a whole lot of heart — since 2010.
+          </p>
+
+          <div class='socials'>
+            <a href='https://wa.me/919657174007' target='_blank' rel='noopener' aria-label='WhatsApp'><i class='fab fa-whatsapp'></i></a>
+            <a href='https://www.instagram.com/reel/DScZodBDFBg/?igsh=d2gwdG1zZWJxM3I1' target='_blank' rel='noopener' aria-label='Instagram'><i class='fab fa-instagram'></i></a>
+            <a href='https://www.facebook.com/AishwaryaBakery/videos/the-tradition-beginsaishwarya-bakerys-annual-fruit-plum-cake-fresh-ingredients-r/1154697586420835/' target='_blank' rel='noopener' aria-label='Facebook'><i class='fab fa-facebook-f'></i></a>
+            <a href='mailto:aishwaryabakery3@gmail.com' aria-label='Email'><i class='fas fa-envelope'></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href='#home'>Home</a></li>
+            <li><a href='#menu-items'>Our Menu</a></li>
+            <li><a href='#about'>About Us</a></li>
+            <li><a href='#locations'>Store Locations</a></li>
+            <li><a href='#reviews'>Reviews</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Main Store</h4>
+          <p>
+            R/1, Pencil Chowk,<br />
+            Aishwarya Bakery,<br />
+            Baramati – 413102,<br />
+            Maharashtra
+          </p>
+          <p><a href='tel:+919657174007'>+91 96571 74007</a></p>
+          <p><a href='mailto:aishwaryabakery3@gmail.com'>aishwaryabakery3@gmail.com</a></p>
+        </div>
+
+        <div>
+          <h4>Opening Hours</h4>
+          <ul>
+            <li>Mon – Fri: 7am – 8pm</li>
+            <li>Saturday: 7am – 9pm</li>
+            <li>Sunday: 8am – 6pm</li>
+          </ul>
+          <p>Custom & bulk cake orders — WhatsApp 48hrs in advance!</p>
+        </div>
+      </div>
+
+      <div class='footer-bottom'>
+        <span>© <span id='year'></span> Aishwarya Bakery, Baramati. All rights reserved.</span>
+        <span>Made with love in Baramati</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class='whatsapp-float' id='whatsappFloat' href='https://wa.me/919657174007?text=Hello%21%20I%27d%20like%20to%20place%20an%20order%20from%20Aishwarya%20Bakery' target='_blank' rel='noopener' aria-label='Order on WhatsApp'>
+    <i class='fab fa-whatsapp'></i>
   </a>
-  <ul class="nav-links">
-    <li><a href="#hero" class="on">Home</a></li>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#locations">Stores</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="https://wa.me/919657174007?text=Hi!%20I%20want%20to%20pre-order!" target="_blank" class="nav-cta">Pre-Order ✦</a></li>
-  </ul>
-  <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
 
-<!-- MOBILE NAV -->
-<div class="mob-nav" id="mobNav">
-  <button class="mob-close" onclick="closeMob()">✕</button>
-  <a href="#hero"      onclick="closeMob()">Home</a>
-  <a href="#menu"      onclick="closeMob()">Menu</a>
-  <a href="#about"     onclick="closeMob()">About</a>
-  <a href="#locations" onclick="closeMob()">Stores</a>
-  <a href="#reviews"   onclick="closeMob()">Reviews</a>
-  <a href="#contact"   onclick="closeMob()">Contact</a>
-  <a href="https://wa.me/919657174007" target="_blank" style="color:var(--shine)">Order on WhatsApp</a>
-</div>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="h-bg"></div>
-  <div class="h-grad"></div>
-  <div class="h-con">
-    <div class="h-tag"><i class="fas fa-star" style="font-size:.55rem"></i>&nbsp;Est. 2010 · 8 Locations · Baramati</div>
-    <h1 class="h-h1">Freshly Baked,<span class="italic">Every Single Day</span></h1>
-    <p class="h-p">Crafted with love, tradition, and the finest local ingredients. Each bite tells a story baked with soul since 2010.</p>
-    <div class="h-btns">
-      <a href="#menu" class="btn-gold"><i class="fas fa-utensils"></i> Explore Menu</a>
-      <a href="https://wa.me/919657174007?text=Hello!%20I%20want%20to%20order!" target="_blank" class="btn-ghost"><i class="fab fa-whatsapp"></i> Order Now</a>
-    </div>
+  <div class='lightbox' id='lightbox' aria-label='Image preview'>
+    <img src='' alt='Gallery preview' />
   </div>
-  <div class="h-stats">
-    <div class="hstat"><b>50+</b><s>Products</s></div>
-    <div class="hstat"><b>8</b><s>Locations</s></div>
-    <div class="hstat"><b>4.9★</b><s>Rating</s></div>
-  </div>
-  <div class="h-scroll"><span>Scroll</span><div class="scroll-rod"></div></div>
-</section>
 
-<!-- MARQUEE -->
-<div class="ribbon">
-  <div class="ribbon-track">
-    <div class="ribbon-item">Special Cakes</div><div class="ribbon-item">Cheese Pastries</div><div class="ribbon-item">Milk Bread</div><div class="ribbon-item">Sugar Cookies</div><div class="ribbon-item">Butter Khari</div><div class="ribbon-item">Chocolate Cakes</div><div class="ribbon-item">Chocolate Pastries</div><div class="ribbon-item">Brown Bread</div><div class="ribbon-item">Oatmeal Cookies</div><div class="ribbon-item">Toast Varieties</div>
-    <div class="ribbon-item">Special Cakes</div><div class="ribbon-item">Cheese Pastries</div><div class="ribbon-item">Milk Bread</div><div class="ribbon-item">Sugar Cookies</div><div class="ribbon-item">Butter Khari</div><div class="ribbon-item">Chocolate Cakes</div><div class="ribbon-item">Chocolate Pastries</div><div class="ribbon-item">Brown Bread</div><div class="ribbon-item">Oatmeal Cookies</div><div class="ribbon-item">Toast Varieties</div>
-  </div>
-</div>
+  <script>
+    const PH = '919657174007';
+    const BN = 'Aishwarya Bakery';
 
-<!-- FEATURES BAR -->
-<div class="feat-bar">
-  <div class="wrap">
-    <div class="feat-grid">
-      <div class="feat rv"><div class="feat-ico"><i class="fas fa-seedling"></i></div><div class="feat-title">100% Natural</div><div class="feat-desc">No preservatives, pure local ingredients</div></div>
-      <div class="feat rv" style="transition-delay:.1s"><div class="feat-ico"><i class="fas fa-fire-alt"></i></div><div class="feat-title">Stone-Deck Oven</div><div class="feat-desc">Heritage baking since 2010</div></div>
-      <div class="feat rv" style="transition-delay:.2s"><div class="feat-ico"><i class="fas fa-map-marker-alt"></i></div><div class="feat-title">8 Locations</div><div class="feat-desc">Across all of Baramati</div></div>
-      <div class="feat rv" style="transition-delay:.3s"><div class="feat-ico"><i class="fas fa-birthday-cake"></i></div><div class="feat-title">Custom Cakes</div><div class="feat-desc">Designed for your celebration</div></div>
-    </div>
-  </div>
-</div>
+    const MENU = {
+      cakes: [
+        { name: 'Special Cakes', price: 850, badge: 'Signature', desc: 'Our prized special cakes — premium ingredients for birthdays, anniversaries and every celebration.', image: 'https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=700&q=85' },
+        { name: 'Chocolate Cakes', price: 650, badge: 'Popular', desc: 'Rich dark chocolate layers with silky ganache frosting — a chocolate lover dream.', image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=700&q=85' },
+        { name: 'Regular Flavoured Cakes', price: 450, badge: '', desc: 'Classic flavours — vanilla, butterscotch, pineapple and more — perfect for every occasion.', image: 'https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=700&q=85' }
+      ],
+      pastries: [
+        { name: 'Cheese Pastries', price: 65, badge: 'Bestseller', desc: 'Flaky golden pastry filled with creamy savoury cheese. Light, crispy and satisfying.', image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=700&q=85' },
+        { name: 'Chocolate Pastries', price: 70, badge: '', desc: 'Buttery puff pastry loaded with rich chocolate filling — a perfect afternoon indulgence.', image: 'https://images.unsplash.com/photo-1542826438-bd32f43d626f?w=700&q=85' },
+        { name: 'Flavoured Pastries', price: 60, badge: '', desc: 'Seasonal flavours — strawberry, mango and vanilla — fresh, light and sweet.', image: 'https://images.unsplash.com/photo-1501963422762-3d89bd989e69?w=700&q=85' }
+      ],
+      breads: [
+        { name: 'Milk Bread', price: 45, badge: 'Fresh Daily', desc: 'Soft, pillowy milk bread with subtle sweetness — baked every morning for perfect toast.', image: 'https://images.unsplash.com/photo-1585478259715-876acc5be8eb?w=700&q=85' },
+        { name: 'Brown Bread', price: 50, badge: 'Healthy', desc: 'Wholesome whole-grain brown bread with hearty texture, nutty flavour and fibre.', image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=700&q=85' },
+        { name: 'White Bread', price: 40, badge: '', desc: 'Classic soft white bread with a golden crust — great for sandwiches and toast.', image: 'https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=700&q=85' }
+      ],
+      cookies: [
+        { name: 'Sugar Cookies', price: 30, badge: '', desc: 'Crispy, buttery sugar cookies with delicate sweetness — perfect with chai.', image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=700&q=85' },
+        { name: 'Chocolate Chip Cookies', price: 35, badge: 'Popular', desc: 'Golden cookies packed with real chocolate chips — crispy outside, chewy inside.', image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=700&q=85' },
+        { name: 'Oatmeal Cookies', price: 35, badge: 'Healthy', desc: 'Hearty oatmeal cookies with a nutty crunch — wholesome and naturally sweet.', image: 'https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=700&q=85' }
+      ],
+      khari: [
+        { name: 'Butter Khari', price: 10, badge: 'Bestseller', desc: 'Flaky, buttery khari that crumbles perfectly — the ultimate chai-time companion.', image: 'https://images.unsplash.com/photo-1568051243851-f9b136146e97?w=700&q=85' },
+        { name: 'Toast', price: 15, badge: '', desc: 'Crisp golden toast varieties — plain, masala and butter — baked fresh every morning.', image: 'https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=700&q=85' },
+        { name: 'Khari Varieties', price: 10, badge: '', desc: 'Assorted khari in plain, jeera and pepper flavours — light, airy and perfect anytime.', image: 'https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=700&q=85' }
+      ]
+    };
 
-<!-- MENU -->
-<section id="menu">
-  <div class="wrap">
-    <div class="menu-intro rv">
-      <div class="eyebrow">Our Creations</div>
-      <h2 class="sec-h2">Freshly Baked <em>Every Morning</em></h2>
-      <p class="sec-sub" style="margin:0 auto;text-align:center">5 categories of handcrafted goodness — baked daily with heritage recipes.</p>
-    </div>
+    const STORES = [
+      { name: 'Main Store — Pencil Chowk', area: 'R/1, Pencil Chowk, Baramati – 413102', hours: '7:00 AM – 9:00 PM', tags: ['Custom Cakes', 'Full Menu', 'Parking'] },
+      { name: 'Station Road Branch', area: 'Near Railway Station, Baramati', hours: '6:30 AM – 8:30 PM', tags: ['Express Service', 'Fresh Breads', 'Tea & Coffee'] },
+      { name: 'College Road Outlet', area: 'Near Vidya Pratishthan, Baramati', hours: '7:00 AM – 8:00 PM', tags: ['Student Specials', 'Quick Bites', 'Fresh Snacks'] },
+      { name: 'Market Yard Store', area: 'Wholesale Market, Baramati', hours: '6:00 AM – 7:00 PM', tags: ['Bulk Orders', 'Fresh Daily', 'Early Opening'] },
+      { name: 'Bhigwan Road Branch', area: 'Near Bus Stand, Baramati', hours: '7:00 AM – 8:00 PM', tags: ['Travel Snacks', 'Fresh Khari', 'Quick Service'] },
+      { name: 'Morgaon Highway Outlet', area: 'Highway Junction, Baramati', hours: '6:30 AM – 9:00 PM', tags: ['Highway Stop', 'Traveler Friendly', 'Fresh Breads'] },
+      { name: 'Residential Area Store', area: 'Shivaji Nagar, Baramati', hours: '7:30 AM – 8:00 PM', tags: ['Home Delivery', 'Family Packs', 'Neighbourhood Favourite'] },
+      { name: 'Industrial Area Branch', area: 'MIDC Area, Baramati', hours: '6:00 AM – 6:00 PM', tags: ['Office Catering', 'Bulk Snacks', 'Corporate Orders'] }
+    ];
 
-    <div class="cat-nav" id="catNav">
-      <button class="cat-pill on" data-target="cat-cakes">🎂 Cakes</button>
-      <button class="cat-pill" data-target="cat-pastries">⭐ Pastries</button>
-      <button class="cat-pill" data-target="cat-breads">🍞 Breads</button>
-      <button class="cat-pill" data-target="cat-cookies">🍪 Cookies</button>
-      <button class="cat-pill" data-target="cat-khari">🫓 Khari & Toast</button>
-    </div>
+    const fallbackImage = 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=700&q=70';
+    const liked = new Set(JSON.parse(localStorage.getItem('aishwaryaLiked') || '[]'));
 
-    <!-- CAKES -->
-    <div class="cat-section" id="cat-cakes">
-      <div class="cat-header rv"><div class="cat-icon-wrap">🎂</div><div><div class="cat-title">Cakes</div><div class="cat-count">3 varieties · Made to order</div></div></div>
-      <div class="prod-grid" id="grid-cakes"></div>
-    </div>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    <!-- PASTRIES -->
-    <div class="cat-section" id="cat-pastries">
-      <div class="cat-header rv"><div class="cat-icon-wrap">⭐</div><div><div class="cat-title">Pastries</div><div class="cat-count">3 varieties · Fresh daily</div></div></div>
-      <div class="prod-grid" id="grid-pastries"></div>
-    </div>
+    window.addEventListener('load', () => {
+      setTimeout(() => document.getElementById('loader').classList.add('hide'), 1700);
+    });
 
-    <!-- BREADS -->
-    <div class="cat-section" id="cat-breads">
-      <div class="cat-header rv"><div class="cat-icon-wrap">🍞</div><div><div class="cat-title">Breads</div><div class="cat-count">3 varieties · Baked every morning</div></div></div>
-      <div class="prod-grid" id="grid-breads"></div>
-    </div>
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    let ringX = window.innerWidth / 2;
+    let ringY = window.innerHeight / 2;
 
-    <!-- COOKIES -->
-    <div class="cat-section" id="cat-cookies">
-      <div class="cat-header rv"><div class="cat-icon-wrap">🍪</div><div><div class="cat-title">Cookies</div><div class="cat-count">3 varieties · Crispy & fresh</div></div></div>
-      <div class="prod-grid" id="grid-cookies"></div>
-    </div>
+    window.addEventListener('mousemove', event => {
+      dot.style.left = event.clientX + 'px';
+      dot.style.top = event.clientY + 'px';
+      ringX = event.clientX;
+      ringY = event.clientY;
+    });
 
-    <!-- KHARI & TOAST -->
-    <div class="cat-section" id="cat-khari">
-      <div class="cat-header rv"><div class="cat-icon-wrap">🫓</div><div><div class="cat-title">Khari & Toast</div><div class="cat-count">3 varieties · Perfect chai companion</div></div></div>
-      <div class="prod-grid" id="grid-khari"></div>
-    </div>
-
-    <div class="offer-strip rv">
-      <div class="off-txt">
-        <div class="off-eye">Special Offer</div>
-        <div class="off-h">Custom Cake for Your<br/>Special Day 🎂</div>
-        <div class="off-p">15% off all custom orders above ₹1500. Chat to design yours!</div>
-      </div>
-      <a href="https://wa.me/919657174007?text=Hi!%20I%20want%20to%20order%20a%20custom%20cake%20from%20Aishwarya%20Bakery!" target="_blank" class="off-cta"><i class="fab fa-whatsapp"></i> Chat to Order</a>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="about-photos rl">
-        <div class="ab-main"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=700&q=85" alt="Baker at work"/></div>
-        <div class="ab-accent"><img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=500&q=85" alt="Fresh bread"/></div>
-        <div class="yr-badge"><b>14</b><small>Years</small></div>
-      </div>
-      <div class="rr">
-        <div class="eyebrow">Our Story</div>
-        <h2 class="sec-h2">Baked With <em>Tradition</em><br/>& Heart</h2>
-        <p class="ab-body">What started as a humble family kitchen in the heart of Baramati has grown into a beloved institution with 8 locations across the city. For over 14 years, we've woken before dawn to fill Aishwarya Bakery with the warm scent of freshly baked pastries, breads and cakes.</p>
-        <p class="ab-body" style="margin-top:-.4rem">We believe in slow fermentation, quality flour, and recipes passed down through generations — because great bread simply cannot be rushed.</p>
-        <div class="pillars">
-          <div class="pillar"><div class="pillar-ico"><i class="fas fa-seedling"></i></div><div><div class="pillar-name">100% Natural Ingredients</div><div class="pillar-info">No preservatives — pure, wholesome ingredients sourced locally every morning.</div></div></div>
-          <div class="pillar"><div class="pillar-ico"><i class="fas fa-fire-alt"></i></div><div><div class="pillar-name">Traditional Stone-Deck Oven</div><div class="pillar-info">Our heritage oven gives every loaf its signature golden crust and chewy crumb.</div></div></div>
-          <div class="pillar"><div class="pillar-ico"><i class="fas fa-heart"></i></div><div><div class="pillar-name">Made With Love, Daily</div><div class="pillar-info">Fresh batches every morning — if it isn't fresh, it doesn't leave our kitchen.</div></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process">
-  <div class="wrap" style="position:relative;z-index:1">
-    <div class="proc-hd rv">
-      <div class="eyebrow">How We Bake</div>
-      <h2 class="sec-h2" style="color:var(--wheat)">From Grain to <em style="color:var(--shine)">Your Plate</em></h2>
-    </div>
-    <div class="proc-steps">
-      <div class="step rv" style="transition-delay:.1s"><div class="step-n">01</div><span class="step-ico">🌾</span><div class="step-name">Source & Select</div><div class="step-txt">Hand-picked local grains, dairy and seasonal produce every morning.</div></div>
-      <div class="step rv" style="transition-delay:.2s"><div class="step-n">02</div><span class="step-ico">🫧</span><div class="step-name">Mix & Ferment</div><div class="step-txt">Slow fermentation builds complex flavour that mass production can't match.</div></div>
-      <div class="step rv" style="transition-delay:.3s"><div class="step-n">03</div><span class="step-ico">🔥</span><div class="step-name">Shape & Bake</div><div class="step-txt">Hand-shaped and stone-deck baked at the perfect temperature.</div></div>
-      <div class="step rv" style="transition-delay:.4s"><div class="step-n">04</div><span class="step-ico">🎁</span><div class="step-name">Pack & Deliver</div><div class="step-txt">Wrapped with care — warm and fresh, ready from 6am daily.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<div class="gallery">
-  <div class="gl-item"><img src="https://images.unsplash.com/photo-1568051243851-f9b136146e97?w=500&q=80" alt="g1" loading="lazy"/></div>
-  <div class="gl-item"><img src="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=500&q=80" alt="g2" loading="lazy"/></div>
-  <div class="gl-item"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=80" alt="g3" loading="lazy"/></div>
-  <div class="gl-item"><img src="https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=500&q=80" alt="g4" loading="lazy"/></div>
-  <div class="gl-item"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500&q=80" alt="g5" loading="lazy"/></div>
-</div>
-
-<!-- REVIEWS -->
-<section id="reviews">
-  <div class="wrap">
-    <div class="rev-hd rv">
-      <div class="eyebrow">Happy Customers</div>
-      <h2 class="sec-h2">What Our Community <em>Says</em></h2>
-    </div>
-    <div class="rev-grid">
-      <div class="rcard rv" style="transition-delay:.1s"><div class="rcard-q">"</div><div class="stars">★★★★★</div><p class="rcard-txt">The croissants are absolutely divine — flaky, buttery, and perfectly golden. Aishwarya Bakery is Baramati's best-kept secret!</p><div class="rcard-auth"><div class="rcard-avi"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya"/></div><div><div class="rcard-name">Priya Mehta</div><div class="rcard-role">Regular Customer · Baramati</div></div></div></div>
-      <div class="rcard rv" style="transition-delay:.2s"><div class="rcard-q">"</div><div class="stars">★★★★★</div><p class="rcard-txt">Ordered a custom birthday cake and was blown away. Design was perfect and the taste — oh my! Everyone asked where it was from!</p><div class="rcard-auth"><div class="rcard-avi"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rohan"/></div><div><div class="rcard-name">Rohan Desai</div><div class="rcard-role">Loyal Customer · Pune</div></div></div></div>
-      <div class="rcard rv" style="transition-delay:.3s"><div class="rcard-q">"</div><div class="stars">★★★★★</div><p class="rcard-txt">The khari and toast are so fresh every morning. I stop at the Station Road branch daily on my way to work. Nothing comes close!</p><div class="rcard-auth"><div class="rcard-avi"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sneha"/></div><div><div class="rcard-name">Sneha Kulkarni</div><div class="rcard-role">Food Blogger · Baramati</div></div></div></div>
-    </div>
-    <div class="rev-bottom rv">
-      <div style="text-align:center"><div class="score-num">4.9</div><div class="score-stars">★★★★★</div><div class="score-cnt">Based on 280+ reviews</div></div>
-      <a href="https://www.instagram.com/reel/DScZodBDFBg/?igsh=d2gwdG1zZWJxM3I1" target="_blank" class="ig-card">
-        <i class="fab fa-instagram"></i>
-        <strong>Find Us on Instagram</strong>
-        <span>@aishwaryabakery<br/>Watch our latest reels!</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- LOCATIONS -->
-<section id="locations">
-  <div class="wrap">
-    <div class="loc-hd rv">
-      <div class="eyebrow">Find Us Near You</div>
-      <h2 class="sec-h2">Our <em>8 Stores</em> in Baramati</h2>
-      <p class="sec-sub" style="margin:0 auto;text-align:center">Fresh baked goodness always close by — across all of Baramati.</p>
-    </div>
-    <div class="loc-grid" id="loc-grid"></div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer id="contact">
-  <div class="wrap">
-    <div class="ft-grid">
-      <div>
-        <span class="brand-name">Aishwarya Bakery</span>
-        <span class="brand-sub">Artisan Bakery · Baramati</span>
-        <p class="brand-desc">A labour of love baked fresh every morning across 8 locations in Baramati, Maharashtra. Traditional recipes, local ingredients, and a whole lot of heart — since 2010.</p>
-        <div class="socials">
-          <a href="https://wa.me/919657174007" class="soc" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="https://www.instagram.com/reel/DScZodBDFBg/?igsh=d2gwdG1zZWJxM3I1" class="soc" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/AishwaryaBakery/videos/the-tradition-beginsaishwarya-bakerys-annual-fruit-plum-cake-fresh-ingredients-r/1154697586420835/" class="soc" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="mailto:aishwaryabakery3@gmail.com" class="soc" title="Email"><i class="fas fa-envelope"></i></a>
-        </div>
-      </div>
-      <div>
-        <div class="ft-head">Quick Links</div>
-        <ul class="ft-links">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#menu">Our Menu</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#locations">Store Locations</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="https://wa.me/919657174007" target="_blank">WhatsApp Order</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="ft-head">Main Store</div>
-        <div class="ct-row"><i class="fas fa-map-marker-alt"></i><span>R/1, Pencil Chowk,<br/>Aishwarya Bakery,<br/>Baramati – 413102,<br/>Maharashtra</span></div>
-        <div class="ct-row"><i class="fab fa-whatsapp"></i><a href="https://wa.me/919657174007">+91 96571 74007</a></div>
-        <div class="ct-row"><i class="fas fa-envelope"></i><a href="mailto:aishwaryabakery3@gmail.com">aishwaryabakery3@gmail.com</a></div>
-      </div>
-      <div>
-        <div class="ft-head">Opening Hours</div>
-        <div class="hr-row"><span class="dy">Mon – Fri</span><span>7am – 8pm</span></div>
-        <div class="hr-row"><span class="dy">Saturday</span><span>7am – 9pm</span></div>
-        <div class="hr-row"><span class="dy">Sunday</span><span>8am – 6pm</span></div>
-        <div class="hrs-note"><i class="fas fa-star"></i>Custom & bulk cake orders — WhatsApp 48hrs in advance! Available at all 8 locations.</div>
-      </div>
-    </div>
-    <div class="ft-bot">
-      <span>© 2025 Aishwarya Bakery, Baramati. All rights reserved.</span>
-      <span>Made with <span style="color:var(--blush)">♥</span> in Baramati · <a href="https://wa.me/919657174007">Order via WhatsApp</a></span>
-    </div>
-  </div>
-</footer>
-
-<!-- SERVICE WORKER -->
-<script>
-if('serviceWorker'in navigator){
-  const s=`const C='ab-v5';self.addEventListener('install',e=>e.waitUntil(caches.open(C).then(c=>c.addAll([location.href]).catch(()=>{}))));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).catch(()=>new Response('Offline',{status:503})))));`;
-  navigator.serviceWorker.register(URL.createObjectURL(new Blob([s],{type:'application/javascript'}))).catch(()=>{});
-}
-</script>
-
-<script>
-/* LOADER */
-window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('out'),2600));
-
-/* CURSOR */
-const c1=document.getElementById('c1'),c2=document.getElementById('c2');
-let fx=0,fy=0,mx=window.innerWidth/2,my=window.innerHeight/2;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX;my=e.clientY;
-  c1.style.left=mx+'px';c1.style.top=my+'px';
-});
-(function loop(){
-  fx+=(mx-fx)*.13;fy+=(my-fy)*.13;
-  c2.style.left=fx+'px';c2.style.top=fy+'px';
-  requestAnimationFrame(loop);
-})();
-document.querySelectorAll('a,button,.pcard,.rcard,.lcard').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{c1.classList.add('cx');c2.classList.add('cx')});
-  el.addEventListener('mouseleave',()=>{c1.classList.remove('cx');c2.classList.remove('cx')});
-});
-
-/* NAV + WA SCROLL */
-const navEl=document.getElementById('nav'),waEl=document.getElementById('wabtn'),heroEl=document.getElementById('hero');
-window.addEventListener('scroll',()=>{
-  const y=window.scrollY;
-  navEl.classList.toggle('stk',y>50);
-  waEl.classList.toggle('up',y>heroEl.offsetHeight*.5);
-  /* active nav link */
-  let found=false;
-  const allSecs=[...document.querySelectorAll('section[id]')].reverse();
-  allSecs.forEach(s=>{
-    if(!found&&y>=s.offsetTop-140){
-      found=true;
-      document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+s.id));
+    function animateCursor() {
+      const currentX = parseFloat(ring.style.left || window.innerWidth / 2);
+      const currentY = parseFloat(ring.style.top || window.innerHeight / 2);
+      ring.style.left = currentX + (ringX - currentX) * .16 + 'px';
+      ring.style.top = currentY + (ringY - currentY) * .16 + 'px';
+      requestAnimationFrame(animateCursor);
     }
-  });
-  /* active cat pill */
-  const cats=['cat-cakes','cat-pastries','cat-breads','cat-cookies','cat-khari'];
-  let catFound=false;
-  [...cats].reverse().forEach(id=>{
-    if(catFound)return;
-    const sec=document.getElementById(id);
-    if(sec&&y>=sec.getBoundingClientRect().top+y-160){
-      catFound=true;
-      document.querySelectorAll('.cat-pill').forEach(p=>p.classList.toggle('on',p.dataset.target===id));
+    animateCursor();
+
+    document.querySelectorAll('a, button, .product-card, .review-card, .location-card, .feature-card').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+    });
+
+    document.querySelectorAll('.magnetic').forEach(el => {
+      el.addEventListener('mousemove', event => {
+        const rect = el.getBoundingClientRect();
+        const x = event.clientX - rect.left - rect.width / 2;
+        const y = event.clientY - rect.top - rect.height / 2;
+        el.style.transform = `translate(${x * .18}px, ${y * .22}px)`;
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = '';
+      });
+    });
+
+    const nav = document.getElementById('nav');
+    const whatsapp = document.getElementById('whatsappFloat');
+    const progress = document.getElementById('scrollProgress');
+    const heroMedia = document.getElementById('heroMedia');
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      nav.classList.toggle('scrolled', y > 40);
+      whatsapp.classList.toggle('show', y > 450);
+      progress.style.width = `${Math.min((y / (document.documentElement.scrollHeight - window.innerHeight)) * 100, 100)}%`;
+      if (heroMedia) heroMedia.style.transform = `translate3d(0, ${y * .12}px, 0) scale(1.08)`;
+    }, { passive: true });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.classList.toggle('menu-open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const counters = document.querySelectorAll('[data-count]');
+    const counterObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .5 });
+
+    counters.forEach(counter => counterObserver.observe(counter));
+
+    function animateCounter(el) {
+      const target = Number(el.dataset.count || 0);
+      const decimals = Number(el.dataset.decimals || 0);
+      const suffix = el.dataset.suffix || '';
+      const prefix = el.dataset.prefix || '';
+      const duration = 1500;
+      const start = performance.now();
+
+      function step(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const value = target * eased;
+        el.textContent = prefix + value.toFixed(decimals) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
     }
-  });
-},{passive:true});
 
-/* HAMBURGER */
-const hbg=document.getElementById('hbg'),mob=document.getElementById('mobNav');
-hbg.addEventListener('click',()=>{
-  hbg.classList.toggle('op');
-  mob.classList.toggle('op');
-  document.body.style.overflow=mob.classList.contains('op')?'hidden':'';
-});
-function closeMob(){hbg.classList.remove('op');mob.classList.remove('op');document.body.style.overflow=''}
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('header[id], main section[id]');
 
-/* CAT NAV scroll-to */
-document.querySelectorAll('.cat-pill').forEach(p=>p.addEventListener('click',()=>{
-  const target=document.getElementById(p.dataset.target);
-  if(target){
-    const navH=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'))||70;
-    const catNavH=document.getElementById('catNav').offsetHeight;
-    const top=target.getBoundingClientRect().top+window.scrollY-(navH+catNavH+16);
-    window.scrollTo({top,behavior:'smooth'});
-  }
-  document.querySelectorAll('.cat-pill').forEach(x=>x.classList.remove('on'));
-  p.classList.add('on');
-}));
+    const activeObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
 
-/* REVEAL */
-const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.08});
-document.querySelectorAll('.rv,.rl,.rr').forEach(el=>ro.observe(el));
+    sections.forEach(section => activeObserver.observe(section));
 
-/* INSTALL POPUP */
-(function(){
-  if(window.innerWidth>=769||window.matchMedia('(display-mode:standalone)').matches)return;
-  const ts=localStorage.getItem('ab_d');if(ts&&Date.now()-+ts<7*864e5)return;
-  const popup=document.getElementById('ipop'),yes=document.getElementById('ip-yes'),no=document.getElementById('ip-no'),ios=document.getElementById('ip-ios');
-  let evt=null;
-  const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream;
-  const isSaf=isIOS&&/^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-  const show=()=>{popup.style.display='block';requestAnimationFrame(()=>requestAnimationFrame(()=>popup.classList.add('show')))};
-  const hide=()=>{popup.classList.remove('show');setTimeout(()=>{popup.style.display='none'},600);localStorage.setItem('ab_d',Date.now())};
-  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();evt=e;setTimeout(show,4000)});
-  yes.addEventListener('click',async()=>{if(evt){evt.prompt();const{outcome}=await evt.userChoice;evt=null;if(outcome==='accepted'){hide();return}}hide()});
-  no.addEventListener('click',hide);window.addEventListener('appinstalled',hide);
-  if(isSaf){ios.classList.add('on');yes.innerHTML='<i class="fas fa-share-square"></i> How to Install';setTimeout(show,4000)}
-})();
+    function renderMenu(category) {
+      const grid = document.getElementById('productGrid');
+      const fragment = document.createDocumentFragment();
+      grid.innerHTML = '';
 
-/* MENU */
-const PH='919657174007',BN='Aishwarya Bakery';
-const MENU={
-  cakes:[
-    {n:"Special Cakes",          p:850, b:"Signature",  d:"Our prized special cakes — premium ingredients for birthdays, anniversaries & every celebration.", i:"https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=600&q=85"},
-    {n:"Chocolate Cakes",        p:650, b:"Popular",    d:"Rich dark chocolate layers with silky ganache frosting — a chocolate lover's dream come true.",    i:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=85"},
-    {n:"Regular Flavoured Cakes",p:450, b:"",           d:"Classic flavours — vanilla, butterscotch, pineapple & more — perfect for every occasion.",        i:"https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=600&q=85"},
-  ],
-  pastries:[
-    {n:"Cheese Pastries",        p:65,  b:"Bestseller", d:"Flaky golden pastry filled with creamy savoury cheese. Light, crispy and utterly satisfying.",     i:"https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=85"},
-    {n:"Chocolate Pastries",     p:70,  b:"",           d:"Buttery puff pastry loaded with rich chocolate filling — a perfect afternoon indulgence.",          i:"https://images.unsplash.com/photo-1542826438-bd32f43d626f?w=600&q=85"},
-    {n:"Flavoured Pastries",     p:60,  b:"",           d:"Seasonal flavours — strawberry, mango and vanilla — fresh, light and delightfully sweet.",          i:"https://images.unsplash.com/photo-1501963422762-3d89bd989e69?w=600&q=85"},
-  ],
-  breads:[
-    {n:"Milk Bread",             p:45,  b:"Fresh Daily",d:"Soft, pillowy milk bread with subtle sweetness — baked every morning for the perfect toast.",       i:"https://images.unsplash.com/photo-1585478259715-876acc5be8eb?w=600&q=85"},
-    {n:"Brown Bread",            p:50,  b:"Healthy",    d:"Wholesome whole-grain brown bread — hearty texture, nutty flavour, rich in fibre.",                 i:"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=85"},
-    {n:"White Bread",            p:40,  b:"",           d:"Classic soft white bread with a golden crust — great for sandwiches, toast or just butter.",        i:"https://images.unsplash.com/photo-1574085733277-851d9d856a3a?w=600&q=85"},
-  ],
-  cookies:[
-    {n:"Sugar Cookies",          p:30,  b:"",           d:"Crispy, buttery sugar cookies with a delicate sweetness — perfect with chai any time.",            i:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&q=85"},
-    {n:"Chocolate Chip Cookies", p:35,  b:"Popular",    d:"Golden cookies packed with real chocolate chips — crispy outside, chewy in the centre.",            i:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=600&q=85"},
-    {n:"Oatmeal Cookies",        p:35,  b:"Healthy",    d:"Hearty oatmeal cookies with a nutty crunch — wholesome, naturally sweet and guilt-free.",           i:"https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=600&q=85"},
-  ],
-  khari:[
-    {n:"Butter Khari",           p:10,  b:"Bestseller", d:"Flaky, buttery khari that crumbles perfectly — the ultimate chai-time companion.",                  i:"https://images.unsplash.com/photo-1568051243851-f9b136146e97?w=600&q=85"},
-    {n:"Toast",                  p:15,  b:"",           d:"Crisp golden toast varieties — plain, masala and butter — baked fresh every morning.",              i:"https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=600&q=85"},
-    {n:"Khari Varieties",        p:10,  b:"",           d:"Assorted khari in plain, jeera and pepper flavours — light, airy and perfect any time.",            i:"https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=600&q=85"},
-  ],
-};
-function buildCards(cat,gridId){
-  const grid=document.getElementById(gridId);
-  MENU[cat].forEach((m,i)=>{
-    const msg=encodeURIComponent(`Hello! I'd like to order *${m.n}* (₹${m.p}) from ${BN} 🧁`);
-    const el=document.createElement('div');
-    el.className='pcard rv';el.style.transitionDelay=(i*.08)+'s';
-    el.innerHTML=`<div class="pcard-img">
-      <img src="${m.i}" alt="${m.n}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&q=60'"/>
-      ${m.b?`<div class="pcard-badge">${m.b}</div>`:''}
-      <button class="pcard-fav" onclick="fav(this)" title="Favourite"><i class="far fa-heart"></i></button>
-    </div>
-    <div class="pcard-body">
-      <div class="pcard-name">${m.n}</div>
-      <div class="pcard-desc">${m.d}</div>
-      <div class="pcard-row">
-        <div class="pcard-price"><sup>₹</sup>${m.p}<sub> / pc</sub></div>
-        <a href="https://wa.me/${PH}?text=${msg}" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i> Order</a>
-      </div>
-    </div>`;
-    grid.appendChild(el);
-    setTimeout(()=>ro.observe(el),20);
-  });
-}
-function fav(b){b.classList.toggle('liked');b.querySelector('i').className=b.classList.contains('liked')?'fas fa-heart':'far fa-heart'}
-buildCards('cakes','grid-cakes');
-buildCards('pastries','grid-pastries');
-buildCards('breads','grid-breads');
-buildCards('cookies','grid-cookies');
-buildCards('khari','grid-khari');
+      MENU[category].forEach((item, index) => {
+        const key = `${category}:${item.name}`;
+        const msg = encodeURIComponent(`Hello! I would like to order ${item.name} (₹${item.price}) from ${BN}.`);
+        const card = document.createElement('article');
+        card.className = 'product-card reveal';
+        card.style.setProperty('--delay', `${index * 80}ms`);
+        card.innerHTML = `
+          <div class='product-media'>
+            <img src='${item.image}' alt='${item.name}' loading='lazy'>
+            ${item.badge ? `<span class='badge'>${item.badge}</span>` : ''}
+            <button class='favorite${liked.has(key) ? ' liked' : ''}' type='button' aria-label='Save ${item.name}'>
+              <i class='${liked.has(key) ? 'fas' : 'far'} fa-heart'></i>
+            </button>
+          </div>
+          <div class='product-body'>
+            <h3 class='product-title'>${item.name}</h3>
+            <p class='product-desc'>${item.desc}</p>
+            <div class='product-bottom'>
+              <div class='price'>₹${item.price}<small> / pc</small></div>
+              <a class='order-btn' href='https://wa.me/${PH}?text=${msg}' target='_blank' rel='noopener'>
+                <i class='fab fa-whatsapp'></i> Order
+              </a>
+            </div>
+          </div>
+        `;
 
-/* LOCATIONS */
-const STORES=[
-  {name:"Main Store — City Center",   area:"123 Main Street, City Center, Baramati 413102",          phone:"+91 98765 43210",hours:"7:00 AM – 9:00 PM", tags:["Custom Cakes","Full Menu","Parking Available"]},
-  {name:"Station Road Branch",        area:"456 Station Road, Near Railway Station, Baramati 413102", phone:"+91 98765 43211",hours:"6:30 AM – 8:30 PM", tags:["Express Service","Fresh Breads","Tea & Coffee"]},
-  {name:"College Road Outlet",        area:"789 College Road, Near Vidya Pratishthan, Baramati 413102",phone:"+91 98765 43212",hours:"7:00 AM – 8:00 PM",tags:["Student Specials","Quick Bites","Study Corner"]},
-  {name:"Market Yard Store",          area:"321 Market Yard, Wholesale Market, Baramati 413102",      phone:"+91 98765 43213",hours:"6:00 AM – 7:00 PM", tags:["Bulk Orders","Fresh Daily","Early Opening"]},
-  {name:"Bhigwan Road Branch",        area:"654 Bhigwan Road, Near Bus Stand, Baramati 413102",       phone:"+91 98765 43214",hours:"7:00 AM – 8:00 PM", tags:["Travel Snacks","Fresh Khari","Quick Service"]},
-  {name:"Morgaon Highway Outlet",     area:"987 Morgaon Highway, Highway Junction, Baramati 413102",  phone:"+91 98765 43215",hours:"6:30 AM – 9:00 PM", tags:["Highway Stop","24/7 Vending","Traveler Friendly"]},
-  {name:"Residential Area Store",     area:"147 Shivaji Nagar, Residential Complex, Baramati 413102", phone:"+91 98765 43216",hours:"7:30 AM – 8:00 PM", tags:["Home Delivery","Family Packs","Neighbourhood Fav"]},
-  {name:"Industrial Area Branch",     area:"258 MIDC Area, Industrial Zone, Baramati 413102",         phone:"+91 98765 43217",hours:"6:00 AM – 6:00 PM", tags:["Office Catering","Bulk Snacks","Corporate Orders"]},
-];
-(function(){
-  const grid=document.getElementById('loc-grid');
-  STORES.forEach((s,i)=>{
-    const msg=encodeURIComponent(`Hello! I'd like to enquire about the ${s.name} of Aishwarya Bakery`);
-    const div=document.createElement('div');
-    div.className='lcard rv';div.style.transitionDelay=(i*.05)+'s';
-    div.innerHTML=`<div class="lcard-top">
-      <div>
-        <div class="lcard-name">${s.name}</div>
-        <span class="lcard-tag">Store ${String(i+1).padStart(2,'0')}</span>
-      </div>
-      <div class="lcard-num">${String(i+1).padStart(2,'0')}</div>
-    </div>
-    <div class="lcard-body">
-      <div class="lcard-hours"><i class="far fa-clock"></i> ${s.hours}</div>
-      <div class="lcard-row"><i class="fas fa-map-marker-alt"></i><span>${s.area}</span></div>
-      <div class="lcard-row"><i class="fas fa-phone"></i><a href="tel:${s.phone.replace(/\s/g,'')}">${s.phone}</a></div>
-      <div class="lcard-row"><i class="fab fa-whatsapp"></i><a href="https://wa.me/${PH}?text=${msg}" target="_blank">WhatsApp this store</a></div>
-      <div class="lcard-tags">${s.tags.map(t=>`<span class="ltag">${t}</span>`).join('')}</div>
-    </div>`;
-    grid.appendChild(div);
-    setTimeout(()=>ro.observe(div),30);
-  });
-})();
-</script>
+        const img = card.querySelector('img');
+        img.onerror = () => { img.src = fallbackImage; };
+
+        card.querySelector('.favorite').addEventListener('click', event => {
+          event.preventDefault();
+          event.stopPropagation();
+          const btn = event.currentTarget;
+          btn.classList.toggle('liked');
+          const icon = btn.querySelector('i');
+          icon.className = btn.classList.contains('liked') ? 'fas fa-heart' : 'far fa-heart';
+          liked.has(key) ? liked.delete(key) : liked.add(key);
+          localStorage.setItem('aishwaryaLiked', JSON.stringify([...liked]));
+        });
+
+        fragment.appendChild(card);
+      });
+
+      grid.appendChild(fragment);
+      document.querySelectorAll('.product-card').forEach(el => observer.observe(el));
+    }
+
+    renderMenu('cakes');
+
+    document.querySelectorAll('.cat-pill').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.cat-pill').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        const grid = document.getElementById('productGrid');
+        grid.classList.add('switching');
+        setTimeout(() => {
+          renderMenu(button.dataset.target);
+          grid.classList.remove('switching');
+        }, 160);
+      });
+    });
+
+    const locationGrid = document.getElementById('locationGrid');
+    const storeFragment = document.createDocumentFragment();
+
+    STORES.forEach((store, index) => {
+      const msg = encodeURIComponent(`Hello! I want to know more about ${store.name} at Aishwarya Bakery.`);
+      const card = document.createElement('article');
+      card.className = 'location-card reveal';
+      card.style.setProperty('--delay', `${index * 70}ms`);
+      card.innerHTML = `
+        <div class='location-head'>
+          <div>
+            <span>Store ${String(index + 1).padStart(2, '0')}</span>
+            <h3>${store.name}</h3>
+          </div>
+          <i class='location-icon fas fa-store'></i>
+        </div>
+        <div class='location-body'>
+          <p><strong>Hours:</strong> ${store.hours}</p>
+          <p><strong>Address:</strong> ${store.area}</p>
+          <p><strong>Phone:</strong> <a href='tel:+919657174007'>+91 96571 74007</a></p>
+          <div class='location-tags'>${store.tags.map(tag => `<span>${tag}</span>`).join('')}</div>
+          <a href='https://wa.me/${PH}?text=${msg}' target='_blank' rel='noopener'>
+            <i class='fab fa-whatsapp'></i> WhatsApp this store
+          </a>
+        </div>
+      `;
+      storeFragment.appendChild(card);
+    });
+
+    locationGrid.appendChild(storeFragment);
+    document.querySelectorAll('.location-card').forEach(el => observer.observe(el));
+
+    document.querySelectorAll('.product-card, .review-card, .location-card, .feature-card, .photo-card').forEach(card => {
+      card.addEventListener('pointermove', event => {
+        if (window.matchMedia('(pointer: coarse)').matches) return;
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - .5;
+        const y = (event.clientY - rect.top) / rect.height - .5;
+        card.style.transform = `perspective(900px) rotateX(${(-y * 5).toFixed(2)}deg) rotateY(${(x * 7).toFixed(2)}deg) translateY(-8px)`;
+      });
+      card.addEventListener('pointerleave', () => {
+        card.style.transform = '';
+      });
+    });
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = lightbox.querySelector('img');
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        lightboxImage.src = img.src;
+        lightboxImage.alt = img.alt;
+        lightbox.classList.add('open');
+      });
+    });
+
+    lightbox.addEventListener('click', event => {
+      if (event.target === lightbox) lightbox.classList.remove('open');
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') lightbox.classList.remove('open');
+    });
+
+    if ('serviceWorker' in navigator) {
+      const sw = `
+        const CACHE = 'aishwarya-bakery-premium-v1';
+        self.addEventListener('install', event => {
+          event.waitUntil(caches.open(CACHE).then(cache => cache.addAll([location.href]).catch(() => {})));
+        });
+        self.addEventListener('fetch', event => {
+          event.respondWith(caches.match(event.request).then(response => response || fetch(event.request).catch(() => new Response('Offline', { status: 503 }))));
+        });
+      `;
+      navigator.serviceWorker.register(URL.createObjectURL(new Blob([sw], { type: 'application/javascript' }))).catch(() => {});
+    }
+  </script>
 </body>
 </html>
