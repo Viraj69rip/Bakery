@@ -122,14 +122,17 @@
       position: fixed;
       inset: 0;
       z-index: 10002;
-      background: var(--ink);
+      background:
+        radial-gradient(circle at 30% 25%, rgba(201, 151, 59, .08), transparent 40%),
+        radial-gradient(circle at 70% 75%, rgba(184, 101, 26, .06), transparent 35%),
+        var(--ink);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 2rem;
       text-align: center;
-      transition: opacity 1s ease, visibility 1s ease;
+      transition: opacity .8s ease, visibility .8s ease;
     }
 
     #loader.hide {
@@ -138,52 +141,99 @@
       pointer-events: none;
     }
 
+    .ld-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(201, 151, 59, .15), rgba(201, 151, 59, .05));
+      border: 1px solid rgba(201, 151, 59, .25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: .04em;
+      margin-bottom: 1.4rem;
+      opacity: 0;
+      transform: scale(.7) translateY(10px);
+      animation: ldLogoIn .8s var(--ease) forwards .2s;
+      position: relative;
+      box-shadow: 0 16px 40px rgba(201, 151, 59, .15);
+    }
+
+    .ld-logo::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 26px;
+      border: 1px solid rgba(201, 151, 59, .12);
+      animation: ldLogoPulse 2.5s ease-in-out infinite;
+    }
+
     .ld-title {
       font-family: var(--serif);
-      font-size: clamp(1.5rem, 5vw, 3rem);
+      font-size: clamp(1.6rem, 5vw, 2.6rem);
       font-weight: 700;
       color: #F5DEB3;
-      letter-spacing: .06em;
-      line-height: 1.2;
+      letter-spacing: .04em;
+      line-height: 1.15;
       opacity: 0;
-      transform: translateY(20px);
-      animation: ldIn .8s var(--ease) forwards .3s;
+      transform: translateY(16px);
+      animation: ldIn .7s var(--ease) forwards .5s;
     }
 
     .ld-title span {
       display: block;
       font-style: italic;
-      color: #F0D060;
-      font-size: .65em;
-      letter-spacing: .1em;
+      color: var(--gold);
+      font-size: .62em;
+      letter-spacing: .08em;
+      margin-top: .1em;
     }
 
     .ld-sub {
-      font-size: clamp(.55rem, 1.5vw, .7rem);
+      font-size: clamp(.58rem, 1.2vw, .68rem);
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: rgba(245, 222, 179, .4);
-      margin-top: .5rem;
+      color: rgba(245, 222, 179, .35);
+      margin-top: .6rem;
       opacity: 0;
-      animation: ldIn .7s ease forwards .9s;
+      animation: ldIn .6s ease forwards 1s;
+    }
+
+    .ld-bar-wrap {
+      margin-top: 1.6rem;
+      opacity: 0;
+      animation: ldIn .5s ease forwards 1.2s;
     }
 
     .ld-bar {
-      width: min(220px, 70vw);
+      width: min(200px, 60vw);
       height: 2px;
-      background: rgba(255, 255, 255, .08);
+      background: rgba(255, 255, 255, .06);
       border-radius: 2px;
       overflow: hidden;
-      margin-top: .9rem;
     }
 
     .ld-fill {
       display: block;
       height: 100%;
       width: 0;
-      background: linear-gradient(90deg, #B8651A, var(--gold), #F0D060);
+      background: linear-gradient(90deg, rgba(201, 151, 59, .4), var(--gold), #F0D060);
       border-radius: 2px;
-      animation: ldFill 2s cubic-bezier(.76, 0, .24, 1) forwards .5s;
+      box-shadow: 0 0 12px rgba(201, 151, 59, .5);
+      animation: ldFill 2s cubic-bezier(.76, 0, .24, 1) forwards .6s;
+    }
+
+    .ld-pct {
+      margin-top: .5rem;
+      font-size: .62rem;
+      font-weight: 900;
+      letter-spacing: .22em;
+      color: rgba(245, 222, 179, .22);
+      text-transform: uppercase;
     }
 
     .cursor-dot,
@@ -409,37 +459,168 @@
     .mobile-menu {
       position: fixed;
       inset: 0;
-      z-index: 999;
-      display: grid;
-      place-items: center;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
       background:
-        radial-gradient(circle at 50% 30%, rgba(201, 151, 59, .18), transparent 30%),
+        radial-gradient(circle at 30% 20%, rgba(201, 151, 59, .12), transparent 35%),
+        radial-gradient(circle at 70% 80%, rgba(232, 148, 138, .06), transparent 30%),
         var(--ink);
-      clip-path: circle(0 at 90% 10%);
-      transition: clip-path .75s var(--spring);
+      clip-path: circle(0 at calc(100% - 2.2rem) 2rem);
+      transition: clip-path .65s cubic-bezier(.76, 0, .24, 1);
+      overflow-y: auto;
     }
 
     .mobile-menu.open {
-      clip-path: circle(145% at 90% 10%);
+      clip-path: circle(150% at calc(100% - 2.2rem) 2rem);
     }
 
-    .mobile-menu a {
-      color: var(--cream-2);
+    .mob-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 1.4rem;
+      border-bottom: 1px solid rgba(201, 151, 59, .1);
+    }
+
+    .mob-brand {
       font-family: var(--serif);
-      font-size: clamp(2.1rem, 9vw, 4rem);
+      font-size: 1.1rem;
       font-weight: 700;
-      line-height: 1.05;
-      opacity: .92;
-      transition: color .25s var(--ease), transform .25s var(--ease);
+      color: var(--cream-2);
+      letter-spacing: .02em;
     }
 
-    .mobile-menu a:hover {
+    .mob-brand em {
       color: var(--gold);
-      transform: translateX(14px);
+      font-style: italic;
     }
 
-    .mobile-menu a + a {
-      margin-top: 1rem;
+    .mob-close {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .08);
+      color: var(--cream-2);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background .25s, transform .25s var(--spring);
+    }
+
+    .mob-close:hover {
+      background: rgba(201, 151, 59, .15);
+      transform: rotate(90deg);
+    }
+
+    .mob-links {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem 2rem;
+      gap: .35rem;
+    }
+
+    .mob-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.1rem;
+      border-radius: 16px;
+      color: rgba(255, 252, 247, .8);
+      font-family: var(--serif);
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
+      font-weight: 600;
+      letter-spacing: .01em;
+      transition: color .25s, background .25s, transform .3s var(--spring);
+      position: relative;
+    }
+
+    .mob-link:hover,
+    .mob-link:active {
+      color: var(--gold);
+      background: rgba(201, 151, 59, .08);
+      transform: translateX(6px);
+    }
+
+    .mob-link i {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: rgba(201, 151, 59, .1);
+      border: 1px solid rgba(201, 151, 59, .15);
+      color: var(--gold);
+      font-size: .85rem;
+      flex-shrink: 0;
+      transition: background .25s, transform .25s var(--spring);
+    }
+
+    .mob-link:hover i {
+      background: var(--gold);
+      color: var(--ink);
+      transform: rotate(-5deg) scale(1.08);
+    }
+
+    .mob-footer {
+      padding: 1.5rem 2rem 2.5rem;
+      border-top: 1px solid rgba(201, 151, 59, .1);
+      display: flex;
+      flex-direction: column;
+      gap: .8rem;
+    }
+
+    .mob-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .65rem;
+      padding: .9rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--honey));
+      color: var(--ink);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      box-shadow: 0 12px 28px rgba(201, 151, 59, .35);
+      transition: transform .25s var(--spring), box-shadow .25s;
+    }
+
+    .mob-cta:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 18px 40px rgba(201, 151, 59, .5);
+    }
+
+    .mob-socials {
+      display: flex;
+      justify-content: center;
+      gap: .5rem;
+    }
+
+    .mob-socials a {
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, .08);
+      color: rgba(255, 252, 247, .5);
+      font-size: .9rem;
+      transition: color .25s, background .25s, transform .25s var(--spring);
+    }
+
+    .mob-socials a:hover {
+      color: var(--ink);
+      background: var(--gold);
+      transform: translateY(-3px);
     }
 
     .hero {
@@ -1837,6 +2018,15 @@
       to { width: 100%; }
     }
 
+    @keyframes ldLogoIn {
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    @keyframes ldLogoPulse {
+      0%, 100% { opacity: .4; transform: scale(1); }
+      50% { opacity: .8; transform: scale(1.06); }
+    }
+
     @keyframes kenburns {
       to { transform: scale(1.14) translate3d(-1.5%, 1%, 0); }
     }
@@ -2169,9 +2359,13 @@
 
 <body>
   <div id='loader'>
+    <div class='ld-logo'>AB</div>
     <div class='ld-title'>Aishwarya<span>Bakery</span></div>
-    <div class='ld-sub'>Artisan Bakery · Baramati</div>
-    <div class='ld-bar'><div class='ld-fill'></div></div>
+    <div class='ld-sub'>Artisan Bakery · Baramati · Est. 2010</div>
+    <div class='ld-bar-wrap'>
+      <div class='ld-bar'><div class='ld-fill'></div></div>
+      <div class='ld-pct' id='ldPct'>Loading...</div>
+    </div>
   </div>
 
   <div class='scroll-progress' id='scrollProgress'></div>
@@ -2206,12 +2400,31 @@
   </nav>
 
   <div class='mobile-menu' id='mobileMenu'>
-    <a href='#home'>Home</a>
-    <a href='#menu-items'>Menu</a>
-    <a href='#about'>About</a>
-    <a href='#process'>Process</a>
-    <a href='#locations'>Stores</a>
-    <a href='#reviews'>Reviews</a>
+    <div class='mob-header'>
+      <div class='mob-brand'>Aishwarya <em>Bakery</em></div>
+      <button class='mob-close' id='mobClose' aria-label='Close menu'>✕</button>
+    </div>
+
+    <div class='mob-links'>
+      <a class='mob-link' href='#home'><i class='fas fa-home'></i> Home</a>
+      <a class='mob-link' href='#menu-items'><i class='fas fa-utensils'></i> Menu</a>
+      <a class='mob-link' href='#about'><i class='fas fa-heart'></i> About</a>
+      <a class='mob-link' href='#process'><i class='fas fa-fire-alt'></i> Process</a>
+      <a class='mob-link' href='#locations'><i class='fas fa-map-marker-alt'></i> Stores</a>
+      <a class='mob-link' href='#reviews'><i class='fas fa-star'></i> Reviews</a>
+    </div>
+
+    <div class='mob-footer'>
+      <a class='mob-cta' href='https://wa.me/919657174007?text=Hi%21%20I%20want%20to%20order%20from%20Aishwarya%20Bakery' target='_blank' rel='noopener'>
+        <i class='fab fa-whatsapp'></i> Order on WhatsApp
+      </a>
+      <div class='mob-socials'>
+        <a href='https://wa.me/919657174007' target='_blank' rel='noopener' aria-label='WhatsApp'><i class='fab fa-whatsapp'></i></a>
+        <a href='https://www.instagram.com/reel/DScZodBDFBg/?igsh=d2gwdG1zZWJxM3I1' target='_blank' rel='noopener' aria-label='Instagram'><i class='fab fa-instagram'></i></a>
+        <a href='https://www.facebook.com/AishwaryaBakery/' target='_blank' rel='noopener' aria-label='Facebook'><i class='fab fa-facebook-f'></i></a>
+        <a href='tel:+919657174007' aria-label='Call'><i class='fas fa-phone'></i></a>
+      </div>
+    </div>
   </div>
 
   <header class='hero' id='home'>
@@ -2667,9 +2880,31 @@
 
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    window.addEventListener('load', () => {
-      setTimeout(() => document.getElementById('loader').classList.add('hide'), 1700);
-    });
+    // Loader percentage counter
+    (function() {
+      const pctEl = document.getElementById('ldPct');
+      const duration = 2000;
+      const delay = 600;
+      let started = false;
+
+      setTimeout(() => {
+        started = true;
+        const start = performance.now();
+        function tick(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const pct = Math.round(eased * 100);
+          if (pctEl) pctEl.textContent = pct + '%';
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }, delay);
+
+      window.addEventListener('load', () => {
+        setTimeout(() => document.getElementById('loader').classList.add('hide'), 2800);
+      });
+    })();
 
     const dot = document.getElementById('cursorDot');
     const ring = document.getElementById('cursorRing');
@@ -2724,6 +2959,14 @@
 
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
+    const mobClose = document.getElementById('mobClose');
+
+    function closeMobileMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
 
     hamburger.addEventListener('click', () => {
       const open = hamburger.classList.toggle('open');
@@ -2732,13 +2975,10 @@
       hamburger.setAttribute('aria-expanded', String(open));
     });
 
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        document.body.classList.remove('menu-open');
-        hamburger.setAttribute('aria-expanded', 'false');
-      });
+    mobClose.addEventListener('click', closeMobileMenu);
+
+    mobileMenu.querySelectorAll('.mob-link').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
     });
 
     const observer = new IntersectionObserver(entries => {
